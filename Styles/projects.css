@@ -55,7 +55,10 @@
     text-align: right;
 }
 
-
+#banner {
+    margin: auto;
+    display: block;
+}
 
 
 

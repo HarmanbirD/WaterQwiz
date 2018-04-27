@@ -28,6 +28,10 @@ function leaderboardFunction() {
     alert("Leaderboards!");
 }
 
+function questions() {
+    alert("How To Play");
+}
+
 function resize(){
  if ($(window).width() < 1440) {
                    $("#banner img").attr('src', '../images/water-drop%20(1).png');

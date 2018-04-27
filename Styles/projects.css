@@ -23,6 +23,7 @@ body {
 	color: #000;
 	border: 10px solid blue;
 	overflow: auto;
+    margin-bottom: 4%;
 }
 
 .homePageButton {
@@ -112,8 +113,9 @@ body {
 
 .modal-body {padding: 2px 16px;}
 
-footer {
-    color: blueviolet;
+#footer {
+	text-align: center;
+	background-color: skyblue;
 }
 
 .btn {

@@ -2,20 +2,6 @@
     text-align: center;
 }
 
-.main {
-	width: 60%;
-	background-color: deepskyblue;
-	border-radius: 1em;
-	padding: 2em 2em 4em 4em;
-	margin-left: 1em;
-	margin-right: 1em;
-	margin-bottom: 2em;
-	margin-top: 1em;
-	margin: auto;
-	color: #000;
-	border: 10px solid blue;
-	overflow: auto;
-}
 
 .homePageButton {
     background-color: darkblue; 
@@ -25,9 +11,9 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 24px;
+    font-size: 100%;
     border-radius: 12px;
-    width: 250px;
+    width: 25%;
     margin: 15px;
     border: 2px solid black;
 }

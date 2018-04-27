@@ -2,6 +2,14 @@
     text-align: center;
 }
 
+body {
+	overflow:auto;
+	background-color:white;
+	background-image:url(../images/blur1cropped.jpg);
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .main {
 	width: 60%;
 	background-color: deepskyblue;

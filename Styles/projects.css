@@ -8,6 +8,7 @@ body {
 	background-image:url(../images/blur1cropped.jpg);
     background-repeat: no-repeat;
 	background-size: cover;
+    
 }
 
 .main {
@@ -62,6 +63,7 @@ body {
 #banner {
     margin: auto;
     display: block;
+    width: 90%;
 }
 
 .modal {

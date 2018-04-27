@@ -28,3 +28,13 @@ function leaderboardFunction() {
     alert("Leaderboards!");
 }
 
+function resize(){
+ if ($(window).width() < 1440) {
+                   $("#banner img").attr('src', '../images/water-drop%20(1).png');
+               } else {
+                   $("#banner img").attr('src', '../images/Water_Drop_Icon_Vector.png');
+               }
+           }
+           
+           <!-- Binding the function resize to both when it loaded and when user resizes the window -->
+           $(window).on('load resize', resize);

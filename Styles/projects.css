@@ -67,6 +67,7 @@ body {
 #banner {
     margin: auto;
     display: block;
+    width:90%;
 }
 
 .modal {

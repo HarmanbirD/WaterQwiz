@@ -1,0 +1,22 @@
+Week 2 Task List:
+1) Select colour scheme.
+2) Finalize quiz name.
+3) Finalize logo.
+4) Choose background image.
+5) Reduce target audience.
+6) Add buttons to index page.
+7) Find waterjug/reservoir image/animation for the quiz timer.
+8) Add 30 questions to the database.
+9) Add a question.html page to project.
+10) Redirect index page to question page (Start).
+11) Create session variables for score keeping.
+12) Select common font for all pages.
+13) Create bouncy animation for logo.
+14) Decide on a concrete scoring system.
+15) Design database tables for leaderboard/analytical stats (questions?).
+16) Write MySQL queries in PHP for accessong/updating leaderboard.
+17) 
+
+Week 3 Task List:
+
+Week 4 Task List:

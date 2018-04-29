@@ -1,4 +1,7 @@
 Week 2 Task List:
+
+TODO:
+
 1) Select colour scheme.
 2) Finalize quiz name.
 3) Finalize logo.
@@ -12,11 +15,41 @@ Week 2 Task List:
 11) Create session variables for score keeping.
 12) Select common font for all pages.
 13) Create bouncy animation for logo.
-14) Decide on a concrete scoring system.
+14) Decide on a finalized scoring system.
 15) Design database tables for leaderboard/analytical stats (questions?).
-16) Write MySQL queries in PHP for accessong/updating leaderboard.
-17) 
+16) Write MySQL queries in PHP for accessing/updating leaderboard.
+17) Decide on audio elements.
+18) Link "Learn More" button to final learning ressource.
+19) Create animation for between questions.
+20) Create pop-up for facts after user answers a question.
+21) Add game over pop-up to question page.
+22) Add dialog box to game over pop-up.
+23) Write javascript function to skim user names for swears/cusses.
+24) SELL ADS.
+25) Create PHP function for keeping track of overall number of quiz attempts.
+26) Create cookie to store user name input for returning users.
+27) Design leaderboard pop-up to show 10 scores at a time.
+28) Add button to leaderboard pop-up to see next 10 scores.
+29) Write how-to-play pop-up.
+30) Create image for leaderboard button.
+31) Create image for play button.
+32) Create image for how-to-play button.
+33) Design question/multiple choice form.
+34) Create test host server for the development product.
+35) 
+36) 
+37) 
+38) 
+39) 
+40) 
+41) 
+42) 
+
+Completed:
+
 
 Week 3 Task List:
 
+
 Week 4 Task List:
+

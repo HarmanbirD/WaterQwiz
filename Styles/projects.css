@@ -12,9 +12,9 @@ html {
 
 .btn {
     width: 40%;
-    height: 40%;
+    height: 40px;
     margin: 6%;
-    background-color: #99e1ff;
+    background-color: #59a7ff;
     color: darkblue;
 }
 
@@ -30,13 +30,9 @@ body {
     height: 100%;
 }
 
-.backgroundImage {
+#backgroundImage {
     background-image: url("../images/blur1cropped.jpg");
-
-    /* Full height */
     height: 100%; 
-
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

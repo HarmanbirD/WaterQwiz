@@ -34,10 +34,14 @@ body, html {
 .icon {
     max-width: 70%;
     max-height: 95%;
-    mix-blend-mode: multiply;
+    mix-blend-mode: luminosity;
 }
 
 .row {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+footer {
+    background-color: rgba(117, 190, 218, 0.2);
 }

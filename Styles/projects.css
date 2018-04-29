@@ -1,140 +1,79 @@
-#heading {
-    text-align: center;
+html {
+    height: 100%;
+}
+
+#banner {
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 17%;
+    margin-top: 12%;
+}
+
+.btn {
+    width: 40%;
+    height: 40%;
+    margin: 6%;
+    background-color: #99e1ff;
+    color: darkblue;
+}
+
+.container {
+    background-color: rgba(117, 190, 218, 0.2);
+    width: 80%;
+    margin: auto;
+    margin-bottom: 27%;
+	border-radius: 3em;
 }
 
 body {
-	overflow:auto;
-	background-color:white;
-	background-image:url(../images/blur1cropped.jpg);
+    overflow: auto;
+    background-image: url(../images/blur1cropped.jpg);
     background-repeat: no-repeat;
 	background-size: cover;
-    
+    min-height: 100%;
 }
 
-.main {
-	width: 60%;
-	background-color: deepskyblue;
-	border-radius: 1em;
-	margin: auto;
-	color: #000;
-	border: 10px solid blue;
-	overflow: auto;
-    margin-bottom: 4%;
-}
-
-.homePageButton {
-    background-color: darkblue; 
-    border: black;
-    color: white;
-    padding: 15px 32px;
+.row {
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 100%;
-    border-radius: 12px;
-    width: 25%;
-    margin: 15px;
-    border: 2px solid black;
-}
-
-.homePageButton:hover {
-    background-color: black; 
-    color: greenyellow;
-    border: 2px solid yellow;
-}
-
-.wrapper {
-    text-align: center;
-}
-
-#circularButton {
-    border-radius: 50%;
-    background-color: dimgrey;
-    border : 2px solid black;
-    height: 50px;
-    width: 50px;
-    font-size: 30px;
 }
 
 #leftal {
     text-align: right;
 }
 
-#banner {
-    margin: auto;
-    display: block;
-    width: 90%;
-
+.btn-circle { 
+    width: 30px; 
+    height: 30px; 
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    background-color: darkblue;
+    color: aliceblue;
 }
 
-.modal {
-    margin: auto;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content {
-    background-color: lightskyblue;
-    margin: 15% auto; 
-   
-    border: 1px solid #888;
-    width: 60%; 
-}
-
-.close {
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(117, 190, 218, 0.6);
     color: black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    bottom: 0;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+#play {
+    width: 25px;
+    margin: auto;
 }
 
-.modal-header {
-    padding: 2px 16px;
-    background-color: deepskyblue;
-    color: white;
+#leaderboard {
+    width: 25px;
+    margin: auto;
 }
 
-.modal-body {padding: 2px 16px;}
-
-#footer {
-	text-align: center;
-	background-color: skyblue;
+#buttons {
+    margin-top: 5%;
 }
 
-.btn {
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin : 4%;
-    width: 150px;
-    font-size: 100%;
-}
- 
-.btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
-}
- 
-.btn-primary {
-    background: blue;
-    color: #ffffff;
-}
- 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: blueviolet;
-}
- 

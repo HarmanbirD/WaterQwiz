@@ -30,7 +30,7 @@ function leaderboardFunction() {
 
 function questions() {
     alert("How To Play");
-}
+} 
 
 function resize(){
  if ($(window).width() < 1440) {

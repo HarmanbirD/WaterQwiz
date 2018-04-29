@@ -12,46 +12,44 @@
     <link rel="icon" href="../images/WQ-logo2.0.png">
 </head>
 <body>
-    <img class="img-fluid" id = "banner" src="../images/banner-lg-new.png" alt="Banner">
-    <div class = "container">
-        <div id = "buttons">
-            <div class = "row">
-                <button onclick = "location.href = 'http://www.jacobsmith.xyz'"  class = "btn btn-primary"><img src = "../images/play.jpg" id = "play"></button>
-            </div>
-            <div class = "row">
-                <button onclick = "leaderboard.html" class = "btn btn-primary"><img src = "../images/leaderboards.jpg" id = "leaderboard"></button>
-            </div>
-            <div class = "row">
+    <div class = "backgroundImage">
+        <img class="img-fluid" id = "banner" src="../images/banner-lg-new.png" alt="Banner">
+        <div class = "container">
+            <div id = "buttons">
+                <div class = "row">
+                    <button onclick = "location.href = 'http://www.jacobsmith.xyz'"  class = "btn btn-primary"><img src = "../images/play.jpg" id = "play"></button>
+                    <button onclick = "leaderboard.html" class = "btn btn-primary"><img src = "../images/leaderboards.jpg" id = "leaderboard"></button>
                     <button onclick = "location.href = 'http://www.metrovancouver.org/services/water/conservation-reservoir-levels/Pages/default.aspx'"  class = "btn btn-primary">Learn More</button>
-            </div>
-            <div class = "row" id = "leftal">
-                <button type="button" class="btn btn-circle" data-toggle="modal" data-target="#myModal">
-                    ?
-                </button>
-                <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">How To Play</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                <div class = "row" id = "leftal">
+                    <button type="button" class="btn btn-circle" data-toggle="modal" data-target="#myModal">
+                        ?
+                    </button>
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">How To Play</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    Modal body..
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class = "fixed-bottom">
+            Copyright Team 24 - COMP 2910 &copy; 
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+        </footer>
     </div>
-    <footer class = "fixed-bottom">
-        Copyright Team 24 - COMP 2910 &copy; 
-            <script>
-                document.write(new Date().getFullYear());
-            </script>
-    </footer>
 </body>
 </html>

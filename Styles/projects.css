@@ -5,7 +5,7 @@
 }
 
 #menu-container {
-    background-color: rgba(117, 190, 218, 0.2);
+    background-color: rgba(117, 190, 218, 0.4);
     width: 50%;
     margin: auto;
 	border-radius: 3em;
@@ -54,11 +54,14 @@ body, html {
 }
 
 footer {
-    background-color: rgba(117, 190, 218, 0.2);
-    position: fixed;
-    left: 0;
     bottom: 0;
-    width: 100%;
+    left:25%;
+    background-color: rgba(117, 190, 218, 0.4);
+    width: 50%;
     color: white;
     text-align: center;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    position: fixed;
 }
+

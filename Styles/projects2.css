@@ -1,0 +1,43 @@
+#banner {
+    padding-top: 50px; 
+    max-width: 1000px;
+    width: 100%;
+}
+
+#menu-container {
+    background-color: rgba(117, 190, 218, 0.2);
+    width: 50%;
+    margin: auto;
+	border-radius: 3em;
+    text-align: center;
+    padding: 30px;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#bg {
+    background-image: url("../images/stream.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn {
+    width: 20%;
+    min-width: 150px;
+}
+
+.icon {
+    max-width: 70%;
+    max-height: 95%;
+    mix-blend-mode: multiply;
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

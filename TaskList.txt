@@ -10,7 +10,7 @@ TODO:
 6) Add buttons to index page.
 7) Find waterjug/reservoir image/animation for the quiz timer.
 8) Add 30 questions to the database.
-9) Add a question.html page to project.
+9) Add a quiz.html page to project.
 10) Redirect index page to question page (Start).
 11) Create session variables for score keeping.
 12) Select common font for all pages.
@@ -36,14 +36,8 @@ TODO:
 32) Create image for how-to-play button.
 33) Design question/multiple choice form.
 34) Create test host server for the development product.
-35) 
-36) 
-37) 
-38) 
-39) 
-40) 
-41) 
-42) 
+35) Create quiz form.
+36) Add quiz question buttons.
 
 Completed:
 

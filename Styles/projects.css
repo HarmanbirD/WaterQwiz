@@ -27,11 +27,19 @@ html {
 }
 
 body {
-    overflow: auto;
-    background-image: url(../images/blur1cropped.jpg);
+    height: 100%;
+}
+
+.backgroundImage {
+    background-image: url("../images/blur1cropped.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
     background-repeat: no-repeat;
-	background-size: cover;
-    min-height: 100%;
+    background-size: cover;
 }
 
 .row {
@@ -59,8 +67,6 @@ footer {
     text-align: center;
     background-color: rgba(117, 190, 218, 0.6);
     color: black;
-    position: absolute;
-    bottom: 0;
 }
 
 #play {

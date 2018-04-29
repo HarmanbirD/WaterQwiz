@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Water Saving Quiz</title>
-    <meta name="HandheldFriendly" content="true">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Water Qwiz</title>
+	<meta name="HandheldFriendly" content="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width">
 	<meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../styles/projects.css" >
-    <link rel="icon" href="../images/WQ-logo2.0.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../styles/projects2.css" >
+	<link rel="icon" href="../images/WQ-logo2.0.png">
 </head>
 <body>
-    <div class = "container-fluid" id = "backgroundImage">
-        <img class="img-fluid" id = "banner" src="../images/banner-lg-new.png" alt="Banner">
-        <div class = "container">
-            <div id = "buttons">
-                <div class = "row">
-                    <button onclick = "location.href = 'http://www.jacobsmith.xyz'"  class = "btn btn-primary"><img src = "../images/play.jpg" id = "play"></button>
-                    <button onclick = "leaderboard.html" class = "btn btn-primary"><img src = "../images/leaderboards.jpg" id = "leaderboard"></button>
-                    <button onclick = "location.href = 'http://www.metrovancouver.org/services/water/conservation-reservoir-levels/Pages/default.aspx'"  class = "btn btn-primary">Learn More</button>
-                </div>
-                <div class = "row" id = "leftal">
-                    <button type="button" class="btn btn-circle" data-toggle="modal" data-target="#myModal">
-                        ?
-                    </button>
-                    <div class="modal fade" id="myModal">
+	<div id="bg">
+		<div class="text-center">
+			<img id="banner" src="../images/banner-lg-new1.png" alt="Banner">
+		</div>
+
+		<div class="container-fluid" id="menu-container">
+			<div class="row">
+				<button type="button" class="btn btn-default btn-lg">
+					<span class="glyphicon glyphicon-play"></span> Play
+				</button>
+			</div>
+
+			<div class="row">
+				<button type="button" class="btn btn-default btn-lg">
+					<img class="icon" src="../images/leaderboard-icon.jpg">
+				</button>
+			</div>
+
+			<div class="row">
+				<button type="button" class="btn btn-default btn-lg" onclick =" window.open('http://www.metrovancouver.org/services/water/conservation-reservoir-levels/Pages/default.aspx')"">
+					Learn More...
+				</button>
+
+			</div>
+
+			<div class="row-right">
+				<img id="help-icon" src="../images/help.png" data-toggle="modal" data-target="#myModal">
+				</img>
+			</div>
+
+			<div class="modal fade" id="myModal">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -41,15 +59,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <footer class = "fixed-bottom">
-            Copyright Team 24 - COMP 2910 &copy; 
-                <script>
-                    document.write(new Date().getFullYear());
-                </script>
-        </footer>
-    </div>
+		</div>
+	</div>
+
+	<footer class = "fixed-bottom">
+		Copyright Team 24 - COMP 2910 &copy; 
+		<script>
+			document.write(new Date().getFullYear());
+		</script>
+	</footer>
 </body>
 </html>

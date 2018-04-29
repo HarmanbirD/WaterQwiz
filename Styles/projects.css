@@ -4,6 +4,12 @@
     width: 100%;
 }
 
+#question-banner {
+    padding-top: 50px; 
+    max-width: 700px;
+    width: 100%;
+}
+
 #menu-container {
     background-color: rgba(117, 190, 218, 0.4);
     width: 50%;
@@ -54,6 +60,8 @@ body, html {
 }
 
 footer {
+    padding-left: 10px;
+    padding-right: 10px;
     bottom: 0;
     left:25%;
     background-color: rgba(117, 190, 218, 0.4);

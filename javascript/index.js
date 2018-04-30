@@ -43,7 +43,7 @@ $(document).ready(function() {
             
             $(stage).append('<div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" class="btn btn-default btn-lg">'+q3+'</button></div>');
             $(stage).css("right","-1000px");
-            $(stage).animate({"right": "+=1000px"},"slow","swing");
+            $(stage).animate({"right": "+=1000px"},"fast","swing");
             
             $('.option').click(function() {
                 if(questionLock==false){
@@ -55,9 +55,7 @@ $(document).ready(function() {
                     if(this.id!=rnd){
                         $(stage).append('<div class="feedback2">WRONG</div>');
                     }
-                    setTimeout(function() {
-                        changeQuestion()
-                    } ,1000);
+                    changeQuestion();
             }})
             }
             
@@ -73,11 +71,20 @@ $(document).ready(function() {
             }
             }
              
-            
-
             function displayFinalSlide() {
             }
         
             })
+                
+            window.onbeforeunload = function(evt){
+                if (typeof evt == 'undefined') {
+                    evt = window.event;
+                }
+                if (evt) {
+                    evt.returnValue = confirm("Are you sure you want to leave?");
+                }
+              
+                return  evt.returnValue;
+            };
     
 });

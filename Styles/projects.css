@@ -1,6 +1,6 @@
 #banner {
     padding-top: 50px; 
-    max-width: 1000px;
+    max-width: 700px;
     width: 100%;
 }
 
@@ -12,11 +12,30 @@
 
 #menu-container {
     background-color: rgba(117, 190, 218, 0.4);
-    width: 50%;
+    width: 60%;
     margin: auto;
-	border-radius: 3em;
+	border-radius: 1em;
     padding: 30px;
     min-width: 200px;
+}
+
+#menu-container2 {
+    background-color: rgba(117, 190, 218, 0.4);
+    width: 60%;
+    min-height: 450px;
+    margin: auto;
+	border-radius: 1em;
+    padding: 30px;
+    min-width: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+#questions {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    right: 0px;
 }
 
 body, html {
@@ -56,9 +75,25 @@ body {
     margin-bottom: 10px;
 }
 
+.questionText {
+    position:relative;
+    border-radius: 5px;
+    background-color: transparent;
+    color: black;
+}
+
+.option {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #help-icon{
     max-width:10%;
     min-width: 40px;
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
 }
 
 footer {
@@ -71,46 +106,9 @@ footer {
     width: 50%;
     color: white;
     text-align: center;
-    border-top-left-radius: 3em;
-    border-top-right-radius: 3em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
 }
 
-#menu-container2 {
-    background-color: rgba(117, 190, 218, 0.4);
-    width: 60%;
-    margin: auto;
-	border-radius: 3em;
-    padding: 30px;
-    min-width: 200px;
-    overflow: hidden;
-    position: relative;
-}
 
-#questions {
-    margin: auto;
-    text-align: center;
-    position: relative;
-    right: 0px;
-}
-
-#questions2 {
-    margin: auto;
-    text-align: center;
-    color: transparent;
-    position: relative;
-    right: -800px;
-}
-
-.questionText {
-    border-radius: 1em;
-    margin: auto;
-    background-color: aquamarine;
-    color: black;
-}
-
-.option {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 

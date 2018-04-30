@@ -2,8 +2,7 @@ $(document).ready(function() {
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";
-    var stage2 = new Object;
-    var questionLock = false; 
+    var questionLock = false;
     var numberOfQuestions;
     var score = 0;
     
@@ -40,9 +39,12 @@ $(document).ready(function() {
                 q1=questionBank[questionNumber][2];
                 q2=questionBank[questionNumber][3];
             }
-
-            $(stage).append('<div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1"             class="option"><button type="button" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" class="btn btn-default btn-lg">'+q3+'</button></div>');
-
+          
+            
+            $(stage).append('<div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" class="btn btn-default btn-lg">'+q3+'</button></div>');
+            $(stage).css("right","-1000px");
+            $(stage).animate({"right": "+=1000px"},"fast","swing");
+            
             $('.option').click(function() {
                 if(questionLock==false){
                     questionLock=true;	
@@ -53,40 +55,36 @@ $(document).ready(function() {
                     if(this.id!=rnd){
                         $(stage).append('<div class="feedback2">WRONG</div>');
                     }
-                    setTimeout(function() {
-                        changeQuestion()
-                    } ,1000);
+                    changeQuestion();
             }})
             }
-        
-            function changeQuestion() {
-                questionNumber++;
-
-                if(stage == "#questions") {
-                    stage2 = "#questions";
-                    stage = "#questions2";
-                } else {
-                    stage2 = "#questions2";
-                    stage = "#questions";
-                }
-            if(questionNumber<numberOfQuestions) {
-                displayQuestion();
+            
+            function changeQuestion() {          
+            
+            if(++questionNumber<=numberOfQuestions) {
+                $(stage).animate({"right": "+=1000px"},"slow","swing",function(){
+                    $(stage).empty();
+                    displayQuestion();});
+                questionLock=false;
             } else {
                 displayFinalSlide();
             }
-
-             $(stage2).animate({"right": "+=800px"},"slow", function() {
-                 $(stage2).css('right','-800px');$(stage2).empty();
-             });
-                $(stage).css('color', 'black');
-             $(stage).animate({"right": "+=800px"},"slow", function() {
-                 questionLock=false;});
             }
-
+             
             function displayFinalSlide() {
-                
             }
         
             })
+                
+            window.onbeforeunload = function(evt){
+                if (typeof evt == 'undefined') {
+                    evt = window.event;
+                }
+                if (evt) {
+                    evt.returnValue = confirm("Are you sure you want to leave?");
+                }
+              
+                return  evt.returnValue;
+            };
     
 });

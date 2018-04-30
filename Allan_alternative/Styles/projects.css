@@ -21,7 +21,7 @@
     width: 80%;
     min-height: 450px;
     margin: auto;
-	border-radius: 1em;
+	  border-radius: 1em;
     padding: 30px;
     min-width: 200px;
     overflow: hidden;
@@ -40,9 +40,12 @@ body, html {
     margin: 0;
 }
 
-body{
-    background-color: #f7f7f7;
-    position:relative;
+body {
+    background-image: url("../images/bird-clouds-cold-414101-4.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -56,14 +59,6 @@ body{
     overflow:hidden;
 }
 
-
-.background1 img{
-   opacity: 0.9;
-   width:100%;
-   min-width: 1150px;
-   margin-left: -100%;
-   margin-right: -100%;
-}
 .videobox{
   padding: 0px;
 }

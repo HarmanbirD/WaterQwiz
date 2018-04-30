@@ -2,6 +2,7 @@ $(document).ready(function() {
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";
+    var mainStage = "#menu-container2";
     var questionLock = false;
     var numberOfQuestions;
     var score = 0;
@@ -41,7 +42,7 @@ $(document).ready(function() {
             }
           
             
-            $(stage).append('<div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" class="btn btn-default btn-lg">'+q3+'</button></div>');
+            $(stage).append('<div class = "score">Score: '+score+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" class="btn btn-default btn-lg">'+q3+'</button></div>');
             $(stage).css("right","-1000px");
              $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
             $(stage).animate({"right": "+=1000px"},"slow","swing");
@@ -74,6 +75,7 @@ $(document).ready(function() {
             }
              
             function displayFinalSlide() {
+                $(stage).append('<div class = "finalSlide> You got ' + score + '/' + numberOfQuestions + '');
             }
         
             })

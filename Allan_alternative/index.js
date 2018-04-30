@@ -3,6 +3,7 @@ $(document).ready(function() {
     var questionBank = new Array();
     var stage = "#questions";
     var stage2 = new Object;
+    var mainStage = "#menu-container2";
     var questionLock = false;
     var numberOfQuestions;
     var score = 0;
@@ -47,6 +48,7 @@ $(document).ready(function() {
                 if(questionLock==false){
                     questionLock=true;	
                     if(this.id==rnd){
+                        $(mainStage).css('background-color', 'rgba(153, 225, 255, 0.9)');
                         $(stage).append('<div class="feedback1">CORRECT</div>');
                         score++;
                     }
@@ -87,7 +89,7 @@ $(document).ready(function() {
             }
 
             function displayFinalSlide() {
-                
+                $(stage).append('<div class = "finalSlide">You got' + $score + '/' + $numberOfQuestions + '');
             }
         
             })

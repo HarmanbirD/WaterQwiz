@@ -102,7 +102,15 @@ footer {
 }
 
 .questionText {
+    border-radius: 1em;
+    margin: auto;
     background-color: aquamarine;
     color: black;
+}
+
+.option {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 

@@ -75,3 +75,34 @@ footer {
     border-top-right-radius: 3em;
 }
 
+#menu-container2 {
+    background-color: rgba(117, 190, 218, 0.4);
+    width: 60%;
+    margin: auto;
+	border-radius: 3em;
+    padding: 30px;
+    min-width: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+#questions {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    right: 0px;
+}
+
+#questions2 {
+    margin: auto;
+    text-align: center;
+    color: transparent;
+    position: relative;
+    right: -800px;
+}
+
+.questionText {
+    background-color: aquamarine;
+    color: black;
+}
+

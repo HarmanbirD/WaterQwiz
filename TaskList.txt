@@ -19,7 +19,7 @@ TODO:
 15) Design database tables for leaderboard/analytical stats (questions?).
 16) Write MySQL queries in PHP for accessing/updating leaderboard.
 17) Decide on audio elements.
-18) Link "Learn More" button to final learning ressource.
+18) Link "Learn More" button to final learning resource.
 19) Create animation for between questions.
 20) Create pop-up for facts after user answers a question.
 21) Add game over pop-up to question page.

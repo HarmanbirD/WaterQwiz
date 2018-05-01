@@ -3,19 +3,23 @@
 $(document).ready(function() {
     $('#leaderboard-modal').on('show.bs.modal', function(e) {
 
-        getIT();
+        $.ajax({
+            dataType: "json",
+            url: "../php/getLeaderboard.php",
+
+        })
+        .done(getIT(data));
     })
-function getIT() {
+function getIT(obj) {
     var leaders = new Array();
         var count = 0;
-        var code = "jacob";
+        var code = "";
 
-        $.getJSON('leaderboard.json', function(data) {
-            code = "";
+
             for (i = 0; i < data.leaders.length; i++) {
                 leaders[i] = new Array();
-                leaders[i][0] = data.leaders[i].name;
-                leaders[i][1] = data.leaders[i].score;
+                leaders[i][0] = obj.data.leaders[i].name;
+                leaders[i][1] = obj.data.leaders[i].score;
             }
 
             displayLeaderboards();
@@ -38,13 +42,9 @@ function getIT() {
 
         
             }
-        })
-        .fail( function(d, textStatus, error) {
-        console.error("getJSON failed, status: " + textStatus + ", error: "+error)
-        })
-        .done(function() {
-            document.getElementById("Jacob").innerHTML = code;
-        })
+
+
+            document.getElementById("leaders").innerHTML = code;
     }
 });
 

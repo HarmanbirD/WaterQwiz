@@ -51,11 +51,11 @@ $(document).ready(function() {
                 if(questionLock==false){
                     questionLock=true;	
                     if(this.id==rnd){
-                        $(stage).append('<div class = "modal-fade"><div class  = "modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Correct!</h4><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn">Next question</button></div></div></div></div>');
+                        $(stage).append('<div class = "modal-fade"><div class  = "modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Correct!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn">Next question</button></div></div></div></div>');
                         score++;
                     }
                     if(this.id!=rnd){
-                        $(stage).append('<div class = "modal-fade"><div class  = "modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn">Next question</button></div></div></div></div>');
+                        $(stage).append('<div class = "modal-fade"><div class  = "modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn">Next question</button></div></div></div></div>');
                     }
                     
             }})

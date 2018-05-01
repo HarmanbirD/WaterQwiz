@@ -48,6 +48,29 @@ body {
     background-size: cover;
 }
 
+#opaque {
+    opacity: .6;
+}
+
+#next-question {
+    color: black;
+    border : 2px solid black;
+}
+
+#popup{
+    position:absolute;
+    z-index: 1;
+    top: 35%;
+    right: 1%;
+    left: 1%;
+}
+
+.modal-backdrop{
+  opacity:0; transition:opacity .2s;
+}
+.modal-backdrop.in{
+  opacity:.7;
+}
 
 .background1{
     position:absolute;
@@ -150,6 +173,7 @@ footer {
     text-align: center;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
+    font-size: 10px;
 }
 
 

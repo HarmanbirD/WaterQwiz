@@ -1,21 +1,25 @@
 {"quizlist":[
-      {
-      "question":"Humans use ______ of water daily",
-      "option1":"190 Litres",
-      "option2":"100 Litres",
-      "option3":"250 Litres"
-      },
-      {
-      "question":"A person pays about ______ for water on a daily basis.",
-      "option1":"25 cents",
-      "option2":"1 dollar",
-      "option3":"2 cents"
-      },
-      {
-      "question":"How much water does an average human use?",
-      "option1":"7.5 Litres",
-      "option2":"2 Litres",
-      "option3":"10 Litres"
-      }
-      ]
-      }
+    {
+        "question":"Humans use ______ of water daily",
+        "option1":"190 Litres",
+        "option2":"100 Litres",
+        "option3":"250 Litres",
+        "option4":"3000 Litres"
+    
+},
+    {
+        "question":"A person pays about ______ for water on a daily basis.",
+        "option1":"25 cents",
+        "option2":"1 dollar",
+        "option3":"2 cents",
+        "option4":"300 dollars"
+    },
+    {
+        "question":"How much water does an average human use?",
+        "option1":"7.5 Litres",
+        "option2":"2 Litres",
+        "option3":"10 Litres",
+        "option4":"4 Litres"
+    }
+]
+}

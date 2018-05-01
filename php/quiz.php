@@ -1,16 +1,23 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
+$serverName = "localhost";
+$userName = "root";
 $password = "";
-$dbname = "WaterQwiz";
+$dbName = "WaterQwiz";
 
 function getLeaderboard(){
-	$conn = mysqli_connect('localhost');
-	$sql = "SELECT * from Leaderboard ORDER BY score DESC";
-	$result = $conn->query($sql);
-	$conn->close();
-	return json_encode($result);
+	$mysqli = new mysqli($serverName, $userName, $password, $dbName);
+	$tempArray = array();
+	if ($result = $mysqli->query("SELECT * FROM Leaderboard ORDER BY score DESC")) {
+
+		while($row = $result->fetch_array(MYSQL_ASSOC)) {
+			$myArray[] = $row;
+		}
+		echo json_encode($myArray);
+	}
+
+	$result->close();
+	$mysqli->close();
 }
 
 ?>

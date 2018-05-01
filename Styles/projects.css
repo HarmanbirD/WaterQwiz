@@ -1,30 +1,27 @@
 #banner {
-    padding-top: 50px; 
+    width:100%;
     max-width: 700px;
-    width: 100%;
-}
-
-#question-banner {
-    padding-top: 50px; 
-    max-width: 700px;
-    width: 100%;
+    padding-top: 2em;
 }
 
 #menu-container {
-    background-color: rgba(117, 190, 218, 0.4);
-    width: 60%;
+    background-color: rgba(153, 225, 255, 0.4);
+    width: 80%;
+    min-height: 450px;
     margin: auto;
 	border-radius: 1em;
     padding: 30px;
     min-width: 200px;
+    overflow: hidden;
+    position: relative;
 }
 
 #menu-container2 {
-    background-color: rgba(117, 190, 218, 0.4);
-    width: 60%;
+    background-color: rgba(153, 225, 255, 0.4);
+    width: 80%;
     min-height: 450px;
     margin: auto;
-	border-radius: 1em;
+	  border-radius: 1em;
     padding: 30px;
     min-width: 200px;
     overflow: hidden;
@@ -44,17 +41,32 @@ body, html {
 }
 
 body {
-    
-    background-image: url("../images/stream.jpg");
-    min-height: 100%; 
+    background-image: url("../images/bird-clouds-cold-414101-4.jpg");
+    height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
+
+.background1{
+    position:absolute;
+    top:115px;
+    z-index: -1;
+    text-align:center;
+    height:80%;
+    width: 100%;
+    overflow:hidden;
+}
+
+.videobox{
+  padding: 0px;
+}
 
 .btn {
     width: 15%;
     min-width: 150px;
+    border-style: none;
 }
 
 .icon {
@@ -77,8 +89,7 @@ body {
 
 .questionText {
     position:relative;
-    border-radius: 5px;
-    background-color: transparent;
+    font-size: 20px;
     color: black;
 }
 
@@ -89,11 +100,42 @@ body {
 }
 
 #help-icon{
-    max-width:10%;
+    max-width:5%;
     min-width: 40px;
     position: absolute;
     right: 1em;
     bottom: 1em;
+    cursor: pointer;
+}
+
+#help-icon:active{
+     box-shadow: inset 20px 20px 20px 20px White;
+     border-radius: 10em;
+}
+
+#banner:active {
+  animation: shake 0.75s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0); 
+  transition: all 0.8s;  
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+
 }
 
 footer {
@@ -104,7 +146,7 @@ footer {
     left:25%;
     background-color: rgba(117, 190, 218, 0.4);
     width: 50%;
-    color: white;
+    color: black;
     text-align: center;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;

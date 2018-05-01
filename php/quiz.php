@@ -1,12 +1,16 @@
 <?php
 
-    $Dir = "../questions";
-    $DirOpen = opendir($Dir);
-    $allQuestions = glob("../questions/questions.txt");
-    for ($i = 0; $i < count($allQuestions); $i++) {
-        $questions = file_get_contents($allContents);
-        $info = explode("@", $questions);
-        $number = (rand(0, count(info)));
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "WaterQwiz";
 
-        
+function getLeaderboard(){
+	$conn = mysqli_connect('localhost');
+	$sql = "SELECT * from Leaderboard ORDER BY score DESC";
+	$result = $conn->query($sql);
+	$conn->close();
+	return json_encode($result);
+}
+
 ?>

@@ -2,6 +2,7 @@
     width:100%;
     max-width: 700px;
     padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 #menu-container {
@@ -176,5 +177,9 @@ footer {
     font-size: 10px;
 }
 
+#modal-drippy {
+    float: left;
+    width: 75px;
+}
 
 

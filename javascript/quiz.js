@@ -14,7 +14,7 @@ $(document).ready(function() {
             var numberOfQuestions;
             var score = 0;
             
-            for (i = 0; i < data.quizlist.length; i++) {
+            for (i = 0; i < data.length; i++) {
                 questionBank[i] = new Array();
                 questionBank[i][0] = data[i].question;
                 questionBank[i][1] = data[i].answer;

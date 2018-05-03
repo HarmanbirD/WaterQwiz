@@ -72,10 +72,12 @@ $(document).ready(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){
+                            $("this.id").css('background-color', 'green');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Correct!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                             score++;
                         }
                         if(this.id!=rnd){
+                            $("this.id").css('background-color', 'red');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                         }
 

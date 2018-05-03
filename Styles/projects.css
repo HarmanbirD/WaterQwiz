@@ -76,6 +76,7 @@ body {
     top: 35%;
     right: 1%;
     left: 1%;
+    opacity: .9;
 }
 
 .modal-backdrop{

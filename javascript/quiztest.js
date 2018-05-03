@@ -59,17 +59,18 @@ $(document).ready(function() {
             $(stage).animate({"right": "+=1000px"},"slow","swing");
             
             $('.option').click(function() {
+                $("#bg").css('filter', 'blur(1px)');
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                 $(".option").css('filter', 'brightness(80%)');
                 if(questionLock==false){
                     questionLock=true;	
                     if(this.id==rnd){
-                            $("#this.id").css('background-color', 'green');
+                            $("#btn-"+this.id+"").css('background-color', 'green');
                         $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Correct!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                         score++;
                     }
                     if(this.id!=rnd){
-                            $("#this.id").css('background-color', 'red');
+                            $("#btn-"+this.id+"").css('background-color', 'red');
                         $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                     }
                     
@@ -79,6 +80,7 @@ $(document).ready(function() {
                 changeQuestion();
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                 $(".option").css('filter', 'brightness(100%)');
+                $("#bg").css('filter', 'blur(0)');
             })
             function changeQuestion() {  
             document.getElementById('popop').innerHTML = "";

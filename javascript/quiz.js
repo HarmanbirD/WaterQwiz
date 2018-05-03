@@ -67,6 +67,7 @@ $(document).ready(function() {
                 $(stage).animate({"right": "+=1000px"},"slow","swing");
 
                 $('.option').click(function() {
+                    $("#bg").css('filter', 'blur(1px)');
                     $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                     $(".option").css('filter', 'brightness(80%)');
                     if(questionLock==false){
@@ -87,6 +88,7 @@ $(document).ready(function() {
                     changeQuestion();
                     $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                     $(".option").css('filter', 'brightness(100%)');
+                    $("#bg").css('filter', 'blur(0)');  
                 })
                 function changeQuestion() {  
                 document.getElementById('popop').innerHTML = "";

@@ -14,7 +14,7 @@ $(document).ready(function() {
             var numberOfQuestions;
             var score = 0;
             
-            for (i = 0; i < data.quizlist.length; i++) {
+            for (i = 0; i < data.length; i++) {
                 questionBank[i] = new Array();
                 questionBank[i][0] = data[i].question;
                 questionBank[i][1] = data[i].answer;
@@ -72,10 +72,12 @@ $(document).ready(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){
+                            $("this.id").css('background-color', 'green');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Correct!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                             score++;
                         }
                         if(this.id!=rnd){
+                            $("this.id").css('background-color', 'red');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                         }
 

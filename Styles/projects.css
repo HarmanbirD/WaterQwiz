@@ -8,7 +8,6 @@
 #menu-container {
     background-color: rgba(153, 225, 255, 0.4);
     width: 80%;
-    min-height: 450px;
     margin: auto;
 	border-radius: 1em;
     padding: 30px;
@@ -34,7 +33,7 @@
     width: 80%;
     min-height: 450px;
     margin: auto;
-	  border-radius: 1em;
+	border-radius: 1em;
     padding: 30px;
     min-width: 200px;
     overflow: hidden;

@@ -41,9 +41,14 @@ body, html {
     margin: 0;
 }
 
+/*@font-face {
+    font-family: myFont;
+    src: url("fonts/QuietSomethingDEMO.otf");
+}*/
+
 body {
     background-image: url("../images/bird-clouds-cold-414101-4.jpg");
-    height: 100%; 
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

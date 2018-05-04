@@ -1,9 +1,6 @@
 <?php
 
 $serverName = "tcp:waterqwiz.database.windows.net, 1433";
-$userName = "waterqwiz";
-$password = "BCIT_Jacob";
-$dbName = "WaterQwiz";
 
 $connectionOptions = array("Database" => "WaterQwiz",
                           "UID" => "waterqwiz@waterqwiz",

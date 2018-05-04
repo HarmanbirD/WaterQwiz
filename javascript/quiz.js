@@ -73,6 +73,7 @@ $(document).ready(function() {
                         questionLock=true;	
                         if(this.id==rnd){
                             $("#btn-"+this.id+"").css('background-color', 'green');
+                            score++;
                             changeQuestion();
                         }
                         if(this.id!=rnd){

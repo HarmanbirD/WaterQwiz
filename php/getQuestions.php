@@ -1,22 +1,31 @@
 <?php
 
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "WaterQwiz";
+$serverName = "tcp:waterqwiz.database.windows.net, 1433";
+$connectionOptions = array("Database" => "WaterQwiz",
+                          "UID" => "waterqwiz@waterqwiz",
+                          "PWD" => "BCIT_Jacob");
 
-$mysqli = new mysqli($serverName, $userName, $password, $dbName);
+$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-$tempArray = array();
-if ($result = $mysqli->query("SELECT * FROM questions ORDER BY RAND()")) {
-
-	while($row = $result->fetch_array(MYSQL_ASSOC)) {
-		$myArray[] = $row;
-	}
-	echo json_encode($myArray);
+if($conn === false)
+{
+    die(print_r(sqlsrv_errors(), true));
 }
 
-$result->close();
-$mysqli->close();
+$tempArray = array();
+$result = sqlsrv_query($conn, "SELECT * FROM questions ORDER BY RAND()") 
+
+if($result === false) {
+    die( print_r( sqlsrv_errors(), true) );
+}
+
+while($row = fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+	$tempArray[] = $row;
+}
+echo json_encode($myArray);
+
+
+sqlsrv_free_stmt($result);
+
 
 ?>

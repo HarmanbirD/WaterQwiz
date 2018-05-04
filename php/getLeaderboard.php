@@ -1,22 +1,31 @@
 <?php
 
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "WaterQwiz";
+$serverName = "tcp:waterqwiz.database.windows.net, 1433";
 
-$mysqli = new mysqli($serverName, $userName, $password, $dbName);
+$connectionOptions = array("Database" => "WaterQwiz",
+                          "UID" => "waterqwiz@waterqwiz",
+                          "PWD" => "BCIT_Jacob");
 
-$tempArray = array();
-if ($result = $mysqli->query("SELECT name, score FROM Leaderboard ORDER BY score DESC")) {
+$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-	while($row = $result->fetch_array(MYSQL_ASSOC)) {
-		$myArray[] = $row;
-	}
-	echo json_encode($myArray);
+if($conn === false)
+{
+    die(print_r(sqlsrv_errors(), true));
 }
 
-$result->close();
-$mysqli->close();
+$tempArray = array();
+$result = sqlsrv_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC");
+
+if($result === false) {
+    die( print_r( sqlsrv_errors(), true) );
+}
+
+while($row = fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+	$tempArray[] = $row;
+}
+echo json_encode($myArray);
+
+
+sqlsrv_free_stmt($result);
 
 ?>

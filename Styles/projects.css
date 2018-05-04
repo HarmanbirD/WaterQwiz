@@ -189,4 +189,14 @@ footer {
     width: 75px;
 }
 
+#loadingGif {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gifDiv {
+    text-align: center;
+}
+
 

@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     $('#leaderboard-modal').on('show.bs.modal', function(e) {
-        document.getElementById("leaders").innerHTML = "<img src = '../images/watertap.gif'>";
+        document.getElementById("leaders").innerHTML = "<div id = 'gifDiv'><img id = 'loadingGif' src = './images/watertap.gif'></div>";
         
         $.ajax({
             dataType: "json",

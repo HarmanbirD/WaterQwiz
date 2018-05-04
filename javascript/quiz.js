@@ -8,6 +8,7 @@ $(document).ready(function() {
             url: "../php/getQuestions.php"
         })
         .done(function(data) {
+            document.getElementById("questions").innerHTML = "";
             var questionNumber = 0;
             var questionBank = new Array();
             var stage = "#questions";

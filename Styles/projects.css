@@ -17,11 +17,11 @@
 }
 
 @font-face {
-    font-family: 'myFirstFont';
-    src:  url('orangejuice2.0.ttf') format('truetype');
+    font-family: orangejuice;
+    src:  url('../fonts/orangejuice2.0.ttf') format('truetype');
 }
 .btn {
-    font-family: myFirstFont;
+    font-family: orangejuice;
     width: 15%;
     min-width: 150px;
     border-style: none;
@@ -52,10 +52,6 @@ body, html {
     margin: 0;
 }
 
-/*@font-face {
-    font-family: myFont;
-    src: url("fonts/QuietSomethingDEMO.otf");
-}*/
 
 body {
     background-image: url("../images/bird-clouds-cold-414101-4.jpg");

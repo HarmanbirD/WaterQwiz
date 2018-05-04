@@ -49,11 +49,11 @@ footer {
 
 /* Font definition */
 @font-face {
-    font-family: quiteFont;
-    src:  url('../fonts/DKOfficeSqueeze.otf') format('opentype');
+    font-family: newFont;
+    src:  url('../fonts/HandDrawnShapes.ttf') format('truetype');
 }
 .btn {
-    font-family: quiteFont;
+    font-family: newFont;
     width: 15%;
     min-width: 150px;
     border-style: none;
@@ -86,7 +86,7 @@ footer {
 }
 
 .btn {
-    font-family: quiteFont;
+    font-family: newFont;
     width: 50%;
     min-width: 150px;
     border-style: none;

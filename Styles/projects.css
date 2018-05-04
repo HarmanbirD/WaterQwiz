@@ -3,7 +3,6 @@ body, html {
     margin: 0;
 }
 
-
 body {
     position:relative;
     background-image: url("../images/bird-clouds-cold-414101-4.jpg");
@@ -110,6 +109,8 @@ footer {
     position: fixed; /* or absolute */
     z-index: 1;
     opacity: .9;
+    top:25%;
+    left:25%;
 }
 
 

@@ -21,7 +21,7 @@ $tempArray = array();
 if ($result = sqlsrv_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC")) {
 
 	while($row = fetch_array($result,SQLSRV_FETCH_ASSOC)) {
-		$myArray[] = $row;
+		$tempArray[] = $row;
 	}
 	echo json_encode($myArray);
 }

@@ -21,7 +21,7 @@ $tempArray = array();
 if ($result = sqlsrv_query($conn, "SELECT * FROM questions ORDER BY RAND()")) {
 
 	while($row = fetch_array($result,SQLSRV_FETCH_ASSOC)) {
-		$myArray[] = $row;
+		$tempArray[] = $row;
 	}
 	echo json_encode($myArray);
 }

@@ -49,7 +49,7 @@ footer {
 /* Font definition */
 @font-face {
     font-family: quiteFont;
-    src:  url('../fonts/QuiteSomethingDEMO.otf') format('opentype');
+    src:  url('../fonts/QuiteSomething.otf') format('opentype');
 }
 .btn {
     font-family: quiteFont;

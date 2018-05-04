@@ -110,7 +110,8 @@ footer {
     z-index: 1;
     opacity: .9;
     top:25%;
-    left:25%;
+    left:1%;
+    right: 1%;
 }
 
 

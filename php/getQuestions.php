@@ -1,8 +1,8 @@
 <?php
 
-$serverName = "localhost";
-$userName = "root";
-$password = "";
+$serverName = "waterqwiz.database.windows.net";
+$userName = "waterqwiz";
+$password = "BCIT_Jacob";
 $dbName = "WaterQwiz";
 
 $mysqli = new mysqli($serverName, $userName, $password, $dbName);

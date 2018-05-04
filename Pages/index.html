@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Water Qwiz</title>
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles/projects.css">
+    <link rel="icon" href="../images/WQ-logo2.0.png">
+</head>
+
+<body>
+    <div class="text-center">
+        <img id="banner" src="../images/banner-lg-new2.0.png" alt="Banner">
+    </div>
+    
+    <div class="container-fluid" id="menu-container">
+        <div class = "row">
+            
+            <div class="col-lg-4 visible-lg videobox">
+                
+               <div class="embed-responsive embed-responsive-4by3">
+                <!--
+                <video class="embed-responsive-item" controls="controls">
+                    <source src="../videos/Team24%20Pitch.mp4" type = "video/mp4">
+                </video> 
+                -->
+                </div>
+        </div>
+       
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4" > 
+                <div class="row">
+                    <button type="button" class="btn btn-default btn-lg" onclick="location.href = './quiz.html'">
+                        <span class="glyphicon glyphicon-play"></span> Play
+                    </button>
+                </div>
+
+                <div class="row">
+                    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#leaderboard-modal">
+                        <img class="icon" src="../images/leaderboard-icon.jpg">
+                    </button>
+                </div>
+
+                <div class="row">
+                    <button type="button" class="btn-lg btn btn-default" onclick="window.open('http://www.metrovancouver.org/welovewater/Pages/default.aspx')">
+                        Train More...
+                    </button>
+                </div>
+            
+            </div>
+            <div class="col-lg-4 visible-lg"></div>
+        </div>
+        
+
+        <div class="row-right">
+            <img id="help-icon" src="../images/help.png" data-toggle="modal" data-target="#how-to-play-modal">
+        </div>
+    </div>
+    <div class="modal fade" id="leaderboard-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Leaderboard</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Show leaderboard here.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="how-to-play-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">How To Play</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Explain how to play here.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright Team 24 - COMP 2910 &copy;
+        <script>
+            document.write(new Date().getFullYear());
+        </script>
+    </footer>
+
+</body>
+
+</html>

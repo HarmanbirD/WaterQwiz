@@ -24,6 +24,5 @@ if ($result = mysqli_query($conn, "SELECT * FROM questions ORDER BY RAND()")) {
 }
 
 $result->close();
-$mysqli->close();
 
 ?>

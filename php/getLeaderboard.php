@@ -24,6 +24,5 @@ if ($result = mysqli_query($conn, "SELECT name, score FROM leaderboard ORDER BY 
 }
 
 $result->close();
-$mysqli->close();
 
 ?>

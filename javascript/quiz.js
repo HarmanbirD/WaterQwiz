@@ -23,7 +23,7 @@ $(document).ready(function() {
                 questionBank[i][2] = data[i].option1;
                 questionBank[i][3] = data[i].option2;
                 questionBank[i][4] = data[i].option3;
-                questionBank[i][4] = data[i].hint;
+                questionBank[i][5] = data[i].hint;
             }
             
             numberOfQuestions = questionBank.length;
@@ -63,7 +63,7 @@ $(document).ready(function() {
                 }
           
             
-                $(stage).append('<div class = "score">Score: '+score+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" class="btn btn-default btn-lg">'+q4+'</button></div>');
+                $(stage).append('<div class = "score">Score: '+score+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" id = "btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id = "btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id = "btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id = "btn-4" class="btn btn-default btn-lg">'+q4+'</button></div>');
                 $(stage).css("right","-1000px");
                 $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
                 $(stage).animate({"right": "+=1000px"},"slow","swing");
@@ -75,6 +75,7 @@ $(document).ready(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){
+<<<<<<< HEAD
                             $("this.id").css('background-color', 'green');
                             $(mainStage).append('<div class="modal-header"><h4 class="modal-title">Correct!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button>');
                             score++;
@@ -82,6 +83,13 @@ $(document).ready(function() {
                         if(this.id!=rnd){
                             $("this.id").css('background-color', 'red');
                             $(mainStage).append('<div class="modal-header"><h4 class="modal-title">Incorrect!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button>');
+=======
+                            $("btn-"+this.id+"").css('background-color', 'green');
+                        }
+                        if(this.id!=rnd){
+                            $("btn-"+this.id+"").css('background-color', 'red');
+                            $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
+>>>>>>> eb26244367bc7b55007f86137bb523d2fdb3aa69
                         }
 
                 }})

@@ -1,21 +1,24 @@
 <?php
 
-$serverName = "waterqwiz.database.windows.net";
+$serverName = "tcp:waterqwiz.database.windows.net, 1433";
 $userName = "waterqwiz";
 $password = "BCIT_Jacob";
 $dbName = "WaterQwiz";
 
-$conn = mysqli_init();
+$connectionOptions = array("Database" => "WaterQwiz",
+                          "UID" => "waterqwiz@waterqwiz",
+                          "PWD" => "BCIT_Jacob");
 
-mysqli_real_connect($conn, $serverName, $userName, $password, $dbName, 3306);
+$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
+if($conn === false)
+{
+    die(print_r(sqlsrv_errors(), true));
 }
 
 $tempArray = array();
 
-if ($result = mysqli_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC")) {
+if ($result = sqlsrv_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC")) {
 
 	while($row = $result->fetch_array(MYSQL_ASSOC)) {
 		$myArray[] = $row;

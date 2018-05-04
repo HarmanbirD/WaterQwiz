@@ -1,7 +1,44 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    position:relative;
+    background-image: url("../images/bird-clouds-cold-414101-4.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    position: fixed;
+    padding-left: 10px;
+    padding-right: 10px;
+    bottom: 0;
+    left:10%;
+    width: 80%;
+    background-color: rgba(117, 190, 218, 0.4);
+    color: black;
+    text-align: center;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    font-size: 12px;
+}
+
+/* Font definition*/
+@font-face {
+    font-family: orangejuice;
+    src:  url('../fonts/orangejuice2.0.ttf') format('truetype');
+}
+
+/*Basic Styling*/
 #banner {
     width:100%;
     max-width: 700px;
-    padding-top: 2em;
+    padding-top: 4em;
     padding-bottom: 2em;
 }
 
@@ -10,7 +47,7 @@
     width: 80%;
     margin: auto;
 	border-radius: 1em;
-    padding: 30px;
+    padding: 10px;
     min-width: 200px;
     overflow: hidden;
     position: relative;
@@ -26,7 +63,6 @@
     min-width: 150px;
     border-style: none;
 }
-
 
 #menu-container2 {
     background-color: rgba(153, 225, 255, 0.4);
@@ -47,20 +83,20 @@
     right: 0px;
 }
 
-body, html {
-    height: 100%;
-    margin: 0;
+/*drippy*/
+#modal-drippy {
+    float: left;
+    width: 75px;
 }
 
-
-body {
-    background-image: url("../images/bird-clouds-cold-414101-4.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.btn {
+    font-family: orangejuice;
+    width: 50%;
+    min-width: 150px;
+    border-style: none;
 }
 
+/*Styling for popups*/
 #opaque {
     opacity: .6;
 }
@@ -70,14 +106,12 @@ body {
     border : 2px solid black;
 }
 
-#popup{
-    position:absolute;
+#popop{
+    position: fixed; /* or absolute */
     z-index: 1;
-    top: 35%;
-    right: 1%;
-    left: 1%;
     opacity: .9;
 }
+
 
 .modal-backdrop{
   opacity:0; transition:opacity .2s;
@@ -86,20 +120,10 @@ body {
   opacity:.7;
 }
 
-.background1{
-    position:absolute;
-    top:115px;
-    z-index: -1;
-    text-align:center;
-    height:80%;
-    width: 100%;
-    overflow:hidden;
+.modal{
+    top:50% !important;
+    transform: translateY(-50%) !important;
 }
-
-.videobox{
-  padding: 0px;
-}
-
 .icon {
     max-width: 70%;
     max-height: 95%;
@@ -108,8 +132,8 @@ body {
 
 .row {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .row-right {
@@ -169,33 +193,45 @@ body {
 
 }
 
-footer {
-    position: fixed;
-    padding-left: 10px;
-    padding-right: 10px;
-    bottom: 0;
-    left:25%;
-    background-color: rgba(117, 190, 218, 0.4);
-    width: 50%;
-    color: black;
-    text-align: center;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    font-size: 10px;
-}
+<<<<<<< HEAD
 
-#modal-drippy {
-    float: left;
-    width: 75px;
-}
+
+
+=======
+
+
+
 
 #loadingGif {
-    width: 40%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #gifDiv {
+    text-align: center;
+}
+
+#gifDivQuestions {
+    padding-top: 200px;
+    margin-bottom: auto;
+    text-align: center;
+}
+>>>>>>> master
+
+#loadingGif {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gifDiv {
+    text-align: center;
+}
+
+#gifDivQuestions {
+    padding-top: 200px;
+    margin-bottom: auto;
     text-align: center;
 }
 

@@ -53,11 +53,11 @@ footer {
     src:  url('../fonts/HandDrawnShapes.ttf') format('truetype');
 }
 .btn {
+    max-width: 30%;
     font-family: newFont;
     width: 15%;
     min-width: 150px;
     border-style: none;
-    max-width: 30%;
 }
 
 #menu-container2 {
@@ -120,6 +120,7 @@ footer {
 }
 
 .icon {
+    width: 25%;
     max-width: 70%;
     max-height: 95%;
     mix-blend-mode: multiply;

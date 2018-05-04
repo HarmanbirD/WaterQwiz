@@ -24,7 +24,7 @@ $(document).ready(function() {
                 questionBank[i][2] = data[i].option1;
                 questionBank[i][3] = data[i].option2;
                 questionBank[i][4] = data[i].option3;
-                questionBank[i][5] = data[i].hint;
+                questionBank[i][5] = data[i].drippyhint;
             }
             
             numberOfQuestions = questionBank.length;

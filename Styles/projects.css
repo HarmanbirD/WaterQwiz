@@ -53,8 +53,6 @@ footer {
     position: relative;
 }
 
-<<<<<<< HEAD
-=======
 @font-face {
     font-family: quiteFont;
     src:  url('../fonts/QuiteSomethingDEMO.otf') format('opentype');
@@ -66,8 +64,6 @@ footer {
     border-style: none;
 }
 
-
->>>>>>> master
 #menu-container2 {
     background-color: rgba(153, 225, 255, 0.4);
     width: 80%;
@@ -128,7 +124,7 @@ footer {
     top:50% !important;
     transform: translateY(-50%) !important;
 }
-.leaderboard-icon {
+.icon {
     max-width: 70%;
     max-height: 95%;
     mix-blend-mode: multiply;

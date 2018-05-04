@@ -190,12 +190,18 @@ footer {
 }
 
 #loadingGif {
-    width: 40%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #gifDiv {
+    text-align: center;
+}
+
+#gifDivQuestions {
+    padding-top: 200px;
+    margin-bottom: auto;
     text-align: center;
 }
 

@@ -58,23 +58,22 @@ $(document).ready(function() {
             $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
             $(stage).animate({"right": "+=1000px"},"slow","swing");
             
-            $('.option').click(function() {
-                $("#bg").css('filter', 'blur(1px)');
-                $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
-                $(".option").css('filter', 'brightness(80%)');
-                if(questionLock==false){
-                    questionLock=true;	
-                    if(this.id==rnd){
+                $('.option').click(function() {
+                    if(questionLock==false){
+                        questionLock=true;	
+                        if(this.id==rnd){
                             $("#btn-"+this.id+"").css('background-color', 'green');
-                        $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Correct!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
-                        score++;
-                    }
-                    if(this.id!=rnd){
+                            changeQuestion();
+                        }
+                        if(this.id!=rnd){
+                            $("#bg").css('filter', 'blur(1px)');
+                            $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
+                            $(".option").css('filter', 'brightness(80%)');
                             $("#btn-"+this.id+"").css('background-color', 'red');
-                        $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">Drippy was here</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
-                    }
-                    
-            }})
+                            $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
+                        }
+
+                }})
             }
             $(document).on('click', '#next-question', function(){
                 changeQuestion();

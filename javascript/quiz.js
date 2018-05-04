@@ -1,14 +1,11 @@
 
 
-$(document).ready(function() { 
-        document.getElementById("questions").innerHTML = "<div id = 'gifDivQues'><img id = 'loadingGif' src = '../images/watertap.gif'></div>";
-    
+$(document).ready(function() {     
         $.ajax({
             dataType: "json",
             url: "../php/getQuestions.php"
         })
         .done(function(data) {
-            document.getElementById("questions").innerHTML = "";
             var questionNumber = 0;
             var questionBank = new Array();
             var stage = "#questions";

@@ -5,10 +5,17 @@ $userName = "waterqwiz";
 $password = "BCIT_Jacob";
 $dbName = "WaterQwiz";
 
-$mysqli = new mysqli($serverName, $userName, $password, $dbName);
+$conn = mysqli_init();
+
+mysqli_real_connect($conn, $serverName, $userName, $password, $dbName, 3306);
+
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
 
 $tempArray = array();
-if ($result = $mysqli->query("SELECT * FROM questions ORDER BY RAND()")) {
+
+if ($result = mysqli_query($conn, "SELECT * FROM questions ORDER BY RAND()")) {
 
 	while($row = $result->fetch_array(MYSQL_ASSOC)) {
 		$myArray[] = $row;

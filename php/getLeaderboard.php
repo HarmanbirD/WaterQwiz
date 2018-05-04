@@ -20,7 +20,7 @@ if($result === false) {
     die( print_r( sqlsrv_errors(), true) );
 }
 
-while($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
 	$tempArray[] = $row;
 }
 echo json_encode($tempArray);

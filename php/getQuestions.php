@@ -20,12 +20,10 @@ $tempArray = array();
 
 if ($result = sqlsrv_query($conn, "SELECT * FROM questions ORDER BY RAND()")) {
 
-	while($row = $result->fetch_array(MYSQL_ASSOC)) {
+	while($row = fetch_array($result,SQLSRV_FETCH_ASSOC)) {
 		$myArray[] = $row;
 	}
 	echo json_encode($myArray);
 }
-
-$result->close();
 
 ?>

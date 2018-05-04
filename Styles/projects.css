@@ -27,12 +27,6 @@ footer {
     font-size: 12px;
 }
 
-/* Font definition*/
-@font-face {
-    font-family: orangejuice;
-    src:  url('../fonts/orangejuice2.0.ttf') format('truetype');
-}
-
 /*Basic Styling*/
 #banner {
     width:100%;
@@ -52,6 +46,7 @@ footer {
     position: relative;
 }
 
+/* Font definition */
 @font-face {
     font-family: quiteFont;
     src:  url('../fonts/QuiteSomethingDEMO.otf') format('opentype');
@@ -90,7 +85,7 @@ footer {
 }
 
 .btn {
-    font-family: orangejuice;
+    font-family: quiteFont;
     width: 50%;
     min-width: 150px;
     border-style: none;

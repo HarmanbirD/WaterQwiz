@@ -5,7 +5,8 @@
         "option1":"190 Litres",
         "option2":"100 Litres",
         "option3":"250 Litres",
-        "option4":"3000 Litres"
+        "option4":"3000 Litres",
+        "hint":"your WRONG"
     
 },
     {
@@ -13,14 +14,16 @@
         "option1":"25 cents",
         "option2":"1 dollar",
         "option3":"2 cents",
-        "option4":"300 dollars"
+        "option4":"300 dollars",
+        "hint":"GIT GUD"
     },
     {
         "question":"How much water does an average human use?",
         "option1":"7.5 Litres",
         "option2":"2 Litres",
         "option3":"10 Litres",
-        "option4":"4 Litres"
+        "option4":"4 Litres",
+        "hint":"your bad"
     }
 ]
 }

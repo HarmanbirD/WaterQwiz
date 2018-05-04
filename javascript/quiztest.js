@@ -15,6 +15,7 @@ $(document).ready(function() {
             questionBank[i][2] = data.quizlist[i].option2;
             questionBank[i][3] = data.quizlist[i].option3;
             questionBank[i][4] = data.quizlist[i].option4;
+            questionBank[i][5] = data.quizlist[i].hint;
         }
         numberOfQuestions = questionBank.length;
         displayQuestion();

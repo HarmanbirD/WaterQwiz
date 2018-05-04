@@ -14,7 +14,7 @@ if($conn === false)
 }
 
 $tempArray = array();
-$result = sqlsrv_query($conn, "SELECT * FROM questions ORDER BY RAND()") 
+$result = sqlsrv_query($conn, "SELECT * FROM questions ORDER BY RAND()");
 
 if($result === false) {
     die( print_r( sqlsrv_errors(), true) );

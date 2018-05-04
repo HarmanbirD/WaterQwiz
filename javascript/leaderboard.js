@@ -6,7 +6,7 @@ $(document).ready(function() {
         
         $.ajax({
             dataType: "json",
-            url: "/php/getLeaderboard.php"
+            url: "../php/getLeaderboard.php"
         })
         .done(function(data) {
             var leaders = new Array();

@@ -3,7 +3,7 @@
 $(document).ready(function() {        
         $.ajax({
             dataType: "json",
-            url: "/php/getQuestions.php"
+            url: "../php/getQuestions.php"
         })
         .done(function(data) {
             var questionNumber = 0;

@@ -36,8 +36,6 @@ $(document).ready(function() {
                         code += "</table></div>";
                     }
                 }
-
-        
             }
 
             document.getElementById("leaders").innerHTML = code;

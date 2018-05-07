@@ -6,9 +6,7 @@ $(document).ready(function() {
             url: "../php/getQuestions.php"
         })
          .fail(function (jqXHR, textStatus, error) {
-    // Handle error here
-    $('#editor-content-container').html(jqXHR.responseText);
-    $('#editor-container').modal('show');
+    console.log("Post error: " + error);
 })
         .done(function(data) {
             var questionNumber = 0;

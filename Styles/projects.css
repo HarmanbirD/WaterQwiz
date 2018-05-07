@@ -36,6 +36,13 @@ footer {
     padding-bottom: 2em;
 }
 
+#quizbanner {
+    width:100%;
+    max-width: 500px;
+    padding-top: 4em;
+    padding-bottom: 2em;
+}
+
 #menu-container {
     background-color: rgba(153, 225, 255, 0.4);
     width: 80%;

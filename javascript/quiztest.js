@@ -113,9 +113,6 @@ $(document).ready(function() {
             }
              
             function endGame() {
-                $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
-                $(".option").css('filter', 'brightness(100%)');
-                $("#bg").css('filter', 'blur(0)');
                 document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' class='form-control' id='name'></div><input type='submit' class='btn btn-info' value='Submit Button'>";
             }
         

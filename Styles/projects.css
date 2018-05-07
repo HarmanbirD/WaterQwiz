@@ -92,9 +92,23 @@ footer {
     border-style: none;
 }
 
+#howTo {
+    background: url(../images/help.png);
+    background-size: 50px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: none;
+
+}
+
 /*Styling for popups*/
 #opaque {
     opacity: .6;
+}
+
+#endgamename {
+    text-align: center;
 }
 
 #next-question {

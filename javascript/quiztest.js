@@ -1,13 +1,14 @@
 $(document).ready(function() {
-    var questionNumber = 0;
-    var questionBank = new Array();
-    var stage = "#questions";
-    var mainStage = "#popop";
-    var questionLock = false;
-    var numberOfQuestions;
-    var score = 0;
+    var questionNumber = 0,
+        questionBank = new Array(),
+        stage = "#questions",
+        mainStage = "#popop",
+        questionLock = false,
+        numberOfQuestions,
+        score = 0;
     
-    $.getJSON('questions.json', function(data) {
+    $.getJSON('questions.json', function (data) {
+        var i;
         for (i = 0; i < data.quizlist.length; i++) {
             questionBank[i] = new Array();
             questionBank[i][0] = data.quizlist[i].question;
@@ -82,6 +83,7 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){
+                            document.getElementById("howTo").setAttribute('disabled',false);
                             $("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
@@ -91,11 +93,13 @@ $(document).ready(function() {
 
                 }})
             }
+        
             $(document).on('click', '#next-question', function(){
                 changeQuestion();
+                document.getElementById("howTo").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                 $(".option").css('filter', 'brightness(100%)');
-                $("#bg").css('filter', 'blur(0)');
+                $("#bg").css('filter', '');
             })
         
             function changeQuestion() { 
@@ -113,7 +117,7 @@ $(document).ready(function() {
             }
              
             function endGame() {
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' class='form-control' id='name'></div><input type='submit' class='btn btn-info' value='Submit Button'>";
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' class='btn btn-info' value='Submit Button'>";
             }
         
             })

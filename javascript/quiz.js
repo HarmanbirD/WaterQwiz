@@ -30,12 +30,12 @@ $(document).ready(function() {
 
             function scrambleDatabase(){
                 for(i = 0; i < 50; i++){ 
-                var rnd1 = Math.floor(Math.random() * questionBank.length);
-                var rnd2 = Math.floor(Math.random() * questionBank.length);
+                    var rnd1 = Math.floor(Math.random() * questionBank.length);
+                    var rnd2 = Math.floor(Math.random() * questionBank.length);
 
-                var temp = questionBank[rnd1];
-                questionBank[rnd1] = questionBank[rnd2];
-                questionBank[rnd2] = temp;
+                    var temp = questionBank[rnd1];
+                    questionBank[rnd1] = questionBank[rnd2];
+                    questionBank[rnd2] = temp;
 
                 }
 
@@ -83,6 +83,7 @@ $(document).ready(function() {
                 $('.option').click(function() {
                     if(questionLock==false){
                         questionLock=true;	
+                        
                         if(this.id==rnd){
                             $("#btn-"+this.id+"").css('background-color', 'green');
                             score++;

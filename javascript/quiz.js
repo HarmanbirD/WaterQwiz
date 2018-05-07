@@ -5,9 +5,11 @@ $(document).ready(function() {
             dataType: "json",
             url: "../php/getQuestions.php"
         })
-            .fail( function(d, textStatus, error) {
-         console.error("getJSON failed, status: " + textStatus + ", error: "+error)
-         })
+         .fail(function (jqXHR, textStatus, error) {
+    // Handle error here
+    $('#editor-content-container').html(jqXHR.responseText);
+    $('#editor-container').modal('show');
+})
         .done(function(data) {
             var questionNumber = 0;
             var questionBank = new Array();

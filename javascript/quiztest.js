@@ -97,6 +97,7 @@ $(document).ready(function() {
                 $(".option").css('filter', 'brightness(100%)');
                 $("#bg").css('filter', 'blur(0)');
             })
+        
             function changeQuestion() { 
                 document.getElementById('popop').innerHTML = "";
                 questionNumber++;
@@ -112,10 +113,10 @@ $(document).ready(function() {
             }
              
             function endGame() {
-                $("#bg").css('filter', 'blur(1px)');
-                $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
-                $(".option").css('filter', 'brightness(80%)');
-                $(mainStage).append('<div id="popop">Game Over!</div><div id = "score">Your score is'  + score + 'out of' + numberOfQuestions + '<div class="form-group"><label for="usr">Name:</label><input type="text" class="form-control" id="name"></div><input type="submit" class="btn btn-info" value="Submit Button">');
+                $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
+                $(".option").css('filter', 'brightness(100%)');
+                $("#bg").css('filter', 'blur(0)');
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' class='form-control' id='name'></div><input type='submit' class='btn btn-info' value='Submit Button'>";
             }
         
             })

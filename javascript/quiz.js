@@ -3,11 +3,7 @@
 $(document).ready(function() {     
         $.ajax({
             dataType: "json",
-            url: "../php/getQuestions.php",
-            error: function(xhr, status, error) {
-  var err = eval("(" + xhr.responseText + ")");
-  alert(err.Message);
-}
+            url: "../php/getQuestions.php"
         })
         .done(function(data) {
             var questionNumber = 0;

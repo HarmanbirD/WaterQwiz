@@ -5,7 +5,7 @@ $(document).ready(function() {
             dataType: "json",
             url: "../php/getQuestions.php",
             error: function(xhr, status, error) {
-  var err = eval("(" + xhr.responseText + ")");
+  var err = eval(xhr.responseText);
   alert(err.Message);
 }
         })

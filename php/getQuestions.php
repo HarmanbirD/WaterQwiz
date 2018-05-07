@@ -24,7 +24,7 @@ while($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
 	$tempArray[] = $row;
 }
 
-error_log(json_encode($tempArray));
+error_log("JSON Object returned: " . json_encode($tempArray));
 echo json_encode($tempArray);
 
 sqlsrv_free_stmt($result);

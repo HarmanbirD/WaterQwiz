@@ -20,7 +20,6 @@ if($result === false) {
 }
 
 while($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
-	error_log("Row: " . $row);
 	$tempArray[] = $row;
 }
 

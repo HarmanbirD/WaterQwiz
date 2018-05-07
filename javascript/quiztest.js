@@ -18,7 +18,21 @@ $(document).ready(function() {
             questionBank[i][5] = data.quizlist[i].hint;
         }
         numberOfQuestions = questionBank.length;
+        scrambleDatabase();
         displayQuestion();
+        
+        function scrambleDatabase(){
+            for(i = 0; i < 50; i++){ 
+            var rnd1 = Math.floor(Math.random() * questionBank.length);
+            var rnd2 = Math.floor(Math.random() * questionBank.length);
+
+            var temp = questionBank[rnd1];
+            questionBank[rnd1] = questionBank[rnd2];
+            questionBank[rnd2] = temp;
+
+            }
+	 
+         }
         
         function displayQuestion(){
             var rnd=Math.random()*4;
@@ -64,6 +78,7 @@ $(document).ready(function() {
                         questionLock=true;	
                         if(this.id==rnd){
                             $("#btn-"+this.id+"").css('background-color', 'green');
+                            score++;
                             changeQuestion();
                         }
                         if(this.id!=rnd){
@@ -82,21 +97,25 @@ $(document).ready(function() {
                 $(".option").css('filter', 'brightness(100%)');
                 $("#bg").css('filter', 'blur(0)');
             })
-            function changeQuestion() {  
-            document.getElementById('popop').innerHTML = "";
-            if(++questionNumber<=numberOfQuestions) {
-                $(stage).animate({opacity: "0"}, {duration: 300, queue: false});
-                $(stage).animate({right: "+=1000px"},"slow","swing",function(){
-                    $(stage).empty();
-                    displayQuestion();});
-                questionLock=false;
-            } else {
-                displayFinalSlide();
-            }
+            function changeQuestion() { 
+                document.getElementById('popop').innerHTML = "";
+                questionNumber++;
+                if(questionNumber<numberOfQuestions) {
+                    $(stage).animate({opacity: "0"}, {duration: 300, queue: false});
+                    $(stage).animate({right: "+=1000px"},"slow","swing",function(){
+                        $(stage).empty();
+                        displayQuestion();});
+                    questionLock=false;
+                } else {
+                    endGame();
+                }
             }
              
-            function displayFinalSlide() {
-                $(stage).append('<div class = "finalSlide> You got ' + score + '/' + numberOfQuestions + '');
+            function endGame() {
+                $("#bg").css('filter', 'blur(1px)');
+                $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
+                $(".option").css('filter', 'brightness(80%)');
+                $(mainStage).append('<div id="popop">Game Over!</div><div id = "score">Your score is'  + score + 'out of' + numberOfQuestions + '<div class="form-group"><label for="usr">Name:</label><input type="text" class="form-control" id="name"></div><input type="submit" class="btn btn-info" value="Submit Button">');
             }
         
             })

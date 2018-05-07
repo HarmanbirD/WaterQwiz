@@ -14,7 +14,7 @@ if($conn === false)
 }
 
 $tempArray = array();
-$result = sqlsrv_query($conn, "SELECT * FROM questions");
+$result = sqlsrv_query($conn, "SELECT * FROM questions;");
 
 if($result === false) {
     die( print_r( sqlsrv_errors(), true) );

@@ -14,7 +14,7 @@ if($conn === false)
 }
 
 $tempArray = array();
-$result = sqlsrv_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC");
+$result = sqlsrv_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC;");
 
 if($result === false) {
     die( print_r( sqlsrv_errors(), true) );

@@ -1,5 +1,7 @@
 <?php
 
+// Call this with POST['name'] as the name to enter and score is a session variable.
+
 $serverName = "tcp:waterqwiz.database.windows.net, 1433";
 
 $connectionOptions = array("Database" => "WaterQwiz",
@@ -13,19 +15,10 @@ if($conn === false)
     die(print_r(sqlsrv_errors(), true));
 }
 
-$tempArray = array();
-$result = sqlsrv_query($conn, "SELECT * FROM questions");
+if (isset($_POST['name'])) {
+	$query = "INSERT INTO leaderboard (name, score) VALUES (" . $_POST['name'] . ", " . $_SESSION['score'] . ");";
+	sqlsrv_query($conn, $query);
+    }
 
-if($result === false) {
-    die( print_r( sqlsrv_errors(), true) );
-}
-
-while($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
-	$tempArray[] = $row;
-}
-echo json_encode($tempArray);
-
-
-sqlsrv_free_stmt($result);
-
+session_destroy();
 ?>

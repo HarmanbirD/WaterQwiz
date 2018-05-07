@@ -3,11 +3,12 @@
 $(document).ready(function() {     
         $.ajax({
             dataType: "json",
-            url: "../php/getQuestions.php"
+            url: "../php/getQuestions.php",
+            error: function(xhr, status, error) {
+  var err = eval("(" + xhr.responseText + ")");
+  alert(err.Message);
+}
         })
-         .fail(function (jqXHR, textStatus, error) {
-    console.log("Post error: " + error);
-})
         .done(function(data) {
             var questionNumber = 0;
             var questionBank = new Array();

@@ -90,6 +90,7 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){
+                            document.getElementById("howTo").setAttribute('disabled',false);
                             $("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
@@ -101,9 +102,10 @@ $(document).ready(function() {
                 }
                 $(document).on('click', '#next-question', function(){
                     changeQuestion();
+                    document.getElementById("howTo").removeAttribute("disabled");
                     $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                     $(".option").css('filter', 'brightness(100%)');
-                    $("#bg").css('filter', 'blur(0)');  
+                    $("#bg").css('filter', ''); 
                 })
             function changeQuestion() { 
                 document.getElementById('popop').innerHTML = "";

@@ -5,6 +5,9 @@ $(document).ready(function() {
             dataType: "json",
             url: "../php/getQuestions.php"
         })
+            .fail( function(d, textStatus, error) {
+         console.error("getJSON failed, status: " + textStatus + ", error: "+error)
+         })
         .done(function(data) {
             var questionNumber = 0;
             var questionBank = new Array();

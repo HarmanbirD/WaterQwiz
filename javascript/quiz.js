@@ -29,6 +29,7 @@ $(document).ready(function() {
             scrambleDatabase();
             displayQuestion();
 
+        })
             function scrambleDatabase(){
                 for(i = 0; i < 50; i++){ 
                     var rnd1 = Math.floor(Math.random() * questionBank.length);
@@ -137,7 +138,6 @@ $(document).ready(function() {
                 });
             }
 
-                })
             function outOfTime(){
                 document.getElementById("howTo").setAttribute('disabled',false);
                             $("#bg").css('filter', 'blur(1px)');

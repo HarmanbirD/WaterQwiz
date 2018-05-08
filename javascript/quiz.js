@@ -130,18 +130,8 @@ $(document).ready(function() {
             }
              
             function endGame() {
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div class = 'ends'><input type='submit' class='btn btn-info' value='Submit Button'></div>";
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'javascript:sendName()' class='btn btn-info' value='Submit Button'>";
             }
-            
-            $('.ends').click(function() {
-                var name = document.getElementById("sendName").value;
-                $.ajax({
-                    type: "POST",
-                     url: "../php/addScore.php",
-                    data: {name : name, score : score}
-                });
-
-            })
 
             function outOfTime(){
                 document.getElementById("howTo").setAttribute('disabled',false);

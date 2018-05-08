@@ -129,7 +129,7 @@ $(document).ready(function() {
             }
              
             function endGame() {
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'></button>";
             }
 
             function outOfTime(){

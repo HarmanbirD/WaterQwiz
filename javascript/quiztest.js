@@ -6,7 +6,37 @@ $(document).ready(function() {
         questionLock = false,
         numberOfQuestions,
         score = 0;
-    
+    var opts = {
+        angle: 0, // The span of the gauge arc
+        lineWidth: 0.15, // The line thickness
+        radiusScale: 0.25, // Relative radius
+        pointer: {
+            length: 0.6, // // Relative to gauge radius
+            strokeWidth: 0.025, // The thickness
+            color: '#000000' // Fill color
+        },
+        staticLabels: {
+            font: "12px newFont",  // Specifies font
+            labels: [100, 130, 150, 220.1, 260, 300],  // Print labels at these values
+            color: "#000000",  // Optional: Label text color
+            fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+        },
+        percentColors: [[0.0, "#ff0000" ], [0.30, "#f9c802"], [1.0, "#76d70b"]],
+        limitMax: true,     // If false, max value increases automatically if value > maxValue
+        limitMin: true,     // If true, the min value of the gauge will be fixed
+        strokeColor: '#E0E0E0',  // to see which ones work best for you
+        generateGradient: true,
+        highDpiSupport: true,     // High resolution support
+    };
+                        
+    var target = document.getElementById('waterMeter'); // your canvas element
+    var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+    gauge.maxValue = 100; // set max gauge value
+    gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+    gauge.animationSpeed = 62; // set animation speed (32 is default value)
+    gauge.set(100); // set actual value
+                        
+                        
     $.getJSON('questions.json', function (data) {
         var i;
         for (i = 0; i < data.quizlist.length; i++) {

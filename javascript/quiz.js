@@ -33,9 +33,7 @@ $(document).ready(function() {
             numberOfQuestions = questionBank.length;
             scrambleDatabase();
             displayQuestion();
-
-        })
-    })
+            
             function scrambleDatabase(){
                 for(i = 0; i < 50; i++){ 
                     var rnd1 = Math.floor(Math.random() * questionBank.length);
@@ -173,6 +171,8 @@ $(document).ready(function() {
                         }
                     }, 1000);
                 }
+                    })
+    })
                 window.onbeforeunload = function(evt){
                     if (typeof evt == 'undefined') {
                         evt = window.event;

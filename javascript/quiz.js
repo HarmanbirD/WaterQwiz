@@ -1,6 +1,12 @@
 
 
 $(document).ready(function() {   
+    $.ajax({
+        url : "../php/newGame.php"
+    })
+    .done(function(data) {
+        
+    
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";
@@ -9,7 +15,6 @@ $(document).ready(function() {
     var numberOfQuestions;
     var score = 0;
     var reset = false;
-    Session["Score"] = score;
         $.ajax({
             dataType: "json",
             url: "../php/getQuestions.php"
@@ -30,6 +35,7 @@ $(document).ready(function() {
             displayQuestion();
 
         })
+    })
             function scrambleDatabase(){
                 for(i = 0; i < 50; i++){ 
                     var rnd1 = Math.floor(Math.random() * questionBank.length);

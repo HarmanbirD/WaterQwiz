@@ -23,6 +23,7 @@ $(document).ready(function() {
                     }, 1000);
                 }
     function endGame() {
+        running = false;
         document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
     }
     var opts = {
@@ -176,7 +177,7 @@ $(document).ready(function() {
                     data: {name : name, score : score}
                 });
             }
-<<<<<<< HEAD
+            
             function outOfTime(){
                 document.getElementById("howTo").setAttribute('disabled',false);
                             $("#bg").css('filter', 'blur(1px)');
@@ -206,9 +207,6 @@ $(document).ready(function() {
                         }
                     }, 1000);
                 }
-            
-=======
->>>>>>> 4367b9f4083399471adcc213ca8832a776dccead
                 
             window.onbeforeunload = function(evt){
                 if (typeof evt == 'undefined') {

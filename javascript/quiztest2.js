@@ -1,23 +1,18 @@
-$(document).ready(function() {   
-    $.ajax({
-        url : "../php/newGame.php"
-    })
-    .done(function(data) {
-
-    var questionNumber = 0;
-    var questionBank = new Array();
-    var stage = "#questions";
-    var mainStage = "#popop";
-    var questionLock = false;
-    var numberOfQuestions;
-    var score = 0;
-    var reset = false;
-
+$(document).ready(function() {     
         $.ajax({
             dataType: "json",
-            url: "../php/getQuestions.php"
+            url: "../php/getQuestionsTest.php"
         })
         .done(function(data) {
+            var questionNumber = 0;
+            var questionBank = new Array();
+            var stage = "#questions";
+            var mainStage = "#popop";
+            var questionLock = false;
+            var numberOfQuestions;
+            var score = 0;
+            var reset = false;
+            
             for (i = 0; i < data.length; i++) {
                 questionBank[i] = new Array();
                 questionBank[i][0] = data[i].question;
@@ -31,7 +26,7 @@ $(document).ready(function() {
             numberOfQuestions = questionBank.length;
             scrambleDatabase();
             displayQuestion();
-            
+
             function scrambleDatabase(){
                 for(i = 0; i < 50; i++){ 
                     var rnd1 = Math.floor(Math.random() * questionBank.length);
@@ -128,9 +123,10 @@ $(document).ready(function() {
             }
              
             function endGame() {
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' class='form-control' id='name'></div><input type='submit' class='btn btn-info' value='Submit Button'>";
             }
 
+                })
             function outOfTime(){
                 document.getElementById("howTo").setAttribute('disabled',false);
                             $("#bg").css('filter', 'blur(1px)');
@@ -160,9 +156,6 @@ $(document).ready(function() {
                         }
                     }, 1000);
                 }
-                    })
-    })
-                
                 window.onbeforeunload = function(evt){
                     if (typeof evt == 'undefined') {
                         evt = window.event;
@@ -174,15 +167,5 @@ $(document).ready(function() {
                     return  evt.returnValue;
                 };
 });
-
-            function sendName() {
-                var name = document.getElementById("sendNames").value;
-                $.ajax({
-                    type: "POST",
-                     url: "../php/addScore.php",
-                    data: {name : name}
-                });
-            }
-
 
 

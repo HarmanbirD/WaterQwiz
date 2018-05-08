@@ -128,7 +128,11 @@ $(document).ready(function() {
             }
              
             function endGame() {
+<<<<<<< HEAD
                 document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'></button>";
+=======
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
+>>>>>>> master
             }
 
             function outOfTime(){
@@ -176,7 +180,11 @@ $(document).ready(function() {
 });
 
             function sendName() {
+<<<<<<< HEAD
                 var name = document.getElementById("sendName").value;
+=======
+                var name = document.getElementById("sendNames").value;
+>>>>>>> master
                 $.ajax({
                     type: "POST",
                      url: "../php/addScore.php",

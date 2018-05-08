@@ -182,7 +182,7 @@ $(document).ready(function() {
                 $.ajax({
                     type: "POST",
                      url: "../php/addScore.php",
-                    data: {name : name, score : score}
+                    data: {name : name}
                 });
             }
 

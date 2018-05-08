@@ -10,8 +10,8 @@ $(document).ready(function() {
   
     var opts = {
         angle: 0, // The span of the gauge arc
-        lineWidth: 0.15, // The line thickness
-        radiusScale: 0.25, // Relative radius
+        lineWidth: 0.30, // The line thickness
+        radiusScale: 1.00, // Relative radius
         pointer: {
             length: 0.6, // // Relative to gauge radius
             strokeWidth: 0.025, // The thickness
@@ -170,7 +170,7 @@ $(document).ready(function() {
                         if (running){
                             seconds = parseInt(timer % 60, 10);
                             seconds = seconds < 10 ? "0" + seconds : seconds;
-                            display.textContent = seconds;
+                            display.innerText = 'Time Left: ' + seconds;
                             timer--;
                             if (timer < 0) {
                                 outOfTime();

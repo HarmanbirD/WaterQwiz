@@ -1,7 +1,7 @@
 $(document).ready(function() {     
         $.ajax({
             dataType: "json",
-            url: "../php/getQuestions.php"
+            url: "../php/getQuestionsTest.php"
         })
         .done(function(data) {
             var questionNumber = 0;

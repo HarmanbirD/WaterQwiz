@@ -123,6 +123,11 @@ footer {
     border : 2px solid black;
 }
 
+#waterMeter{
+    height: 15vh;
+    width: 15vw;
+}
+
 #popop{
     position: fixed; /* or absolute */
     z-index: 1;

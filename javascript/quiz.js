@@ -1,20 +1,20 @@
 
 
-$(document).ready(function() {     
+$(document).ready(function() {   
+    var questionNumber = 0;
+    var questionBank = new Array();
+    var stage = "#questions";
+    var mainStage = "#popop";
+    var questionLock = false;
+    var numberOfQuestions;
+    var score = 0;
+    var reset = false;
+    Session["Score"] = score;
         $.ajax({
             dataType: "json",
             url: "../php/getQuestions.php"
         })
         .done(function(data) {
-            var questionNumber = 0;
-            var questionBank = new Array();
-            var stage = "#questions";
-            var mainStage = "#popop";
-            var questionLock = false;
-            var numberOfQuestions;
-            var score = 0;
-            var reset = false;
-            
             for (i = 0; i < data.length; i++) {
                 questionBank[i] = new Array();
                 questionBank[i][0] = data[i].question;

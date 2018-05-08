@@ -165,14 +165,6 @@ $(document).ready(function() {
                     })
     })
                 
-            function sendName() {
-                var name = document.getElementById("sendName").value;
-                $.ajax({
-                    type: "POST",
-                     url: "../php/addScore.php",
-                    data: {name : name, score : score}
-                });
-            }
                 window.onbeforeunload = function(evt){
                     if (typeof evt == 'undefined') {
                         evt = window.event;
@@ -184,5 +176,15 @@ $(document).ready(function() {
                     return  evt.returnValue;
                 };
 });
+
+            function sendName() {
+                var name = document.getElementById("sendName").value;
+                $.ajax({
+                    type: "POST",
+                     url: "../php/addScore.php",
+                    data: {name : name, score : score}
+                });
+            }
+
 
 

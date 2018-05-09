@@ -1,5 +1,6 @@
+var score = 0;
+
 $(document).ready(function() {   
-    var score = 0;
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";

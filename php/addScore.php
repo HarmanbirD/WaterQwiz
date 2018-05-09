@@ -19,6 +19,4 @@ if (isset($_POST['name'])) {
 	$query = "INSERT INTO leaderboard (name, score) VALUES (" . $_POST['name'] . ", " . $_POST['score'] . ");";
 	sqlsrv_query($conn, $query);
     }
-
-session_destroy();
 ?>

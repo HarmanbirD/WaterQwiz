@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $serverName = "tcp:waterqwiz.database.windows.net, 1433";
 
 $connectionOptions = array("Database" => "WaterQwiz",

@@ -174,14 +174,13 @@ $(document).ready(function() {
                 };
 });
 
-            function sendName() {
-                var name = document.getElementById("sendNames").value;
-                $.ajax({
-                    type: "POST",
-                     url: "../php/addScore.php",
-                    data: {name : name, score : score}
-                });
-            }
+function sendName() {
+	var name = document.getElementById("sendNames").value;
+	$.ajax({
+		type: "POST",
+		data: {name : name, score : score}
+	});
+	}
 
 
 

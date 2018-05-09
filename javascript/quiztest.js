@@ -7,55 +7,57 @@ $(document).ready(function() {
         numberOfQuestions,
         score = 0,
         running = true;
+        
     function startTimer(duration) {
-                var running = true;
-                var timer = duration, seconds
-                    setInterval(function () {
-                        if (running){
-                            seconds = parseInt(timer % 60, 10);
-                            seconds = seconds < 10 ? "0" + seconds : seconds;
-                            gauge.set(timer);
-                            timer--;
-                            if (timer < 0) {
-                                endGame();
-                            }
-                        }
-                    }, 1000);
-                }
-    function endGame() {
+        var timer = duration, seconds    
+        setInterval(function () {
+        gauge.set(timer);
+        document.getElementById('waterMeter-value').innerHTML = timer;
+        if (running){
+            seconds = parseInt(timer % 60, 10);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            timer--;    
+        }
+        gauge.set(timer);
+        document.getElementById('waterMeter-value').innerHTML = timer;
+        if (timer == 0) {
+            endGame();
+            }
+        }, 1000);
+    }
+    
+    function endGame() {    
         running = false;
         document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
     }
     var opts = {
-        angle: 0, // The span of the gauge arc
-        lineWidth: 0.30, // The line thickness
-        radiusScale: 1.00, // Relative radius
+        angle: -0.30, // The span of the gauge arc
+        lineWidth: 0.10, // The line thickness
+        radiusScale:0.50, // Relative radius
         pointer: {
-            length: 0.6, // // Relative to gauge radius
-            strokeWidth: 0.025, // The thickness
-            color: '#000000' // Fill color
+            strokeWidth: 0.00, // The thickness
+            color: "#EEEEEE"
         },
         staticLabels: {
-            font: "12px newFont",  // Specifies font
-            labels: [100, 130, 150, 220.1, 260, 300],  // Print labels at these values
-            color: "#000000",  // Optional: Label text color
-            fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+        font: "10px newFont",
+        labels: [0, 25, 50, 75, 100],
+        fractionDigits: 0
         },
+
+        // Use this if not use staticZones, need team feedback
         percentColors: [[0.0, "#ff0000" ], [0.30, "#f9c802"], [1.0, "#76d70b"]],
         limitMax: true,     // If false, max value increases automatically if value > maxValue
         limitMin: true,     // If true, the min value of the gauge will be fixed
-        strokeColor: '#E0E0E0',  // to see which ones work best for you
         generateGradient: true,
         highDpiSupport: true,     // High resolution support
     };
     //start timer
-    startTimer(100)            
+    startTimer(100);         // set actual value
     var target = document.getElementById('waterMeter'); // your canvas element
     var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
     gauge.maxValue = 100; // set max gauge value
     gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    gauge.animationSpeed = 62; // set animation speed (32 is default value)
-    gauge.set(100); // set actual value
+    gauge.animationSpeed = 16; // set animation speed (32 is default value)
                         
                         
     $.getJSON('questions.json', function (data) {
@@ -190,29 +192,7 @@ $(document).ready(function() {
                             $(".option").css('filter', 'brightness(80%)');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Out of Time!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
             }
-            function startTimer(duration, display) {
-                var running = true;
-                var timer = duration, seconds
-                    setInterval(function () {
-                        if (running){
-                            seconds = parseInt(timer % 60, 10);
-                            seconds = seconds < 10 ? "0" + seconds : seconds;
-                            display.innerText = 'Time Left: ' + seconds;
-                            timer--;
-                            if (timer < 0) {
-                                outOfTime();
-                                timer = duration;
-                                running = false;
-                            }
-                            else if(reset){
-                                timer = duration;
-                                running = false;
-                                reset = false;
-                            }
-                        }
-                    }, 1000);
-                }
-                
+                            
             window.onbeforeunload = function(evt){
                 if (typeof evt == 'undefined') {
                     evt = window.event;

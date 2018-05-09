@@ -1,8 +1,4 @@
 $(document).ready(function() {   
-    $.ajax({
-        url : "../php/newGame.php"
-    })
-    .done(function(data) {
     var score = 0;
     var questionNumber = 0;
     var questionBank = new Array();
@@ -183,8 +179,8 @@ $(document).ready(function() {
             }
 
 
-                    })
-    })
+        })
+
                 
                 window.onbeforeunload = function(evt){
                     if (typeof evt == 'undefined') {

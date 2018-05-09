@@ -142,6 +142,3 @@ function sendName() {
         data: {name : name, score : score}
     });
 }
-
-
-

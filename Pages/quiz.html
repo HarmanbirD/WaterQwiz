@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../styles/projects.css">
     <link rel="icon" href="../images/WQ-logo2.0.png">
-    <script src="../javascript/quiz.js"></script>
+    <script src="../javascript/quiztest.js"></script>
      <script src="../javascript/gauge.min.js"></script>
 </head>
 
@@ -23,10 +23,11 @@
         </div>
 
         <div class="container-fluid" id="menu-container2">
+            <div id="meterContainer">
+                <canvas id="waterMeter"></canvas>
+                <div id="waterMeter-value" style="font-size: 24px;"></div>
+            </div>
             <div class = "quiz">
-                <div class="row">
-                    <canvas id="waterMeter"></canvas>
-                </div>
                 <div id = "questions"></div>
             </div>
             <div class="row-right">

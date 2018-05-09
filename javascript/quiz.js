@@ -1,9 +1,9 @@
+var score = 0;
 $(document).ready(function() {   
     $.ajax({
         url : "../php/newGame.php"
     })
     .done(function(data) {
-    var score = 0;
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";

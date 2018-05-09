@@ -16,7 +16,7 @@ if($conn === false)
 }
 
 if (isset($_POST['name'])) {
-	$query = "INSERT INTO leaderboard (name, score) VALUES (" . $_POST['name'] . ", " . $_SESSION['score'] . ");";
+	$query = "INSERT INTO leaderboard (name, score) VALUES (" . $_POST['name'] . ", " . $_POST['score'] . ");";
 	sqlsrv_query($conn, $query);
     }
 

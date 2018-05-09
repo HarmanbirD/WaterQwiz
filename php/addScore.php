@@ -5,8 +5,8 @@
 $serverName = "tcp:waterqwiz.database.windows.net, 1433";
 
 $connectionOptions = array("Database" => "WaterQwiz",
-                          "UID" => "waterqwiz@waterqwiz",
-                          "PWD" => "BCIT_Jacob");
+                           "UID" => "waterqwiz@waterqwiz",
+                           "PWD" => "BCIT_Jacob");
 
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 

@@ -15,8 +15,8 @@ if($conn === false)
     die(print_r(sqlsrv_errors(), true));
 }
 
-error_log("INSERT INTO leaderboard (name, score) VALUES ("\' . $_POST['name'] . "\', \'" . $_POST['score'] . "\');");
+error_log("INSERT INTO leaderboard (name, score) VALUES (\'" . $_POST['name'] . "\', \'" . $_POST['score'] . "\');");
 
-$query = "INSERT INTO leaderboard (name, score) VALUES ("\' . $_POST['name'] . "\', \'" . $_POST['score'] . "\');");
+$query = "INSERT INTO leaderboard (name, score) VALUES (\'" . $_POST['name'] . "\', \'" . $_POST['score'] . "\');");
 sqlsrv_query($conn, $query);
 ?>

@@ -52,7 +52,7 @@ $(document).ready(function() {
         highDpiSupport: true,     // High resolution support
     };
     //start timer
-    startTimer(100);         // set actual value
+    startTimer(3);         // set actual value
     var target = document.getElementById('waterMeter'); // your canvas element
     var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
     gauge.maxValue = 100; // set max gauge value

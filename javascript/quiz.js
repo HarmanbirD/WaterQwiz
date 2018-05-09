@@ -3,14 +3,13 @@ $(document).ready(function() {
         url : "../php/newGame.php"
     })
     .done(function(data) {
-
+    Session["score"] = 0;
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";
     var mainStage = "#popop";
     var questionLock = false;
     var numberOfQuestions;
-    var score = 0;
     var reset = false;
 
         $.ajax({
@@ -80,7 +79,7 @@ $(document).ready(function() {
           
                 var display = document.querySelector('#timer');
                 startTimer(10, display);
-                $(stage).append('<div class = "score">Score: '+score+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" id = "btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id = "btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id = "btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id = "btn-4" class="btn btn-default btn-lg">'+q4+'</button></div>');
+                $(stage).append('<div class = "score">Score: '+Session["score"]+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" id = "btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id = "btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id = "btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id = "btn-4" class="btn btn-default btn-lg">'+q4+'</button></div>');
                 $(stage).css("right","-1000px");
                 $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
                 $(stage).animate({"right": "+=1000px"},"slow","swing");
@@ -91,7 +90,7 @@ $(document).ready(function() {
                         
                         if(this.id==rnd){
                             $("#btn-"+this.id+"").css('background-color', 'green');
-                            score++;
+                            Session["score"] = Session["score"] + 1;
                             changeQuestion();
                         }
                         if(this.id!=rnd){
@@ -128,11 +127,7 @@ $(document).ready(function() {
             }
              
             function endGame() {
-<<<<<<< HEAD
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'></button>";
-=======
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
->>>>>>> master
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + Session["score"] + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
             }
 
             function outOfTime(){
@@ -180,11 +175,7 @@ $(document).ready(function() {
 });
 
             function sendName() {
-<<<<<<< HEAD
-                var name = document.getElementById("sendName").value;
-=======
                 var name = document.getElementById("sendNames").value;
->>>>>>> master
                 $.ajax({
                     type: "POST",
                      url: "../php/addScore.php",

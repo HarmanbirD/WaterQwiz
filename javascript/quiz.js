@@ -11,6 +11,62 @@ $(document).ready(function() {
     var questionLock = false;
     var numberOfQuestions;
 
+    
+    function startTimer(duration, display) {
+                var running = true;
+                var timer = duration, seconds
+                    setInterval(function () {
+                        if (running){
+                            seconds = parseInt(timer % 60, 10);
+                            seconds = seconds < 10 ? "0" + seconds : seconds;
+                            display.textContent = seconds;
+                            timer--;
+                            if (timer < 0) {
+                                endGame();
+                                timer = duration;
+                                running = false;
+                            }
+                        }
+                    }, 1000);
+    }
+    
+    function endGame() {
+        running = false;
+        document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
+    }
+    
+    var opts = {
+        angle: 0, // The span of the gauge arc
+        lineWidth: 0.30, // The line thickness
+        radiusScale: 1.00, // Relative radius
+        pointer: {
+            length: 0.6, // // Relative to gauge radius
+            strokeWidth: 0.025, // The thickness
+            color: '#000000' // Fill color
+        },
+        staticLabels: {
+            font: "12px newFont",  // Specifies font
+            labels: [100, 130, 150, 220.1, 260, 300],  // Print labels at these values
+            color: "#000000",  // Optional: Label text color
+            fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+        },
+        percentColors: [[0.0, "#ff0000" ], [0.30, "#f9c802"], [1.0, "#76d70b"]],
+        limitMax: true,     // If false, max value increases automatically if value > maxValue
+        limitMin: true,     // If true, the min value of the gauge will be fixed
+        strokeColor: '#E0E0E0',  // to see which ones work best for you
+        generateGradient: true,
+        highDpiSupport: true,     // High resolution support
+    };
+    //start timer
+    startTimer(100);           
+    var target = document.getElementById('waterMeter'); // your canvas element
+    var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+    gauge.maxValue = 100; // set max gauge value
+    gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+    gauge.animationSpeed = 62; // set animation speed (32 is default value)
+    gauge.set(100); // set actual value
+    
+
         $.ajax({
             dataType: "json",
             url: "../php/getQuestions.php"
@@ -76,7 +132,6 @@ $(document).ready(function() {
                     q3=questionBank[questionNumber][3];
                 }
           
-                var display = document.querySelector('#timer');
                 $(stage).append('<div class = "score">Score: '+score+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" id = "btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id = "btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id = "btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id = "btn-4" class="btn btn-default btn-lg">'+q4+'</button></div>');
                 $(stage).css("right","-1000px");
                 $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
@@ -126,6 +181,7 @@ $(document).ready(function() {
             function endGame() {
                 document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
             }
+
 
                     })
     })

@@ -146,6 +146,6 @@ function sendName() {
         $("#bg").css('filter', 'blur(1px)');
         $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
         $(".option").css('filter', 'brightness(80%)');
-        $(mainStage).append('<div class="modal fade" id="leaderboard-modal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4><button type="button" class="close" data-dismiss="modal">&times;</button></div><div id = "leaders" class="modal-body">Error loading leaderboard.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "./images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" onclick = "../index.html" class="btn btn-danger" data-dismiss="modal">Close</button></div></div></div></div></div></div>');
+        $(mainStage).append('<div class="modal fade" id="leaderboard-modal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4><button type="button" class="close" data-dismiss="modal">&times;</button></div><div id = "leaders" class="modal-body">Error loading leaderboard.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" onclick = "../index.html" class="btn btn-danger" data-dismiss="modal">Close</button></div></div></div></div></div></div>');
     })}
 

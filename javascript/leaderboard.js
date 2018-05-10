@@ -22,7 +22,7 @@ $(document).ready(function() {
             displayLeaderboards();
             
             function displayLeaderboards() {
-                code += "<div class = 'table-responsive'><table class = 'table'><tr><th></th><th>NAME</th><th>SCORE</th></tr>";
+                code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
                 for (i = 0; i < 10; i++) {
                     if (count != 0 && count % 10 == 0) {
                         code += "<div class = 'table-responsive'><table class = 'table'>";

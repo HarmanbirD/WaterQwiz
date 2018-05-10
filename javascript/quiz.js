@@ -1,9 +1,9 @@
 var score = 0;
+var mainStage = "#popop";
 $(document).ready(function() {   
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";
-    var mainStage = "#popop";
     var questionLock = false;
     var numberOfQuestions;
     
@@ -140,7 +140,7 @@ function sendName() {
         type: "POST",
          url: "../php/addScore.php",
         data: {name : name, score : score}
-    });
+    })
     .done(function(data) {
         document.getElementById("howTo").setAttribute('disabled',false);
         $("#bg").css('filter', 'blur(1px)');
@@ -148,4 +148,4 @@ function sendName() {
         $(".option").css('filter', 'brightness(80%)');
         $(mainStage).append('<div class="modal fade" id="leaderboard-modal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4><button type="button" class="close" data-dismiss="modal">&times;</button></div><div id = "leaders" class="modal-body">Error loading leaderboard.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "./images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" onclick = "../index.html" class="btn btn-danger" data-dismiss="modal">Close</button></div></div></div></div></div></div>');
     })}
-}
+

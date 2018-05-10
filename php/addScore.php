@@ -2,6 +2,8 @@
 
 // Call this with POST['name'] as the name to enter and score is a session variable.
 
+session_start();
+
 $serverName = "tcp:waterqwiz.database.windows.net, 1433";
 
 $connectionOptions = array("Database" => "WaterQwiz",

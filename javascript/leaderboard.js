@@ -22,12 +22,14 @@ $(document).ready(function() {
             displayLeaderboards();
             
             function displayLeaderboards() {
-                code += "<div class = 'table-responsive'><table class = 'table'><tr><th>NAME</th><th>SCORE</th></tr>";
-                for (i = 0; i < data.length; i++) {
+                code += "<div class = 'table-responsive'><table class = 'table'><tr><th></th><th>NAME</th><th>SCORE</th></tr>";
+                for (i = 0; i < 10; i++) {
                     if (count != 0 && count % 10 == 0) {
                         code += "<div class = 'table-responsive'><table class = 'table'>";
                     }
                     code += "<tr><th>";
+                    code += "" + (i + 1) + "";
+                    code += "</th><th>"; 
                     code += leaders[i][0]; 
                     code += "</th><th>"; 
                     code += leaders[i][1]; 

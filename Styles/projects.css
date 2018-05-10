@@ -73,7 +73,6 @@ footer {
     min-height: 450px;
     margin: auto;
 	border-radius: 1em;
-    padding: 30px;
     min-width: 200px;
     overflow: hidden;
     position: relative;
@@ -123,9 +122,23 @@ footer {
     border : 2px solid black;
 }
 
+#meterContainer{
+    position:relative;
+    text-align:center;
+}
+
 #waterMeter{
-    height: 15vh;
-    width: 15vw;
+    width: 30%;
+    height: 40%;
+}
+
+#waterMeter-value{
+    font-family:newFont;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
 }
 
 #popop{

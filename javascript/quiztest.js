@@ -28,7 +28,7 @@ $(document).ready(function() {
     
     function endGame() {    
         running = false;
-        document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
+        document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
     }
     var opts = {
         angle: -0.30, // The span of the gauge arc
@@ -52,7 +52,7 @@ $(document).ready(function() {
         highDpiSupport: true,     // High resolution support
     };
     //start timer
-    startTimer(3);         // set actual value
+    startTimer(50);         // set actual value
     var target = document.getElementById('waterMeter'); // your canvas element
     var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
     gauge.maxValue = 100; // set max gauge value

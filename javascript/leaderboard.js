@@ -27,8 +27,9 @@ $(document).ready(function() {
                     if (count != 0 && count % 10 == 0) {
                         code += "<div class = 'table-responsive'><table class = 'table'>";
                     }
+                    var currentNumb = i;
                     code += "<tr><th>";
-                    code += "" + (i + 1) + "";
+                    code += "" + (currentNumb + 1) + "";
                     code += "</th><th>"; 
                     code += leaders[i][0]; 
                     code += "</th><th>"; 

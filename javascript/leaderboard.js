@@ -23,7 +23,7 @@ $(document).ready(function() {
             
             function displayLeaderboards() {
                 code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < leaders.length && i < 10; i++) {
                     if (count != 0 && count % 10 == 0) {
                         code += "<div class = 'table-responsive'><table class = 'table'>";
                     }

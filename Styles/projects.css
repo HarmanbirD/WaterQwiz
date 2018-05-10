@@ -91,6 +91,13 @@ footer {
     width: 75px;
 }
 
+.btn {
+    font-family: newFont;
+    width: 50%;
+    min-width: 150px;
+    border-style: none;
+}
+
 #howTo {
     background: url(../images/help.png);
     background-size: 50px;

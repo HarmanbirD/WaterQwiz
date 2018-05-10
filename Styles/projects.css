@@ -63,7 +63,7 @@ footer {
     max-width: 30%;
     font-family: newFont;
     width: 15%;
-    min-width: 200px;
+    min-width: 150px;
     border-style: none;
 }
 
@@ -89,6 +89,10 @@ footer {
 #modal-drippy {
     float: left;
     width: 75px;
+}
+
+#btn-quiz {
+    min-width: 200px;
 }
 
 #howTo {

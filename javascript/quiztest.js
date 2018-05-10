@@ -7,21 +7,23 @@ $(document).ready(function() {
         numberOfQuestions,
         score = 0,
         running = true;
+    var timer;
         
     function startTimer(duration) {
-        var timer = duration, seconds    
+        timer = duration;
         setInterval(function () {
-        gauge.set(timer);
-        document.getElementById('waterMeter-value').innerHTML = timer;
-        if (running){
-            seconds = parseInt(timer % 60, 10);
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-            timer--;    
-        }
-        gauge.set(timer);
-        document.getElementById('waterMeter-value').innerHTML = timer;
-        if (timer == 0) {
-            endGame();
+            if(timer >100){
+                timer = 100;
+            }
+            gauge.set(timer);
+            document.getElementById('waterMeter-value').innerHTML = timer;
+            if (running){
+                timer--; 
+            }
+            gauge.set(timer);
+            document.getElementById('waterMeter-value').innerHTML = timer;
+            if (timer == 0) {
+                endGame();
             }
         }, 1000);
     }
@@ -52,7 +54,7 @@ $(document).ready(function() {
         highDpiSupport: true,     // High resolution support
     };
     //start timer
-    startTimer(3);         // set actual value
+    startTimer(100);         // set actual value
     var target = document.getElementById('waterMeter'); // your canvas element
     var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
     gauge.maxValue = 100; // set max gauge value
@@ -133,9 +135,11 @@ $(document).ready(function() {
                         if(this.id==rnd){
                             $("#btn-"+this.id+"").css('background-color', 'green');
                             score++;
+                            timer +=3;
                             changeQuestion();
                         }
                         if(this.id!=rnd){
+                            timer-=3;
                             document.getElementById("howTo").setAttribute('disabled',false);
                             $("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');

@@ -2,7 +2,7 @@ $(document).ready(function() {
     document.getElementById ("banner").addEventListener ("click", updateCounter, false);
         var count = 0;
         function updateCounter() {
-            if (count == 0) {
+            if (count % 10 == 0 && count != 0) {
                 document.getElementById("bannerIndex").innerHTML = "<img id='banner' src='./images/banner-lg-new2.0.png' alt='Banner'>";
             }
             count++;  

@@ -143,6 +143,7 @@ function sendName() {
         data: {name : name, score : score}
     })
     .done(function(data) {
+        document.getElementById('popop').innerHTML = "";
         $("#bg").css('filter', 'blur(1px)');
         document.getElementById("howTo").setAttribute('disabled',false);
         $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');

@@ -3,8 +3,8 @@ $(document).ready(function() {
         var count = 0;
         function updateCounter() {
             count++;  
-            if (count == 10) {
-                return "jacobsmith.xyz";
+            if (count == 9) {
+                document.getElementById("banner").setAttribute('onclick', 'jacobsmith.xyz');
             }
     }
 });

@@ -4,7 +4,7 @@ $(document).ready(function() {
         function updateCounter() {
             count++;  
             if (count == 9) {
-                document.getElementById("banner").setAttribute('onclick', 'jacobsmith.xyz');
+                document.getElementById("bannerIndex").innerHTML = "<a href='jacobsmith.xyz' target='whatever'><img id='banner' src='./images/banner-lg-new2.0.png' alt='Banner'>";
             }
     }
 });

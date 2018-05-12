@@ -1,4 +1,4 @@
-/* Font definition */
+/* Font definitions.*/
 @font-face {
     font-family: newFont;
     src:  url('../fonts/HandDrawnShapes.ttf') format('truetype');
@@ -73,10 +73,11 @@ footer {
  }
 
 .btn:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center; /* change the direction of the gradient color change here */
   box-shadow: 0 0 20px #888;
 }
 
+/* btn setting for when the screen has higher width than 720px*/
 @media screen and (min-width: 720px) {
     .btn {
         width: 70%;
@@ -86,17 +87,7 @@ footer {
     }
 }
 /* Magic End -> */
-
-#popop{
-    position: fixed; /* or absolute */
-    z-index: 1;
-    opacity: .9;
-    width: 80%;
-    top:25%;
-    left:50%;
-    transform: translate(-50%,-25%);
-}
-
+/* Settings for overwritting bootstrap fade modals*/
 .modal{
     top: 35%;
     transform: translateY(-40%);
@@ -140,7 +131,6 @@ footer {
     }
 }
 
-
 .modal-backdrop{
   opacity:0; transition:opacity .2s;
 }
@@ -148,32 +138,27 @@ footer {
   opacity:.7;
 }
 
-.icon {
-    width: 25%;
-    max-width: 70%;
-    max-height: 95%;
-    mix-blend-mode: multiply;
-}
-
+/*Row containing help-icon*/
 .row-right {
     text-align: right;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/*Settings for questions */
 .questionText {
     position:relative;
     font-size: 20px;
     color: black;
 }
-
+/*Settings for button options*/
 .option {
     text-align: center;
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
-/*Basic Styling*/
+/*Container includes: questions,options and help-icon*/
 #menu-container2 {
     position: relative;
 	border-radius: 1em;
@@ -181,28 +166,24 @@ footer {
     width: 80%;
     min-height: 30vh;
 }
-
-#meterContainer{
-    position:relative;
-    text-align:center;
-    clear:both;
-}
-
+/*potential settings for back button*/
 #back{
     width:100%;
     height:100%;
 }
 
-
-#quizStatus{
-   
+/*Set relative for children to have settings reference to*/
+#waterMeter{
+    position:relative;
 }
 
+/*Setting for Score Image*/
 #score{
     height : 100%;
     width: 100%;
     max-width: 250px;
 }
+/*Setting for Score number*/
 #totalScore{
     text-align:right;
     padding-right: 1em;
@@ -211,15 +192,13 @@ footer {
     height:100%;
 }
 
-#waterMeter{
-    position:relative;
-}
-
+/*Timer image settings*/
 #watertap{
     width: 30%;
     height: 30%;
 }
 
+/*Timer value settings*/
 #waterMeter-value{
     position:absolute;
     font-family:ValkenRegular;
@@ -229,16 +208,12 @@ footer {
     transform: translate(-50%,-50%);
 }
 
+/*Question conatiner settings*/
 #questions {
     margin: auto;
     text-align: center;
     position: relative;
     right: 0px;
-}
-#hp{
-    background-image: url("../images/medium_vertical_bar_u2759_icon_256x256.png");
-    background-repeat: repeat-y;
-    background-size: cover;
 }
 
 /*drippy*/
@@ -247,16 +222,25 @@ footer {
     width: 75px;
 }
 
-/*Styling for popups*/
+/* Correct&Wrong popup setting*/
+#popop{
+    position: fixed; /* or absolute */
+    z-index: 1;
+    opacity: .9;
+    width: 80%;
+    top:25%;
+    left:50%;
+    transform: translate(-50%,-25%);
+}
 #opaque {
     opacity: .6;
 }
-
+/*next question setting*/
 #next-question {
     color: black;
     border : 2px solid black;
 }
-
+/*Howto modal settings*/
 #howTo {
     background: url(../images/help.png);
     background-size: 50px;

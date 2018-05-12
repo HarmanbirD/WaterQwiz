@@ -1,0 +1,168 @@
+/* Font definition */
+@font-face {
+    font-family: newFont;
+    src:  url('../fonts/HandDrawnShapes.ttf') format('truetype');
+}
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */
+@font-face {
+    font-family: "ValkenRegular";
+    src: url('../fonts/Valken__.eot') format('eot'), 
+         url('../fonts/Valken__.woff') format('woff'), 
+         url('../fonts/Valken__.ttf') format("truetype"), 
+         url('../fonts/Valken__.svg') format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body, html {
+    position:relative;
+    font-family: ValkenRegular;
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+}
+
+body {
+    background-image: url("../images/see-clipart-mountain-landscape-7.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+
+footer {
+    position: fixed;
+    bottom:0;
+    color: black; 
+    font-size: 2vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index : -1;
+}
+
+
+.content{
+    position:relative;
+    width: 100%;
+}
+
+/*Gradient effect on button backgrounds*/
+/* <- Magic Start! */
+.btn {
+  flex: 1 1 auto;
+  padding: 5px;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #7FC6FE   0%, #c2e9fb 51%, #7FC6FE   100%);
+  background-size: 200% auto;
+  transition: 0.5s;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width:80%;
+  min-width: 150px;
+  border-style: none;
+ }
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+  box-shadow: 0 0 20px #888;
+}
+
+@media screen and (min-width: 720px) {
+    .btn {
+        width:60%;
+        min-width: 150px;
+        border-style: none;
+        font-size: 2.5em;
+    }
+}
+/* Magic End -> */
+
+.modal-title{
+    font-size: 1em;
+}
+
+.modal-dialog{
+    font-size: 2em;
+}
+
+.modal-footer button{
+    width: 25%;
+}
+
+@media screen and (max-width: 350px) {
+    .modal-footer button{
+        width: 10%;
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    
+    .modal{
+        height:100%;
+        top: 50%;
+        left: 20%;
+        transform: translate(-10%,-50%);
+    }
+    .modal-dialog{
+        width: 80%;
+        font-size: 2em;
+    }
+    
+    .modal-footer button{
+        font-size: 1em;
+    }
+}
+
+.modal-backdrop{
+  opacity:0; transition:opacity .2s;
+}
+.modal-backdrop.in{
+  opacity:.7;
+}
+
+
+.icon {
+    width: 25%;
+    max-width: 70%;
+    max-height: 95%;
+    mix-blend-mode: multiply;
+}
+
+
+.row {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 2em;
+}
+
+
+.option {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/*Basic Styling*/
+
+#banner {
+    width:80%;
+    max-width: 500px;
+    margin-bottom: 1em;
+    margin-top: 1em;    
+}
+
+#menu-container{
+    position: absolute;
+    width: 80%;
+	border-radius: 1em;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+/*drippy*/
+#modal-drippy {
+    width: 100px;
+    height: ;
+}

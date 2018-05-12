@@ -10,32 +10,39 @@
     <link   rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link   rel = "stylesheet" href="../styles/projects.css">
+    <link   rel = "stylesheet" href="../Styles/quiz.css">
     <link   rel = "icon" href="../images/WQ-logo2.0.png">
-    <script src = "../javascript/quiz.js"></script>
-    <script src = "../javascript/gauge.min.js"></script>
+    <script src = "../javascript/quiztest.js"></script>
     <script src = "../javascript/leaderboard.js"></script>
+    <!-- Trick fix to scale font to Score image height-->
+    <script src = "../javascript/quizStatus.js"></script> 
 </head>
 
 <body>
     <div id="bg">
-        <div class="text-center">
-            <a href="../index.html"><img id="quizbanner" src="../images/banner-lg-new2.0.png" alt="Banner"></a>
+        <!-- Quiz Status including Image of Score and number for score-->
+         <div class="row" id="quizStatus">
+            <div class="col-xs-6"><img id="score" src="../images/Score.png" alt="Score: "></div>
+            <div class="col-xs-6" id="totalScore">0</div>
         </div>
-
+        
+        <!-- Quiz container: includes statusBar, Score, Questions and Options-->
         <div class="container-fluid" id="menu-container2">
-            <div class="row">
-                <div class="col-xs-6">Score:</div>
-                <div class="col-xs-6"><div id="meterContainer"><canvas id="waterMeter"></canvas><div id="waterMeter-value" style="font-size: 24px;"></div></div>
-            </div>
-            <div class = "quiz">
+           
+            <div class="row"> <!-- waterMeter -->
+                <div id="waterMeter"><img class="watertap" width="100px" height="100px" src="../images/watertap.gif" alt="watertap"><div id="waterMeter-value"></div></div>
+            </div>                    
+            
+            <div class = "quiz row"> <!-- Questions -->
                 <div id = "questions"></div>
             </div>
-            <div class="row-right">
+           
+            <div class="row-right"> <!-- how to play icon -->
                 <button id = "howTo" data-toggle="modal" data-target="#how-to-play-modal">
                 </button>
             </div>
-            </div>
+        </div>
+        <!-- Popups modals -->
             <div class="modal fade" id="how-to-play-modal">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -54,6 +61,7 @@
             </div>
         </div>
     </div>
+    <!-- Popup for correct& wrong-->
     <div id = "popop"></div>
 
     <footer>

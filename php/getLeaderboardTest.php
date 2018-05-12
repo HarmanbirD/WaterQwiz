@@ -2,12 +2,13 @@
 
 $conn = new mysqli_connect("localhost", "root", "", "waterqwiz");
 
-if (mysqli_connect_errno()) {
-    die("Connection error");
+if($conn === false)
+{
+    die(print_r(mysqli_connect_errno(), true));
 }
 
 $tempArray = array();
-$result = mysqli_query($conn, "SELECT * FROM questions;");
+$result = mysqli_query($conn, "SELECT name, score FROM leaderboard ORDER BY score DESC;");
 
 if($result === false) {
     die( print_r( mysqli_connect_error(), true) );

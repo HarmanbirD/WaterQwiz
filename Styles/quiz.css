@@ -1,0 +1,286 @@
+/* Font definition */
+@font-face {
+    font-family: newFont;
+    src:  url('../fonts/HandDrawnShapes.ttf') format('truetype');
+}
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */
+@font-face {
+    font-family: "ValkenRegular";
+    src: url('../fonts/Valken__.eot') format('eot'), 
+         url('../fonts/Valken__.woff') format('woff'), 
+         url('../fonts/Valken__.ttf') format("truetype"), 
+         url('../fonts/Valken__.svg') format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    position:relative;
+    font-family: ValkenRegular;
+    height: 100%;
+    margin: 0;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+body {
+    background-image: url("../images/221-795x1024.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+footer {
+    position: fixed;
+    padding-left: 10px;
+    padding-right: 10px;
+    bottom: 0;
+    left:10%;
+    width: 80%;
+    background-color: rgba(117, 190, 218, 0.4);
+    color: black;
+    text-align: center;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    font-size: 12px;
+}
+.content{
+    position:relative;
+}
+
+.row {
+    text-align: center;
+    margin-top: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/*Gradient effect on button backgrounds*/
+/* <- Magic Start! */
+.btn {
+  flex: 1 1 auto;
+  padding: 5px;
+  background-image: linear-gradient(to right, #159CDE   0%, #2EDAF4 51%, #159CDE   100%);
+  width:30%;
+  min-width: 150px;
+  border-style: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+ }
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+  box-shadow: 0 0 20px #888;
+}
+
+@media screen and (min-width: 720px) {
+    .btn {
+        width: 70%;
+        min-height: 100px;
+        border-style: none;
+        font-size: 2.5em;
+    }
+}
+/* Magic End -> */
+
+#popop{
+    position: fixed; /* or absolute */
+    z-index: 1;
+    opacity: .9;
+    width: 80%;
+    top:25%;
+    left:50%;
+    transform: translate(-50%,-25%);
+}
+
+.modal{
+    top: 35%;
+    transform: translateY(-40%);
+}
+
+.modal-title{
+    font-size: 1em;
+}
+
+.modal-dialog{
+    font-size: 2em;
+}
+
+.modal-footer button{
+    width: 30%;
+}
+
+@media screen and (max-width: 350px) {
+    .modal-footer button{
+        width: 10%;
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    
+    .modal{
+        height:100%;
+        top: 50%;
+        left: 30%;
+        transform: translate(-20%,-50%);
+    }
+
+    .modal-dialog{
+        width: 80%;
+        font-size: 2em;
+    }
+    
+    .modal-footer button{
+        font-size: 1em;
+    }
+}
+
+
+.modal-backdrop{
+  opacity:0; transition:opacity .2s;
+}
+.modal-backdrop.in{
+  opacity:.7;
+}
+
+.icon {
+    width: 25%;
+    max-width: 70%;
+    max-height: 95%;
+    mix-blend-mode: multiply;
+}
+
+.row-right {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.questionText {
+    position:relative;
+    font-size: 20px;
+    color: black;
+}
+
+.option {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/*Basic Styling*/
+#menu-container2 {
+    position: relative;
+	border-radius: 1em;
+    margin: auto;
+    width: 80%;
+    min-height: 30vh;
+}
+
+#meterContainer{
+    position:relative;
+    text-align:center;
+    clear:both;
+}
+
+#back{
+    width:100%;
+    height:100%;
+}
+
+
+#quizStatus{
+   
+}
+
+#score{
+    height : 100%;
+    width: 100%;
+    max-width: 250px;
+}
+#totalScore{
+    text-align:right;
+    padding-right: 1em;
+    padding-left:0px;
+    padding-bottom:1em;
+    height:100%;
+}
+
+#waterMeter{
+    position:relative;
+}
+
+#watertap{
+    width: 30%;
+    height: 30%;
+}
+
+#waterMeter-value{
+    position:absolute;
+    font-family:ValkenRegular;
+    font-size:2em;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#questions {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    right: 0px;
+}
+#hp{
+    background-image: url("../images/medium_vertical_bar_u2759_icon_256x256.png");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+/*drippy*/
+#modal-drippy {
+    float: left;
+    width: 75px;
+}
+
+/*Styling for popups*/
+#opaque {
+    opacity: .6;
+}
+
+#next-question {
+    color: black;
+    border : 2px solid black;
+}
+
+#howTo {
+    background: url(../images/help.png);
+    background-size: 50px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: none;
+
+}
+
+#loadingGif {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gifDiv {
+    text-align: center;
+}
+
+#gifDivQuestions {
+    padding-top: 200px;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+

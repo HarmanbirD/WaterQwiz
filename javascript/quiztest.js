@@ -8,59 +8,36 @@ $(document).ready(function() {
         score = 0,
         running = true;
     var timer;
-        
+    
+    //Timer functions by jono
     function startTimer(duration) {
         timer = duration;
         setInterval(function () {
             if(timer >100){
                 timer = 100;
             }
-            gauge.set(timer);
+           
             document.getElementById('waterMeter-value').innerHTML = timer;
             if (running){
                 timer--; 
             }
-            gauge.set(timer);
+            
             document.getElementById('waterMeter-value').innerHTML = timer;
-            if (timer == 0) {
+            if (timer <= 0) {
                 endGame();
             }
         }, 1000);
     }
     
-    function endGame() {    
+    function endGame() {
+        document.getElementById('waterMeter-value').innerHTML = timer;        
         running = false;
         document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
     }
-    var opts = {
-        angle: -0.30, // The span of the gauge arc
-        lineWidth: 0.10, // The line thickness
-        radiusScale:0.50, // Relative radius
-        pointer: {
-            strokeWidth: 0.00, // The thickness
-            color: "#EEEEEE"
-        },
-        staticLabels: {
-        font: "10px newFont",
-        labels: [0, 25, 50, 75, 100],
-        fractionDigits: 0
-        },
-
-        // Use this if not use staticZones, need team feedback
-        percentColors: [[0.0, "#ff0000" ], [0.30, "#f9c802"], [1.0, "#76d70b"]],
-        limitMax: true,     // If false, max value increases automatically if value > maxValue
-        limitMin: true,     // If true, the min value of the gauge will be fixed
-        generateGradient: true,
-        highDpiSupport: true,     // High resolution support
-    };
+    //Set timer to low number to test if it works with endgame
     //start timer
-    startTimer(100);         // set actual value
-    var target = document.getElementById('waterMeter'); // your canvas element
-    var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-    gauge.maxValue = 100; // set max gauge value
-    gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    gauge.animationSpeed = 16; // set animation speed (32 is default value)
-                        
+    startTimer(3);         // set actual value
+                            
                         
     $.getJSON('questions.json', function (data) {
         var i;
@@ -122,7 +99,7 @@ $(document).ready(function() {
                 q2=questionBank[questionNumber][2];
                 q3=questionBank[questionNumber][3];
             }
-            $(stage).append('<div class = "score">Score: '+score+' / ' +questionNumber+ '</div><div class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="option"><button type="button" id = "btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id = "btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id = "btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id = "btn-4" class="btn btn-default btn-lg">'+q4+'</button></div>');
+            $(stage).append('<div class="col"><div class="questionText">'+questionBank[questionNumber][0]+'</div></div><div class="col"><div id="1" class="option"><button type="button" id="btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id="btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id="btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id="btn-4" class="btn btn-default btn-lg">'+q4+'</button></div></div>');
             $(stage).css("right","-1000px");
             $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
             $(stage).animate({"right": "+=1000px"},"slow","swing");
@@ -132,16 +109,15 @@ $(document).ready(function() {
                 $('.option').click(function() {
                     if(questionLock==false){
                         questionLock=true;	
-                        if(this.id==rnd){
+                        if(this.id==rnd){ //If answer is correct
                             $("#btn-"+this.id+"").css('background-color', 'green');
-                            score++;
-                            timer +=3;
+                            document.getElementById("totalScore").innerHTML = ++score; //keep count of score and update to html same time
+                            timer +=10; //Gain time
                             changeQuestion();
                         }
-                        if(this.id!=rnd){
-                            timer-=3;
-                            document.getElementById("howTo").setAttribute('disabled',false);
-                            $("#bg").css('filter', 'blur(1px)');
+                        if(this.id!=rnd){ //If answer is wrong
+                            timer-=2; //Lose time
+                            //$("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
                             $("#btn-"+this.id+"").css('background-color', 'red');
@@ -153,10 +129,7 @@ $(document).ready(function() {
             
             $(document).on('click', '#next-question', function(){
                 changeQuestion();
-                document.getElementById("howTo").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
-                $(".option").css('filter', 'brightness(100%)');
-                $("#bg").css('filter', '');
             })
         
             function changeQuestion() { 
@@ -172,12 +145,7 @@ $(document).ready(function() {
                     endGame();
                 }
             }
-             
-            function endGame() {
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
-            }
-
-        
+            
             })
     
             function sendName() {

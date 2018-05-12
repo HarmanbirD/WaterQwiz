@@ -171,12 +171,60 @@ function sendName() {
         data: {name : name, score : score}
     })
     .done(function(data) {
-        document.getElementById('popop').innerHTML = "";
-        //$("#bg").css('filter', 'blur(1px)');
-        document.getElementById("howTo").setAttribute('disabled',false);
-        $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
-        //$(".option").css('filter', 'brightness(80%)');
-        $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
-        document.getElementById("submitBut").setAttribute('disabled',false);
+        $.ajax({
+            dataType: "json",
+            url: "../php/getLeaderboardTest.php"
+        })
+        .done(function(data) {
+            var leaders = new Array();
+            var count = 0;
+            var code = "";
+
+            for (i = 0; i < data.length; i++) {
+                leaders[i] = new Array();
+                leaders[i][0] = data[i].name;
+                leaders[i][1] = data[i].score;
+            }
+            
+            displayLeaderboards();
+            
+            function displayLeaderboards() {
+                code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
+                for (i = 0; i < leaders.length && i < 10; i++) {
+                    if (count != 0 && count % 10 == 0) {
+                        code += "<div class = 'table-responsive'><table class = 'table'>";
+                    }
+                    var currentNumb = i;
+                    code += "<tr><th>";
+                    code += "" + (currentNumb + 1) + "";
+                    code += "</th><th>"; 
+                    code += leaders[i][0]; 
+                    code += "</th><th>"; 
+                    code += leaders[i][1]; 
+                    code += "</th></tr>";
+                    if ((count % 10 == 0 && count != 0) || count == data.length) {
+                        code += "</table></div>";
+                    }
+                }
+                
+                for (i = 0; i < leaders.length; i++) {
+                    if (leader[i][0] == name) {
+                        if (leader[i][1] == score) {
+                            code += "<div>Your Place:<div class = 'table-responsive'><table class = 'table'><tr><th>" + (i + 1) + "</th><th>" + leaders[i][0] + "</th><th>" + leaders[i][1] + "</th></tr></table></div></div>";
+                            return;
+                        }
+                    }
+                } 
+            }
+
+            document.getElementById('popop').innerHTML = "";
+            //$("#bg").css('filter', 'blur(1px)');
+            document.getElementById("howTo").setAttribute('disabled',false);
+            $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
+            //$(".option").css('filter', 'brightness(80%)');
+            $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div id = "leaders" class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
+            document.getElementById("leaders").innerHTML = code;
+            document.getElementById("submitBut").setAttribute('disabled',false);
+                })
     })}
 

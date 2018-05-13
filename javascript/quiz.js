@@ -37,11 +37,11 @@ $(document).ready(function() {
                 //$("#bg").css('filter', '');
                 document.getElementById('waterMeter-value').innerHTML = timer;      
                 running = false;
-                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + " out of " + numberOfQuestions + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
+                document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
             }
             //Set timer to low number to test if it works with endgame
             //start timer
-            startTimer(3);         // set actual value
+            startTimer(100);         // set actual value
                     
             //Load question
             for (i = 0; i < data.length; i++) {

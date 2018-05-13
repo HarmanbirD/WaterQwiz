@@ -36,7 +36,7 @@ $(document).ready(function() {
     }
     //Set timer to low number to test if it works with endgame
     //start timer
-    startTimer(3);         // set actual value
+    startTimer(100);         // set actual value
                             
                         
     $.getJSON('questions.json', function (data) {

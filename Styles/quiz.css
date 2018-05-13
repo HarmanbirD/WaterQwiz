@@ -33,17 +33,12 @@ body {
 
 footer {
     position: fixed;
-    padding-left: 10px;
-    padding-right: 10px;
-    bottom: 0;
-    left:10%;
-    width: 80%;
-    background-color: rgba(117, 190, 218, 0.4);
-    color: black;
-    text-align: center;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    font-size: 12px;
+    bottom:0;
+    color: black; 
+    font-size: 2vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index : -1;
 }
 .content{
     position:relative;
@@ -177,6 +172,11 @@ footer {
     position:relative;
 }
 
+#watermeterbar{
+    position:relative;
+    text-align:center;
+}
+
 /*Setting for Score Image*/
 #score{
     height : 100%;
@@ -243,10 +243,10 @@ footer {
 /*Howto modal settings*/
 #howTo {
     background: url(../images/help.png);
-    background-size: 50px;
+    background-size:40px;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border: none;
 
 }

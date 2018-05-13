@@ -17,30 +17,21 @@ $(document).ready(function() {
             //Timer functions
             function startTimer(duration) {
                 timer = duration;
-                setInterval(function () {
-                    if(timer >100){
-                        timer = 100;
-                        bar.set(timer);
-                    }
-                    document.getElementById('waterMeter-value').innerHTML = timer;
-                    if (running){
-                        timer--;
-                        bar.set(timer);
-                        
-                    }
-                    
-                    document.getElementById('waterMeter-value').innerHTML = timer;
-                    if (timer <= 0) {
-                        timer = 0;
-                        bar.set(timer);
+                var myTimer = setInterval(function () {//Interal timer
+                    timer--; 
+                    if(bar.value <= 0){
+                        clearInterval(myTimer);
+                        clearInterval(updateTimerVisual);
                         endGame();
-                    }
-                }, 1000);
+                    }}, 1000);
+                    
+                var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
+                    bar.set(timer);}, 200);
             }
+            
             function endGame() {
                 //$("#bg").css('filter', '');
-                document.getElementById('waterMeter-value').innerHTML = timer;      
-                running = false;
+                //document.getElementById('waterMeter-value').innerHTML = timer;      
                 document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
             }
             //Set timer to low number to test if it works with endgame
@@ -117,11 +108,11 @@ $(document).ready(function() {
                         if(this.id==rnd){ //If answer is correct
                             $("#btn-"+this.id+"").css('background-color', 'green');
                             document.getElementById("totalScore").innerHTML = ++score; //increase score and update to html
-                            timer +=10; //Gain time
+                            timer = (timer+10) > 100 ? 100 : (timer+10); //Gain time
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
-                            timer -=2; //Loses time
+                            timer = (timer-2) < 0 ? 0:(timer-2); //Lose time
                             //Taken 2 lines below for now, first line cause problem for sometimes
                             //document.getElementById("howTo").setAttribute('disabled',false);
                             // $("#bg").css('filter', 'blur(1px)');

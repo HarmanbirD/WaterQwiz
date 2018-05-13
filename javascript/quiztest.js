@@ -5,38 +5,32 @@ $(document).ready(function() {
         mainStage = "#popop",
         questionLock = false,
         numberOfQuestions,
-        score = 0,
-        running = true;
+        score = 0;
     var timer;
+    var bar = new ldBar("#watermeterbar");
     
     //Timer functions by jono
     function startTimer(duration) {
         timer = duration;
-        setInterval(function () {
-            if(timer >100){
-                timer = 100;
-            }
-           
-            document.getElementById('waterMeter-value').innerHTML = timer;
-            if (running){
-                timer--; 
-            }
-            
-            document.getElementById('waterMeter-value').innerHTML = timer;
-            if (timer <= 0) {
+        var myTimer = setInterval(function () {//Interal timer
+            timer--; 
+            if(bar.value <= 0){
+                clearInterval(myTimer);
+                clearInterval(updateTimerVisual);
                 endGame();
-            }
-        }, 1000);
+            }}, 1000);
+            
+        var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
+            bar.set(timer);}, 200);
     }
     
     function endGame() {
-        document.getElementById('waterMeter-value').innerHTML = timer;        
-        running = false;
+        //document.getElementById('waterMeter-value').innerHTML = timer;
         document.getElementById('questions').innerHTML = "<div id='popop'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendName' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><input type='submit' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>";
     }
     //Set timer to low number to test if it works with endgame
     //start timer
-    startTimer(100);         // set actual value
+    startTimer(5);        // set actual value
                             
                         
     $.getJSON('questions.json', function (data) {
@@ -112,11 +106,11 @@ $(document).ready(function() {
                         if(this.id==rnd){ //If answer is correct
                             $("#btn-"+this.id+"").css('background-color', 'green');
                             document.getElementById("totalScore").innerHTML = ++score; //keep count of score and update to html same time
-                            timer +=10; //Gain time
+                            timer = (timer+10) > 100 ? 100 : (timer+10); //Gain time
                             changeQuestion();
                         }
                         if(this.id!=rnd){ //If answer is wrong
-                            timer-=2; //Lose time
+                            timer = (timer-2) < 0 ? 0:(timer-2); //Lose time
                             //$("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');

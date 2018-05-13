@@ -8,27 +8,31 @@ $(document).ready(function() {
     var mainStage = "#popop";
     var running = true;
     var timer;
-    
+    var bar = new ldBar("#watermeterbar");
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"
     })
         .done(function(data) {
-            //Timer functions by jono
+            //Timer functions
             function startTimer(duration) {
                 timer = duration;
                 setInterval(function () {
                     if(timer >100){
                         timer = 100;
+                        bar.set(timer);
                     }
-                   
                     document.getElementById('waterMeter-value').innerHTML = timer;
                     if (running){
-                        timer--; 
+                        timer--;
+                        bar.set(timer);
+                        
                     }
                     
                     document.getElementById('waterMeter-value').innerHTML = timer;
                     if (timer <= 0) {
+                        timer = 0;
+                        bar.set(timer);
                         endGame();
                     }
                 }, 1000);

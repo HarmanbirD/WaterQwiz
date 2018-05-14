@@ -115,6 +115,7 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
+                            running = false;
                             timer = (timer-2) < 0 ? 0:(timer-2); //Lose time
                             //Taken 2 lines below for now, first line cause problem for sometimes
                             //document.getElementById("howTo").setAttribute('disabled',false);
@@ -128,6 +129,7 @@ $(document).ready(function() {
             }
         
             $(document).on('click', '#next-question', function(){
+                running = true;
                 changeQuestion();
                 //document.getElementById("howTo").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
@@ -207,8 +209,8 @@ function sendName() {
                 }
                 
                 for (i = 0; i < leaders.length; i++) {
-                    if (leader[i][0] == name) {
-                        if (leader[i][1] == score) {
+                    if (leaders[i][0] == name) {
+                        if (leaders[i][1] == score) {
                             code += "<div>Your Place:<div class = 'table-responsive'><table class = 'table'><tr><th>" + (i + 1) + "</th><th>" + leaders[i][0] + "</th><th>" + leaders[i][1] + "</th></tr></table></div></div>";
                             return;
                         }

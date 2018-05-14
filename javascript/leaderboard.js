@@ -40,7 +40,6 @@ $(document).ready(function() {
                     }
                 }
             }
-
             document.getElementById("leaders").innerHTML = code;
         })
     })

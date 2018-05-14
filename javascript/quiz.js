@@ -207,8 +207,8 @@ function sendName() {
                 }
                 
                 for (i = 0; i < leaders.length; i++) {
-                    if (leader[i][0] == name) {
-                        if (leader[i][1] == score) {
+                    if (leaders[i][0] == name) {
+                        if (leaders[i][1] == score) {
                             code += "<div>Your Place:<div class = 'table-responsive'><table class = 'table'><tr><th>" + (i + 1) + "</th><th>" + leaders[i][0] + "</th><th>" + leaders[i][1] + "</th></tr></table></div></div>";
                             return;
                         }

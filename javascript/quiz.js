@@ -1,11 +1,11 @@
+var score = 0;
+var mainStage = "#popop";
 $(document).ready(function() {   
     var questionNumber = 0;
     var questionBank = new Array();
     var stage = "#questions";
     var questionLock = false;
     var numberOfQuestions;
-    var score = 0;
-    var mainStage = "#popop";
     var running = true;
     var timer;
     var bar = new ldBar("#watermeterbar");

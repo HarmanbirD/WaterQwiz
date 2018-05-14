@@ -22,6 +22,7 @@ $(document).ready(function() {
                         timer--; 
                         if(bar.value <= 0){
                             running = false;
+                            bar.set(0);
                             clearInterval(myTimer);
                             clearInterval(updateTimerVisual);
                             endGame();

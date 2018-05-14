@@ -28,9 +28,11 @@ $(document).ready(function() {
                     }}, 1000);
                     
                 var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
-                    bar.set(timer);}, 200);
-                     if(bar.value <= 0){clearInterval(updateTimerVisual);}
-                }
+                    bar.set(timer);
+                    if(bar.value <= 0){clearInterval(updateTimerVisual);}
+                }, 200);
+                     
+            }
                 
             
             function endGame() {

@@ -224,5 +224,9 @@ function sendName() {
             document.getElementById("leaders").innerHTML = code;
             document.getElementById("submitBut").setAttribute('disabled',false);
                 })
+            .fail(function() {
+                alert( "error" );
+            })
+
     })}
 

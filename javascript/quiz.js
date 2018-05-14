@@ -24,13 +24,14 @@ $(document).ready(function() {
                             running = false;
                             bar.set(0);
                             clearInterval(myTimer);
-                            clearInterval(updateTimerVisual);
                             endGame();
                     }}, 1000);
                     
                 var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
                     bar.set(timer);}, 200);
-            }
+                     if(bar.value <= 0){clearInterval(updateTimerVisual);}
+                }
+                
             
             function endGame() {
                 //$("#bg").css('filter', '');

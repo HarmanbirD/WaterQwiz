@@ -18,11 +18,13 @@ $(document).ready(function() {
             function startTimer(duration) {
                 timer = duration;
                 var myTimer = setInterval(function () {//Interal timer
-                    timer--; 
-                    if(bar.value <= 0){
-                        clearInterval(myTimer);
-                        clearInterval(updateTimerVisual);
-                        endGame();
+                    if(running)
+                        timer--; 
+                        if(bar.value <= 0){
+                            running = false;
+                            clearInterval(myTimer);
+                            clearInterval(updateTimerVisual);
+                            endGame();
                     }}, 1000);
                     
                 var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
@@ -142,6 +144,7 @@ $(document).ready(function() {
                         displayQuestion();});
                     questionLock=false;
                 } else {
+                    running = false;
                     endGame();
                 }
             }

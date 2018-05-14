@@ -107,7 +107,7 @@ footer {
     }
     .modal-dialog{
         width: 80%;
-        font-size: 2em;
+        font-size: 10px;
     }
     
     .modal-footer button{

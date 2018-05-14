@@ -168,7 +168,7 @@ function sendName() {
     .done(function(data) {
         $.ajax({
             dataType: "json",
-            url: "../php/getLeaderboardTest.php"
+            url: "../php/getLeaderboard.php"
         })
         .done(function(data) {
             var leaders = new Array();

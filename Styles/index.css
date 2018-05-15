@@ -51,7 +51,8 @@ footer {
 /* <- Magic Start! */
 .btn {
   flex: 1 1 auto;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-transform: uppercase;
   background-image: linear-gradient(to right, #7FC6FE   0%, #c2e9fb 51%, #7FC6FE   100%);
   background-size: 200% auto;
@@ -93,7 +94,6 @@ footer {
 @media screen and (max-width: 350px) {
     .modal-footer button{
         width: 10%;
-        left: 0;
     }
 }
 

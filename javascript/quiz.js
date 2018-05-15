@@ -206,7 +206,7 @@ function sendName() {
                     code += "</th><th>"; 
                     code += leaders[i][1]; 
                     code += "</th></tr>";
-                    if ((count % 10 == 0 && count != 0) || count == data.length) {
+                    if (currentNumb == 10) {
                         code += "</table></div>";
                     }
                 }

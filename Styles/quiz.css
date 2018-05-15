@@ -24,11 +24,6 @@ body, html {
     overflow-y:auto;
 }
 
-#scoreImage {
-    height: 50%;
-    width: 50%;
-}
-
 body {
     background-image: url("../images/221-795x1024.jpg");
     background-repeat: no-repeat;
@@ -187,7 +182,7 @@ footer {
 }
 
 /*Setting for Score Image*/
-#score{
+#scoreImage {
     height : 50%;
     width: 50%;
 }

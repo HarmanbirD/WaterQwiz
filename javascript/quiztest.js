@@ -15,13 +15,16 @@ $(document).ready(function() {
         var myTimer = setInterval(function () {//Interal timer
             timer--; 
             if(bar.value <= 0){
+                running = false;
+                bar.set(0);
                 clearInterval(myTimer);
-                clearInterval(updateTimerVisual);
                 endGame();
             }}, 1000);
             
         var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
-            bar.set(timer);}, 200);
+                bar.set(timer);
+                if(bar.value <= 0){clearInterval(updateTimerVisual);}
+            }, 200);
     }
     
     function endGame() {

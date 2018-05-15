@@ -206,10 +206,8 @@ function sendName() {
                     code += "</th><th>"; 
                     code += leaders[i][1]; 
                     code += "</th></tr>";
-                    if (currentNumb == 10) {
-                        code += "</table></div>";
-                    }
                 }
+                code += "</table></div>";
                 
                 for (i = 0; i < leaders.length; i++) {
                     if (leaders[i][0] == name) {

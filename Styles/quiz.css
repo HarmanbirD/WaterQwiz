@@ -150,6 +150,8 @@ footer {
 /*Settings for button options*/
 .option {
     text-align: center;
+    margin-top: 2em;
+    margin-bottom:2em;
 }
 
 /*Container includes: questions,options and help-icon*/

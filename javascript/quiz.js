@@ -119,7 +119,8 @@ $(document).ready(function() {
                         }
                         if(this.id!=rnd){//If answer is wrong
                             running = false;
-                            timer = (timer-2) < 0 ? 0:(timer-2); //Lose time
+                            var subtract = Math.round(numberOfQuestions / 10);
+                            timer = (timer-subtract) < 0 ? 0:(timer-subtract); //Lose time
                             //Taken 2 lines below for now, first line cause problem for sometimes
                             //document.getElementById("howTo").setAttribute('disabled',false);
                             // $("#bg").css('filter', 'blur(1px)');

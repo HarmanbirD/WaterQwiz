@@ -18,7 +18,7 @@
 
 body, html {
     position:relative;
-    font-family: ValkenRegular;
+    font-family: newFont;
     height: 100%;
     margin: 0;
     overflow-y: auto;
@@ -122,6 +122,22 @@ footer {
   opacity:.7;
 }
 
+.btniconsxs {
+    width: 10%
+}
+
+.btniconsdesktop {
+    width: 7%;
+    
+}
+
+.leaderxs {
+    width: 15%
+}
+
+.leaderdesktop {
+    width: 10%
+}
 
 .icon {
     width: 25%;

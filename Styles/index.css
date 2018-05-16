@@ -18,7 +18,7 @@
 
 body, html {
     position:relative;
-    font-family: ValkenRegular;
+    font-family: newFont;
     height: 100%;
     margin: 0;
     overflow-y: auto;
@@ -50,9 +50,9 @@ footer {
 /*Gradient effect on button backgrounds*/
 /* <- Magic Start! */
 .btn {
-  font-size: 1em;
   flex: 1 1 auto;
-  padding: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-transform: uppercase;
   background-image: linear-gradient(to right, #7FC6FE   0%, #c2e9fb 51%, #7FC6FE   100%);
   background-size: 200% auto;
@@ -134,13 +134,6 @@ footer {
 .row {
     text-align: center;
     margin: 0;
-    margin-bottom: 2em;
-}
-
-
-.option {
-    text-align: center;
-    margin-top: 2em;
     margin-bottom: 2em;
 }
 

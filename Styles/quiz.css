@@ -55,9 +55,7 @@ footer {
 /*Gradient effect on button backgrounds*/
 /* <- Magic Start! */
 .btn {
-  font-size: 1em;
   flex: 1 1 auto;
-  padding: 1em;
   background-image: linear-gradient(to right, #159CDE   0%, #2EDAF4 51%, #159CDE   100%);
   width:50%;
   max-height: 50px;
@@ -152,8 +150,6 @@ footer {
 /*Settings for button options*/
 .option {
     text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
 }
 
 /*Container includes: questions,options and help-icon*/

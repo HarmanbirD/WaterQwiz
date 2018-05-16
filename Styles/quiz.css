@@ -183,15 +183,14 @@ footer {
 
 /*Setting for Score Image*/
 #score{
-    height : 50%;
-    width: 50%;
+    height : 100%;
+    width: 100%;
+    max-width: 200px;
 }
 /*Setting for Score number*/
 #totalScore{
-    text-align:right;
-    padding-right: 3em;
-    padding-left:0px;
-    padding-bottom:1em;
+    text-align:center;
+    padding:0;
     height:100%;
 }
 

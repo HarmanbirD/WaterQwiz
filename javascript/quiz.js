@@ -170,7 +170,7 @@ $(document).ready(function() {
 
 function sendName() {
     var name = document.getElementById("sendNames").value;
-    if (name.length < 13) {
+    if (name.length > 0 && name.length < 13) {
         $.ajax({
             type: "POST",
              url: "../php/addScore.php",
@@ -238,7 +238,6 @@ function sendName() {
         //$("#bg").css('filter', '');
         //document.getElementById('waterMeter-value').innerHTML = timer;      
         document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
-        sendName();
     }
 
 }

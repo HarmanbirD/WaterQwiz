@@ -150,8 +150,8 @@ footer {
 /*Settings for button options*/
 .option {
     text-align: center;
-    margin-top: 2em;
-    margin-bottom:2em;
+    margin-top: 1em;
+    margin-bottom:1em;
 }
 
 /*Container includes: questions,options and help-icon*/
@@ -189,6 +189,7 @@ footer {
 
 #score{
 }
+
 /*Setting for Score number*/
 #totalScore{
     text-align:center;

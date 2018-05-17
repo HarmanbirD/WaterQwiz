@@ -112,7 +112,7 @@ $(document).ready(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
-                            $("#"+this.id+"").css('background-color', 'green');
+                            $("#btn-"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
                             document.getElementById("totalScore").innerHTML = ++score; //increase score and update to html
                             timer = (timer+10) > 100 ? 100 : (timer+10); //Gain time
                             changeQuestion();
@@ -126,7 +126,7 @@ $(document).ready(function() {
                             // $("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
-                            $("#"+this.id+"").css('background-color', 'red');
+                            $("#btn-"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                             }
                 }})
@@ -170,68 +170,76 @@ $(document).ready(function() {
 
 function sendName() {
     var name = document.getElementById("sendNames").value;
-    $.ajax({
-        type: "POST",
-         url: "../php/addScore.php",
-        data: {name : name, score : score}
-    })
-    .done(function(data) {
+    if (name.length < 13) {
         $.ajax({
-            dataType: "json",
-            url: "../php/getLeaderboard.php"
+            type: "POST",
+             url: "../php/addScore.php",
+            data: {name : name, score : score}
         })
         .done(function(data) {
-            var leaders = new Array();
-            var count = 0;
-            var code = "";
-
-            for (i = 0; i < data.length; i++) {
-                leaders[i] = new Array();
-                leaders[i][0] = data[i].name;
-                leaders[i][1] = data[i].score;
-            }
-            
-            displayLeaderboards();
-            
-            function displayLeaderboards() {
-                code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
-                for (i = 0; i < leaders.length && i < 10; i++) {
-                    if (count != 0 && count % 10 == 0) {
-                        code += "<div class = 'table-responsive'><table class = 'table'>";
-                    }
-                    var currentNumb = i;
-                    code += "<tr><th>";
-                    code += "" + (currentNumb + 1) + "";
-                    code += "</th><th>"; 
-                    code += leaders[i][0]; 
-                    code += "</th><th>"; 
-                    code += leaders[i][1]; 
-                    code += "</th></tr>";
-                }
-                code += "</table></div>";
-                
-                for (i = 0; i < leaders.length; i++) {
-                    if (leaders[i][0] == name) {
-                        if (leaders[i][1] == score) {
-                            code += "<div>Your Place:<div class = 'table-responsive'><table class = 'table'><tr><th>" + (i + 1) + "</th><th>" + leaders[i][0] + "</th><th>" + leaders[i][1] + "</th></tr></table></div></div>";
-                            return;
-                        }
-                    }
-                } 
-            }
-
-            document.getElementById('popop').innerHTML = "";
-            //$("#bg").css('filter', 'blur(1px)');
-            document.getElementById("howTo").setAttribute('disabled',false);
-            $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
-            //$(".option").css('filter', 'brightness(80%)');
-            $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div id = "leaders" class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" id = "endGameBTN" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
-            document.getElementById("leaders").innerHTML = code;
-            document.getElementById("submitBut").setAttribute('disabled',false);
-                })
-            .fail(function() {
-                alert( "error" );
+            $.ajax({
+                dataType: "json",
+                url: "../php/getLeaderboard.php"
             })
+            .done(function(data) {
+                var leaders = new Array();
+                var count = 0;
+                var code = "";
 
-    })}
+                for (i = 0; i < data.length; i++) {
+                    leaders[i] = new Array();
+                    leaders[i][0] = data[i].name;
+                    leaders[i][1] = data[i].score;
+                }
+
+                displayLeaderboards();
+
+                function displayLeaderboards() {
+                    code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
+                    for (i = 0; i < leaders.length && i < 10; i++) {
+                        if (count != 0 && count % 10 == 0) {
+                            code += "<div class = 'table-responsive'><table class = 'table'>";
+                        }
+                        var currentNumb = i;
+                        code += "<tr><th>";
+                        code += "" + (currentNumb + 1) + "";
+                        code += "</th><th>"; 
+                        code += leaders[i][0]; 
+                        code += "</th><th>"; 
+                        code += leaders[i][1]; 
+                        code += "</th></tr>";
+                    }
+                    code += "</table></div>";
+
+                    for (i = 0; i < leaders.length; i++) {
+                        if (leaders[i][0] == name) {
+                            if (leaders[i][1] == score) {
+                                code += "<div>Your Place:<div class = 'table-responsive'><table class = 'table'><tr><th>" + (i + 1) + "</th><th>" + leaders[i][0] + "</th><th>" + leaders[i][1] + "</th></tr></table></div></div>";
+                                return;
+                            }
+                        }
+                    } 
+                }
+
+                document.getElementById('popop').innerHTML = "";
+                //$("#bg").css('filter', 'blur(1px)');
+                document.getElementById("howTo").setAttribute('disabled',false);
+                $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
+                //$(".option").css('filter', 'brightness(80%)');
+                $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div id = "leaders" class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" id = "endGameBTN" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
+                document.getElementById("leaders").innerHTML = code;
+                document.getElementById("submitBut").setAttribute('disabled',false);
+                    })
+                .fail(function() {
+                    alert( "error" );
+                })
+        })
+    } else {
+        //$("#bg").css('filter', '');
+        //document.getElementById('waterMeter-value').innerHTML = timer;      
+        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button>";
+        sendName();
+    }
+
+}
 

@@ -146,7 +146,7 @@ footer {
 }
 
 .row-left {
-    text-align: right;
+    text-align: left;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -260,7 +260,7 @@ footer {
 }
 /*Howto modal settings*/
 #howTo {
-    background: url(../images/help.png);
+    background: url(../images/howto-gradient-whitemid.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;
@@ -269,7 +269,7 @@ footer {
 }
 
 #homeButt {
-    background: url(../images/help.png);
+    background: url(../images/home-gradient-whitemid.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;

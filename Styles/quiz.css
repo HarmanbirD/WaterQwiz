@@ -298,6 +298,11 @@ footer {
     width: 30%;
     max-width: 250px;
 }
+
+#makeAbs {
+    position: absolute;
+}
+
 .watertap{
     position: relative;
     z-index 2;

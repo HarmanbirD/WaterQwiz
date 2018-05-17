@@ -1,10 +1,10 @@
 $(document).ready(function(){
     
     function resize(){
-        var fontSize = parseInt($("#score").height())+"px";
-        var fontSize = parseInt($("#score").height()*0.9)+"px";
+        var containerSize = parseInt($("#scoreImage").height())+"px";
+        var fontSize = parseInt($("#scoreImage").height()*0.9)+"px";
         
-        $("#totalScore").css('height', fontSize);
+        $("#totalScore").css('height', containerSize);
         $("#totalScore").animate({'font-size' : fontSize}, "fast");
     
     }

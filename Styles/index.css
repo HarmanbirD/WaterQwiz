@@ -115,6 +115,10 @@ footer {
     }
 }
 
+.howtoDrippy {
+    width :10%
+}
+
 .modal-backdrop{
   opacity:0; transition:opacity .2s;
 }

@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119265830-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119265830-1');
+    </script>
     <title>Water Qwiz</title>
     <meta name="HandheldFriendly" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,25 +33,30 @@
     <div class="container-fluid" id="menu-container">
         <div class = "row">
             <button type="button" class="btn btn-default btn-lg" onclick="location.href = './pages/quiz.html'">
-                <span class="glyphicon glyphicon-play"></span> Play
+                <img class="btniconsxs hidden-lg hidden-md hidden-sm" src="./images/play-black.png">
+                <img class="btniconsdesktop hidden-xs" src="./images/play-black.png"> Play
             </button>
         </div>
         
         <div class="row">
             <button type="button" class="btn-lg btn btn-default" id="help-icon" data-toggle="modal" data-target="#how-to-play-modal">
+                <img class="btniconsxs hidden-lg hidden-md hidden-sm" src="./images/howto-black.png">
+                <img class="btniconsdesktop hidden-xs" src="./images/howto-black.png">
                 How to Play
             </button>
         </div>
         
         <div class="row">
             <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#leaderboard-modal">
-                <img class="icon" src="./images/black-score-icon.png">
+                <img class="leaderdesktop hidden-xs" src="./images/black-score-icon.png">
+                <img class="leaderxs hidden-lg hidden-md hidden-sm" src="./images/black-score-icon.png"> Leaderboard
             </button>
         </div>
 
         <div class="row">
             <button type="button" class="btn-lg btn btn-default" onclick="window.open('http://www.metrovancouver.org/welovewater/Pages/default.aspx')">
-                <img class="icon" src="./images/info-grey-smaller.png">
+                <img class="btniconsxs hidden-lg hidden-md hidden-sm" src="./images/info-black.png">
+                <img class="btniconsdesktop hidden-xs" src="./images/info-black.png"> Learn More
             </button>
         </div>
         
@@ -79,7 +93,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    Explain how to play here.
+                    Answer as many questions about water waste as you can before the meter reaches 0! Every time you answer correctly you get more time! But every time you answer wrong, you lose time. Compete against your friends on the leaderboard!
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

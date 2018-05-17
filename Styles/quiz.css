@@ -55,11 +55,10 @@ footer {
 /*Gradient effect on button backgrounds*/
 /* <- Magic Start! */
 .btn {
-  font-size: 1em;
   flex: 1 1 auto;
-  padding: 1em;
   background-image: linear-gradient(to right, #159CDE   0%, #2EDAF4 51%, #159CDE   100%);
   width:50%;
+  max-height: 50px;
   min-width: 250px;
   border-style: none;
   text-transform: uppercase;
@@ -152,7 +151,7 @@ footer {
 .option {
     text-align: center;
     margin-top: 2em;
-    margin-bottom: 2em;
+    margin-bottom:2em;
 }
 
 /*Container includes: questions,options and help-icon*/
@@ -183,15 +182,17 @@ footer {
 
 /*Setting for Score Image*/
 #scoreImage {
-    height : 50%;
-    width: 50%;
+    height : 100%;
+    width: 100%;
+    max-width: 200px;
+}
+
+#score{
 }
 /*Setting for Score number*/
 #totalScore{
-    text-align:right;
-    padding-right: 3em;
-    padding-left:0px;
-    padding-bottom:1em;
+    text-align:center;
+    padding:0;
     height:100%;
 }
 

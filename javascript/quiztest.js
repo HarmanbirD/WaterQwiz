@@ -23,7 +23,8 @@ $(document).ready(function() {
             
         var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
                 bar.set(timer);
-                if(bar.value <= 0){clearInterval(updateTimerVisual);}
+                if(bar.value <= 0){ running = false;
+                bar.set(0);clearInterval(updateTimerVisual);}
             }, 200);
     }
     

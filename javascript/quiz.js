@@ -9,6 +9,9 @@ $(document).ready(function() {
     var running = true;
     var timer;
     var bar = new ldBar("#watermeterbar");
+    var loseWater = 10;
+    var gainWater = 5;
+    var waterRate = 1;
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"
@@ -19,7 +22,7 @@ $(document).ready(function() {
                 timer = duration;
                 var myTimer = setInterval(function () {//Interal timer
                     if(running)
-                        timer--; 
+                        timer-= waterRate; 
                         if(bar.value <= 0){
                             running = false;
                             bar.set(0);
@@ -114,13 +117,12 @@ $(document).ready(function() {
                         if(this.id==rnd){ //If answer is correct
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
                             document.getElementById("totalScore").innerHTML = ++score; //increase score and update to html
-                            timer = (timer+10) > 100 ? 100 : (timer+10); //Gain time
+                            timer = (timer+gainWater) > 100 ? 100 : (timer+gainWater); //Gain time
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
                             running = false;
-                            var subtract = Math.round(numberOfQuestions / 10);
-                            timer = (timer-subtract) < 0 ? 0:(timer-subtract); //Lose time
+                            timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); //Lose time
                             //Taken 2 lines below for now, first line cause problem for sometimes
                             //document.getElementById("howTo").setAttribute('disabled',false);
                             // $("#bg").css('filter', 'blur(1px)');

@@ -24,6 +24,10 @@ body, html {
     overflow-y:auto;
 }
 
+#lessChars {
+    color: red;
+}
+
 body {
     background-image: url("../images/221-795x1024.jpg");
     background-repeat: no-repeat;
@@ -141,6 +145,12 @@ footer {
     margin-bottom: 10px;
 }
 
+.row-left {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /*Settings for questions */
 .questionText {
     position:relative;
@@ -253,7 +263,15 @@ footer {
     height: 40px;
     width: 40px;
     border: none;
+}
 
+#homeButt {
+    background: url(../images/help.png);
+    background-size:40px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
 }
 
 #loadingGif {

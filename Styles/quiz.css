@@ -143,11 +143,9 @@ footer {
     text-align: right;
     margin-top: 10px;
     margin-bottom: 10px;
-    position: absolute;
 }
 
 .row-left {
-    position: absolute;
     text-align: left;
     margin-top: 10px;
     margin-bottom: 10px;

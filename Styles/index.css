@@ -185,11 +185,19 @@ footer {
 
 #howtoDrippydiv {
     position:relative;
+    text-align:center;
+    bottom: 50%;
+    height: 100%;
+    left: 4%;
 }
 
 .howtoDrippyimg {
     width:100%;
-    height:100%;
+}
+
+.howtorow {
+    height: 100%;
+    
 }
 
 .howtoMini {

@@ -182,6 +182,7 @@ $(document).ready(function() {
 });
 
 function sendName() {
+    document.getElementById("submitBut").setAttribute('disabled',false);
     var name = document.getElementById("sendNames").value;
     if (name.length > 0 && name.length < 13) {
         $.ajax({
@@ -241,7 +242,6 @@ function sendName() {
                 //$(".option").css('filter', 'brightness(80%)');
                 $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div id = "leaders" class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" id = "endGameBTN" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
                 document.getElementById("leaders").innerHTML = code;
-                document.getElementById("submitBut").setAttribute('disabled',false);
                     })
                 .fail(function() {
                     alert( "error" );

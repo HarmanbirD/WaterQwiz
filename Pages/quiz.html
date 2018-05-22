@@ -30,6 +30,9 @@
 
 <body>
     <div id="bg">
+        <audio id="test" autoplay loop>
+                <source src="/sounds/waterquiz.mp3" type="audio/mp3">
+        </audio>
         <!-- Quiz Status including Image of Score and number for score-->
          <div class="row" id="quizStatus">
             <div class="col-xs-6"><img id="scoreImage" src="../images/Score.png" alt="Score: "></div>
@@ -45,9 +48,6 @@
                 <div id = "questions"></div>
             </div>
             <div class = "row">
-            <audio id="test" autoplay loop>
-                <source src="sounds/waterquiz.mp3" type="audio/mp3">
-            </audio>
                 <div class = "col-xs-6">
                     <div class = "row-left">
                         <button id = "homeButt" onclick = "location.href = '../index.html'"></button>

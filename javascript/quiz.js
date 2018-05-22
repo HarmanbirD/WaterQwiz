@@ -118,12 +118,16 @@ $(document).ready(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
+                            var audio = new Audio('/sounds/correct.wav');
+                            audio.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
                             document.getElementById("totalScore").innerHTML = ++score; //increase score and update to html
                             timer = (timer+gainWater) > 100 ? 100 : (timer+gainWater); //Gain time
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
+                            var audio = new Audio('/sounds/wrong.wav');
+                            audio.play();
                             running = false;
                             timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); //Lose time
                             //Taken 2 lines below for now, first line cause problem for sometimes

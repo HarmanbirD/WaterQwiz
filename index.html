@@ -21,11 +21,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./Styles/index.css">
     <link rel="icon" href="./images/WQ-logo2.0.png">
+    <!--<script src = "./javascript/index.js"></script> If use toggle image-->
     <script src = "./javascript/leaderboard.js"></script>
     <script src = "./javascript/easterEgg.js"></script>
 </head>
 
 <body>
+    <audio id="bgmusic" autoplay loop>
+        <source src="/sounds/waterquiz.mp3" type="audio/mpeg">
+        <source src="/sounds/waterquiz.wav" type="audio/wav">
+    </audio>
+        
     <div class="text-center" id = "bannerIndex">
         <img id="banner" src="./images/banner-lg-new2.0.png" alt="Banner">
     </div>
@@ -76,7 +82,10 @@
                         <div class = "col-xs-5">
                             <img id = "modal-drippy" src = "./images/points-drippy.png">
                         </div>
-                        <div class = "col-xs-7">
+                         <div class = "col-xs-2">
+                            <img id = "toggle" src = "./images/home-black-whitemid.png">
+                        </div>
+                        <div class = "col-xs-5">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>

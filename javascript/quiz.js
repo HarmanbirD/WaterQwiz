@@ -21,13 +21,14 @@ $(document).ready(function() {
             function startTimer(duration) {
                 timer = duration;
                 var myTimer = setInterval(function () {//Interal timer
-                    if(running)
+                    if(running){
                         timer-= waterRate; 
-                        if(bar.value <= 0){
-                            running = false;
-                            bar.set(0);
-                            clearInterval(myTimer);
-                            endGame();
+                    }
+                    if(bar.value <= 0){
+                        running = false;
+                        bar.set(0);
+                        clearInterval(myTimer);
+                        endGame();
                     }}, 1000);
                     
                 var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
@@ -125,7 +126,10 @@ $(document).ready(function() {
                         }
                         if(this.id!=rnd){//If answer is wrong
                             running = false;
-                            timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); //Lose time
+                            timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 
+                            if(timer <=0){
+                                endGame()
+                            } else {
                             //Taken 2 lines below for now, first line cause problem for sometimes
                             //document.getElementById("howTo").setAttribute('disabled',false);
                             // $("#bg").css('filter', 'blur(1px)');
@@ -133,7 +137,7 @@ $(document).ready(function() {
                             $(".option").css('filter', 'brightness(80%)');
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
-                            }
+                            }}
                 }})
             }
         

@@ -12,6 +12,7 @@ $(document).ready(function() {
     var loseWater = 10;
     var gainWater = 5;
     var waterRate = 1;
+    var audio;
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"
@@ -119,7 +120,7 @@ $(document).ready(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
-                            var audio = new Audio('/sounds/correct.wav');
+                            audio = new Audio('/sounds/correct.wav');
                             audio.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
                             document.getElementById("totalScore").innerHTML = ++score; //increase score and update to html
@@ -127,7 +128,7 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
-                            var audio = new Audio('/sounds/wrong.wav');
+                            audio = new Audio('/sounds/wrong.wav');
                             audio.play();
                             running = false;
                             timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 

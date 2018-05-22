@@ -21,13 +21,14 @@ $(document).ready(function() {
             function startTimer(duration) {
                 timer = duration;
                 var myTimer = setInterval(function () {//Interal timer
-                    if(running)
+                    if(running){
                         timer-= waterRate; 
-                        if(bar.value <= 0){
-                            running = false;
-                            bar.set(0);
-                            clearInterval(myTimer);
-                            endGame();
+                    }
+                    if(bar.value <= 0){
+                        running = false;
+                        bar.set(0);
+                        clearInterval(myTimer);
+                        endGame();
                     }}, 1000);
                     
                 var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
@@ -129,7 +130,10 @@ $(document).ready(function() {
                             var audio = new Audio('/sounds/wrong.wav');
                             audio.play();
                             running = false;
-                            timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); //Lose time
+                            timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 
+                            if(timer <=0){
+                                endGame()
+                            } else {
                             //Taken 2 lines below for now, first line cause problem for sometimes
                             //document.getElementById("howTo").setAttribute('disabled',false);
                             // $("#bg").css('filter', 'blur(1px)');
@@ -137,7 +141,7 @@ $(document).ready(function() {
                             $(".option").css('filter', 'brightness(80%)');
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
-                            }
+                            }}
                 }})
             }
         
@@ -178,6 +182,7 @@ $(document).ready(function() {
 });
 
 function sendName() {
+    document.getElementById("submitBut").setAttribute('disabled',false);
     var name = document.getElementById("sendNames").value;
     if (name.length > 0 && name.length < 13) {
         $.ajax({
@@ -237,7 +242,6 @@ function sendName() {
                 //$(".option").css('filter', 'brightness(80%)');
                 $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div id = "leaders" class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" id = "endGameBTN" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
                 document.getElementById("leaders").innerHTML = code;
-                document.getElementById("submitBut").setAttribute('disabled',false);
                     })
                 .fail(function() {
                     alert( "error" );

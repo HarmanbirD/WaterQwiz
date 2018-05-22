@@ -12,8 +12,8 @@ $(document).ready(function() {
     var loseWater = 10;
     var gainWater = 5;
     var waterRate = 1;
-    var correctSound = = new Audio('/sounds/correct.wav');
-    var wrongSound = = new Audio('/sounds/wrong.wav');
+    var correctSound = new Audio('/sounds/correct.wav');
+    var wrongSound = new Audio('/sounds/wrong.wav');
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"

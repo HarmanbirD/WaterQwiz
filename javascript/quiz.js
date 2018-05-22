@@ -128,7 +128,6 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
-                            audio = new Audio('/sounds/wrong.wav');
                             wrongSound.play();
                             running = false;
                             timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 

@@ -21,15 +21,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./Styles/index.css">
     <link rel="icon" href="./images/WQ-logo2.0.png">
-    <!--<script src = "./javascript/index.js"></script> If use toggle image-->
+    <script src = "./javascript/index.js"></script>
     <script src = "./javascript/leaderboard.js"></script>
     <script src = "./javascript/easterEgg.js"></script>
 </head>
 
 <body>
     <audio id="bgmusic" autoplay loop>
-        <source src="/sounds/waterquiz.mp3" type="audio/mpeg">
-        <source src="/sounds/waterquiz.wav" type="audio/wav">
+        <source src="sounds/waterquiz.mp3" type="audio/mpeg">
+        <source src="sounds/waterquiz.wav" type="audio/wav">
     </audio>
         
     <div class="text-center" id = "bannerIndex">
@@ -59,14 +59,14 @@
             </button>
         </div>
 
-        <div class="row" id="toggle">
+        <div class="row">
             <button type="button" class="btn-lg btn btn-default" onclick="window.open('http://www.metrovancouver.org/welovewater/Pages/default.aspx')">
                 <img class="btniconsxs hidden-lg hidden-md hidden-sm" src="./images/info-black.png">
                 <img class="btniconsdesktop hidden-xs" src="./images/info-black.png"> Learn More
             </button>
         </div>
         <div class = "row">
-            <img id="toggle" width="30px" height="30px" src="/images/volume.png">
+                <img id="toggle" width="30px" height="30px" src="images/volume.png" onclick="diffImage(this)">
         </div>
     </div>
     <div class="modal fade" id="leaderboard-modal">

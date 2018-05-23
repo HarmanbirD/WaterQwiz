@@ -147,9 +147,7 @@ $(document).ready(function() {
         
             $(document).on('click', '#next-question', function(){
                 running = true;
-                document.getElementById("btn").setAttribute("disabled",false);
                 changeQuestion();
-                document.getElementById("btn").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                 //$(".option").css('filter', 'brightness(100%)');
                 //$("#bg").css('filter', ''); 
@@ -157,6 +155,7 @@ $(document).ready(function() {
             
             function changeQuestion() { 
                 document.getElementById('popop').innerHTML = "";
+                document.getElementById("btn").setAttribute("disabled",false);
                 questionNumber++;
                 if(questionNumber<numberOfQuestions && running) {
                     $(stage).animate({opacity: "0"}, {duration: 300, queue: false});
@@ -164,8 +163,10 @@ $(document).ready(function() {
                         $(stage).empty();
                         displayQuestion();});
                     questionLock=false;
+                    document.getElementById("btn").removeAttribute("disabled");
                 } else {
                     running = false;
+                    document.getElementById("btn").removeAttribute("disabled");
                     endGame();
                 }
             }

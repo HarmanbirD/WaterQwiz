@@ -6,4 +6,10 @@ var audio = document.getElementById('bgmusic');
                 audio.muted = !audio.muted;
                 e.preventDefault();
             }, false);
+            
+    function diffImage(img) 
+    {
+       if(img.src.match("muted")) img.src = "volume.png";
+       else img.src = "muted.png";
+    }
 });

@@ -1,5 +1,7 @@
 var score = 0;
 var mainStage = "#popop";
+var correctSound = new Audio('/sounds/correct.wav');
+var wrongSound = new Audio('/sounds/wrong.wav');
 $(document).ready(function() {   
     var questionNumber = 0;
     var questionBank = new Array();
@@ -12,8 +14,7 @@ $(document).ready(function() {
     var loseWater = 10;
     var gainWater = 5;
     var waterRate = 1;
-    var correctSound = new Audio('/sounds/correct.wav');
-    var wrongSound = new Audio('/sounds/wrong.wav');
+    
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"

@@ -117,9 +117,9 @@ $(document).ready(function() {
                 $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
                 $(stage).animate({"right": "+=1000px"},"slow","swing");
 
-                setTimeOut($('.option').click(function() {
+                $('.option').click(function() {
                     if(questionLock==false){
-                        questionLock=true;	
+                        questionLock=true;
                         if(this.id==rnd){ //If answer is correct
                             correctSound.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
@@ -142,13 +142,14 @@ $(document).ready(function() {
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                             }}
-                }}), 2000);
+                }});
             }
         
             $(document).on('click', '#next-question', function(){
                 running = true;
+                document.getElementById("btn").setAttribute("disabled",false);
                 changeQuestion();
-                //document.getElementById("howTo").removeAttribute("disabled");
+                document.getElementById("btn").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                 //$(".option").css('filter', 'brightness(100%)');
                 //$("#bg").css('filter', ''); 

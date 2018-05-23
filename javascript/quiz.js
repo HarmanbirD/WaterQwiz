@@ -157,7 +157,7 @@ $(document).ready(function() {
             function changeQuestion() { 
                 document.getElementById('popop').innerHTML = "";
                 questionNumber++;
-                if(questionNumber<numberOfQuestions) {
+                if(questionNumber<numberOfQuestions && running) {
                     $(stage).animate({opacity: "0"}, {duration: 300, queue: false});
                     $(stage).animate({right: "+=1000px"},"slow","swing",function(){
                         $(stage).empty();

@@ -119,7 +119,7 @@ $(document).ready(function() {
 
                 $('.option').click(function() {
                     if(questionLock==false){
-                        questionLock=true;
+                        questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
                             correctSound.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
@@ -252,7 +252,7 @@ function sendName() {
     } else {
         //$("#bg").css('filter', '');
         //document.getElementById('waterMeter-value').innerHTML = timer;      
-        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a title='My NEW High Score!' href='http://www.facebook.com/sharer.php? u=https://waterqwiz.azurewebsites.net/ &t=xxx a title you want to use xxx' target='_blank'><img  src='http://www. xxx an image for the share button (make it in photoshop ect.)xxx' width='xx' height='xx' alt='Share'/></a></div>";
+        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'>Tweet</a></div>";
     }
 
 }

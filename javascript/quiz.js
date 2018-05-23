@@ -119,7 +119,8 @@ $(document).ready(function() {
 
                 $('.option').click(function() {
                     if(questionLock==false){
-                        questionLock=true;	
+                        questionLock=true;
+                        document.getElementById("btn").setAttribute("disabled",false);
                         if(this.id==rnd){ //If answer is correct
                             correctSound.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
@@ -148,7 +149,7 @@ $(document).ready(function() {
             $(document).on('click', '#next-question', function(){
                 running = true;
                 changeQuestion();
-                //document.getElementById("howTo").removeAttribute("disabled");
+                document.getElementById("btn").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                 //$(".option").css('filter', 'brightness(100%)');
                 //$("#bg").css('filter', ''); 

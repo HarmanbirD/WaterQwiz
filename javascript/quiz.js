@@ -47,7 +47,7 @@ $(document).ready(function() {
             function endGame() {
                 //$("#bg").css('filter', '');
                 //document.getElementById('waterMeter-value').innerHTML = timer;      
-                document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename' maxlength='12' required></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a title='My NEW High Score!' href='http://www.facebook.com/sharer.php? u=https://waterqwiz.azurewebsites.net/ &t=I just scored " + score + "on WaterQwiz' target='_blank'><img  src='../image/facebookshare.png' width='xx' height='xx' alt='Share'/></a></div>";
+                document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename' maxlength='12' required></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'>Tweet</a></div>";
             }
             //Set timer to low number to test if it works with endgame
             //start timer

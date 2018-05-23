@@ -117,9 +117,9 @@ $(document).ready(function() {
                 $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
                 $(stage).animate({"right": "+=1000px"},"slow","swing");
 
-                $('.option').click(function() {
+                setTimeOut($('.option').click(function() {
                     if(questionLock==false){
-                        questionLock=true;
+                        questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
                             correctSound.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
@@ -142,14 +142,13 @@ $(document).ready(function() {
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                             }}
-                }});
+                }}), 2000);
             }
         
             $(document).on('click', '#next-question', function(){
                 running = true;
-                document.getElementById("btn").setAttribute("disabled",false);
                 changeQuestion();
-                document.getElementById("btn").removeAttribute("disabled");
+                //document.getElementById("howTo").removeAttribute("disabled");
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
                 //$(".option").css('filter', 'brightness(100%)');
                 //$("#bg").css('filter', ''); 
@@ -251,7 +250,7 @@ function sendName() {
     } else {
         //$("#bg").css('filter', '');
         //document.getElementById('waterMeter-value').innerHTML = timer;      
-        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20100.%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'>Tweet</a></div>";
+        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'>Tweet</a></div>";
     }
 
 }

@@ -155,7 +155,6 @@ $(document).ready(function() {
             
             function changeQuestion() { 
                 document.getElementById('popop').innerHTML = "";
-                document.getElementById("btn").setAttribute("disabled",false);
                 questionNumber++;
                 if(questionNumber<numberOfQuestions && running) {
                     $(stage).animate({opacity: "0"}, {duration: 300, queue: false});
@@ -163,10 +162,8 @@ $(document).ready(function() {
                         $(stage).empty();
                         displayQuestion();});
                     questionLock=false;
-                    document.getElementById("btn").removeAttribute("disabled");
                 } else {
                     running = false;
-                    document.getElementById("btn").removeAttribute("disabled");
                     endGame();
                 }
             }

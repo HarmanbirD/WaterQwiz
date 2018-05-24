@@ -7,6 +7,7 @@ $(document).ready(function() {
     var questionBank = new Array();
     var stage = "#questions";
     var questionLock = false;
+    var buttonDisable = false;
     var numberOfQuestions;
     var running = true;
     var timer;
@@ -129,6 +130,8 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
+                            buttonDisable = true;
+                            setTimeout(function(){buttonDisable = false;}, 500);
                             wrongSound.play();
                             running = false;
                             timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 
@@ -141,14 +144,13 @@ $(document).ready(function() {
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
-                            $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
+                            $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer">               <div class = "modal-footer-spacing"><div class = "col-xs-5"><img id = "modal-drippy-wrong" src = "../images/wrong-drippy.png"></div><div class = "col-xs-7"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div>');
                             }}
                 }});
             }
 
             $(document).on('click', '#next-question', function(){
-                if(questionLock){
-                    setTimeout(function(){questionLock = false;}, 400);
+                if(buttonDisable){
                     return;
                 }
                 running = true;
@@ -166,7 +168,7 @@ $(document).ready(function() {
                     $(stage).animate({right: "+=1000px"},"slow","swing",function(){
                         $(stage).empty();
                         displayQuestion();});
-                    setTimeout(function(){questionLock = false;}, 400);
+                    setTimeout(function(){questionLock = false;}, 300);
                 } else {
                     running = false;
                     endGame();

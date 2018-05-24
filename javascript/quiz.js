@@ -7,6 +7,7 @@ $(document).ready(function() {
     var questionBank = new Array();
     var stage = "#questions";
     var questionLock = false;
+    var buttonDisable = false;
     var numberOfQuestions;
     var running = true;
     var timer;
@@ -129,6 +130,8 @@ $(document).ready(function() {
                             changeQuestion();
                         }
                         if(this.id!=rnd){//If answer is wrong
+                            buttonDisable = true;
+                            setTimeout(function(){buttonDisable = false;}, 500);
                             wrongSound.play();
                             running = false;
                             timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 
@@ -147,7 +150,9 @@ $(document).ready(function() {
             }
 
             $(document).on('click', '#next-question', function(){
-                if(questionLock){return;}
+                if(buttonDisable){
+                    return;
+                }
                 running = true;
                 changeQuestion();
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
@@ -163,7 +168,7 @@ $(document).ready(function() {
                     $(stage).animate({right: "+=1000px"},"slow","swing",function(){
                         $(stage).empty();
                         displayQuestion();});
-                    setTimeout(function(){questionLock = false;}, 500);
+                    setTimeout(function(){questionLock = false;}, 300);
                 } else {
                     running = false;
                     endGame();

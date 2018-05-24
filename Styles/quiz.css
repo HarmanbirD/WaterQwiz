@@ -277,6 +277,15 @@ footer {
     border: none;
 }
 
+.tweet {
+    background: url(../images/tweet-button.png);
+    background-size:40px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+
 #loadingGif {
     width: 200px;
     margin-left: auto;

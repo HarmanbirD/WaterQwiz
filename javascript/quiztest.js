@@ -8,7 +8,26 @@ $(document).ready(function() {
         score = 0;
     var timer;
     var bar = new ldBar("#watermeterbar");
-    
+    var correct = "#correct";
+    var clickDisabled = false;
+ 
+    function correctAnimation(id) {
+        $(correct).append('<img id="correctDrippy" src="../images/correct-drippy.png">');
+        $(correct).fadeIn(500,"swing",function(){
+        $(correct).fadeOut(500, "swing", function(){
+            $(correct).html("");
+        });
+        });
+    }
+
+    function correctStart(){
+        if(clickDisabled)
+            return;
+        
+        correctAnimation("correct");
+        clickDisabled = true;
+        setTimeout(function(){clickDisabled = false;}, 1000);
+    };
     //Timer functions by jono
     function startTimer(duration) {
         timer = duration;
@@ -101,9 +120,7 @@ $(document).ready(function() {
             $(stage).css("right","-1000px");
             $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
             $(stage).animate({"right": "+=1000px"},"slow","swing");
-            
-
-            
+                        
                 $('.option').click(function() {
                     if(questionLock==false){
                         questionLock=true;	
@@ -111,7 +128,9 @@ $(document).ready(function() {
                             $("#"+this.id+"").css('background-color', 'green');
                             document.getElementById("totalScore").innerHTML = ++score; //keep count of score and update to html same time
                             timer = (timer+10) > 100 ? 100 : (timer+10); //Gain time
+                            correctStart();
                             changeQuestion();
+                            
                         }
                         if(this.id!=rnd){ //If answer is wrong
                             timer = (timer-2) < 0 ? 0:(timer-2); //Lose time
@@ -122,7 +141,7 @@ $(document).ready(function() {
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                         }
 
-                }})
+                }});
             }
             
             $(document).on('click', '#next-question', function(){

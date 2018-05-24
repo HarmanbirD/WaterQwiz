@@ -316,6 +316,16 @@ footer {
     border: 2px solid cornflowerblue;
     padding: 10px; 
 }
+#correct{
+    display: none;
+    position:fixed; top:20%; left:70%;
+    transform: translate(-50%,-50%);
+}
+#correctDrippy{
+    z-index: 2;
+    height: 10em;
+    width: 10em;
+}
 
 #howtoDrippydiv {
     position:relative;

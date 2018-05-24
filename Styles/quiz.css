@@ -257,6 +257,12 @@ footer {
 #next-question {
     color: black;
     border : 2px solid black;
+    min-width: 150px;
+}
+
+#modal-drippy-wrong {
+    width: 50%;
+    float: left;
 }
 /*Howto modal settings*/
 #howTo {

@@ -102,7 +102,7 @@ footer {
 }
 
 .modal-footer button{
-    width: 30%;
+    width: 20%;
 }
 
 @media screen and (max-width: 350px) {

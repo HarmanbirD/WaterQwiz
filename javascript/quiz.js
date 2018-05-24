@@ -151,7 +151,7 @@ $(document).ready(function() {
                         }
                         if(this.id!=rnd){//If answer is wrong
                             buttonDisable = true;
-                            setTimeout(function(){buttonDisable = false;}, 700);
+                            setTimeout(function(){buttonDisable = false;}, 500);
                             wrongSound.play();
                             running = false;
                             timer = (timer-loseWater) < 0 ? 0:(timer-loseWater); 

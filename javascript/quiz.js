@@ -15,12 +15,32 @@ $(document).ready(function() {
     var loseWater = 10;
     var gainWater = 5;
     var waterRate = 1;
+     var correct = "#correct";
+    var clickDisabled = false;
     
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"
     })
         .done(function(data) {
+            function correctAnimation(id) {
+                $(correct).append('<img id="correctDrippy" src="../images/correct-drippy.png">');
+                $(correct).fadeIn(500,"swing",function(){
+                $(correct).fadeOut(500, "swing", function(){
+                    $(correct).html("");
+                });
+                });
+            }
+
+            function correctStart(){
+                if(clickDisabled)
+                    return;
+                
+                correctAnimation("correct");
+                clickDisabled = true;
+                setTimeout(function(){clickDisabled = false;}, 1000);
+            };
+            
             //Timer functions
             function startTimer(duration) {
                 timer = duration;

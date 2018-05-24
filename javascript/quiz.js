@@ -163,6 +163,7 @@ $(document).ready(function() {
                         $(stage).empty();
                         displayQuestion();});
                     questionLock=false;
+                    setTimeout(function(){questionLock = false;}, 1000);
                 } else {
                     running = false;
                     endGame();

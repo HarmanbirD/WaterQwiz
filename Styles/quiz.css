@@ -253,6 +253,12 @@ footer {
 #opaque {
     opacity: .6;
 }
+
+#tweet {
+    width: 30%;
+    min-width: 100px;
+    padding-top: 25px;
+}
 /*next question setting*/
 #next-question {
     color: black;

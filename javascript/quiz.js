@@ -147,7 +147,10 @@ $(document).ready(function() {
             }
 
             $(document).on('click', '#next-question', function(){
-                if(questionLock){return;}
+                if(questionLock){
+                    setTimeout(function(){questionLock = false;}, 400);
+                    return;
+                }
                 running = true;
                 changeQuestion();
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
@@ -163,7 +166,7 @@ $(document).ready(function() {
                     $(stage).animate({right: "+=1000px"},"slow","swing",function(){
                         $(stage).empty();
                         displayQuestion();});
-                    setTimeout(function(){questionLock = false;}, 500);
+                    setTimeout(function(){questionLock = false;}, 400);
                 } else {
                     running = false;
                     endGame();

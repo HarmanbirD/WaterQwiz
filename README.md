@@ -1,9 +1,9 @@
 Names             |     Student ID
 ------------------------------------
 Jacob Smith       | A01005350
-Jonathan Chiu     | A00994245
+Jonathan Chiu     | A01027608
 Alexander Sui     | A01029165
-Harmanbir Dhillon | 
+Harmanbir Dhillon | A00994245
 Yu Ting Hsu       | A00941814
 
 100% Complete.

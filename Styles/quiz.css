@@ -351,13 +351,13 @@ footer {
 
 #correct{
     display: none;
-    position:fixed; top:20%; left:50%;
+    position:fixed; top:10%; left:50%;
     transform: translate(-50%,-50%);
 }
 #correctDrippy{
     z-index: 2;
-    height: 10em;
-    width: 10em;
+    height: 5em;
+    width: 5em;
 }
 
 #howtoDrippydiv {

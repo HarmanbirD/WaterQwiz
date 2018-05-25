@@ -171,7 +171,9 @@ footer {
     margin: auto;
     width: 80%;
     min-height: 30vh;
+    
 }
+
 /*potential settings for back button*/
 #back{
     width:100%;
@@ -268,7 +270,7 @@ footer {
 #next-question {
     color: black;
     border : 2px solid black;
-    min-width: 85px;
+    min-width: 100px;
 }
 
 #modal-drippy-wrong {
@@ -277,21 +279,25 @@ footer {
 }
 /*Howto modal settings*/
 #howTo {
+    position:relative;
     background: url(../images/howto-gradient-whitemid.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;
     width: 40px;
     border: none;
+    z-index:2;
 }
 
 #homeButt {
+    position:relative;
     background: url(../images/home-gradient-whitemid.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;
     width: 40px;
     border: none;
+    z-index:2;
 }
 
 .tweet {

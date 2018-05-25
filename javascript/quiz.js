@@ -176,8 +176,6 @@ $(document).ready(function() {
                 running = true;
                 changeQuestion();
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
-                //$(".option").css('filter', 'brightness(100%)');
-                //$("#bg").css('filter', ''); 
             })
             
             //change question function

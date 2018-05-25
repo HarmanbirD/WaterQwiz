@@ -70,7 +70,7 @@ $(document).ready(function() {
                 score = Math.round(score + (timer*0.5));
                 //$("#bg").css('filter', '');
                 //document.getElementById('waterMeter-value').innerHTML = timer;      
-                document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename' maxlength='12' required></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
+                document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename' maxlength='12' required></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' onclick='window.open('https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/')'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
             }
             //Set timer to low number to test if it works with endgame
             //start timer
@@ -238,10 +238,7 @@ function sendName() {
 
                 function displayLeaderboards() {
                     code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
-                    for (i = 0; i < leaders.length && i < 10; i++) {
-                        if (count != 0 && count % 10 == 0) {
-                            code += "<div class = 'table-responsive'><table class = 'table'>";
-                        }
+                    for (i = 0; i < leaders.length && i < 5; i++) {
                         var currentNumb = i;
                         code += "<tr><th>";
                         code += "" + (currentNumb + 1) + "";
@@ -278,7 +275,7 @@ function sendName() {
     } else {
         //$("#bg").css('filter', '');
         //document.getElementById('waterMeter-value').innerHTML = timer;      
-        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
+        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' onclick='window.open('https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/')'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
     }
 
 }

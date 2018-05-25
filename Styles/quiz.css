@@ -340,7 +340,7 @@ footer {
 #correct{
     display: none;
     position:fixed; top:20%; left:70%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-20%);
 }
 #correctDrippy{
     z-index: 2;

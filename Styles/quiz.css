@@ -234,6 +234,11 @@ footer {
     right: 0px;
 }
 
+#navBar{
+    padding: 0;
+    margin-bottom: -20px;
+}
+
 /*drippy*/
 #modal-drippy {
     float: left;
@@ -263,7 +268,7 @@ footer {
 #next-question {
     color: black;
     border : 2px solid black;
-    min-width: 70px;
+    min-width: 85px;
 }
 
 #modal-drippy-wrong {
@@ -337,10 +342,11 @@ footer {
     border: 2px solid cornflowerblue;
     padding: 10px; 
 }
+
 #correct{
     display: none;
-    position:fixed; top:20%; left:70%;
-    transform: translate(-50%,-20%);
+    position:fixed; top:20%; left:50%;
+    transform: translate(-50%,-50%);
 }
 #correctDrippy{
     z-index: 2;

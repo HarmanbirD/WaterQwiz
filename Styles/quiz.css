@@ -102,7 +102,7 @@ footer {
 }
 
 .modal-footer button{
-    width: 30%;
+    width: 20%;
 }
 
 @media screen and (max-width: 350px) {
@@ -171,7 +171,9 @@ footer {
     margin: auto;
     width: 80%;
     min-height: 30vh;
+    
 }
+
 /*potential settings for back button*/
 #back{
     width:100%;
@@ -234,6 +236,11 @@ footer {
     right: 0px;
 }
 
+#navBar{
+    padding: 0;
+    margin-bottom: -20px;
+}
+
 /*drippy*/
 #modal-drippy {
     float: left;
@@ -253,23 +260,48 @@ footer {
 #opaque {
     opacity: .6;
 }
+
+#tweet {
+    width: 30%;
+    min-width: 100px;
+    padding-top: 25px;
+}
 /*next question setting*/
 #next-question {
     color: black;
     border : 2px solid black;
+    min-width: 100px;
+}
+
+#modal-drippy-wrong {
+    width: 50%;
+    float: left;
 }
 /*Howto modal settings*/
 #howTo {
+    position:relative;
     background: url(../images/howto-gradient-whitemid.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;
     width: 40px;
     border: none;
+    z-index:2;
 }
 
 #homeButt {
+    position:relative;
     background: url(../images/home-gradient-whitemid.png);
+    background-size:40px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
+    z-index:2;
+}
+
+.tweet {
+    background: url(../images/tweet-button.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;
@@ -316,15 +348,16 @@ footer {
     border: 2px solid cornflowerblue;
     padding: 10px; 
 }
+
 #correct{
     display: none;
-    position:fixed; top:20%; left:70%;
+    position:absolute; top:10%; left:50%;
     transform: translate(-50%,-50%);
 }
 #correctDrippy{
     z-index: 2;
-    height: 10em;
-    width: 10em;
+    height: 5em;
+    width: 5em;
 }
 
 #howtoDrippydiv {

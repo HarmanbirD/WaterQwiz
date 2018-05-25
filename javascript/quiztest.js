@@ -13,8 +13,8 @@ $(document).ready(function() {
  
     function correctAnimation(id) {
         $(correct).append('<img id="correctDrippy" src="../images/correct-drippy.png">');
-        $(correct).fadeIn(500,"swing",function(){
-        $(correct).fadeOut(500, "swing", function(){
+        $(correct).fadeIn(200,"swing",function(){
+        $(correct).fadeOut(300, "swing", function(){
             $(correct).html("");
         });
         });

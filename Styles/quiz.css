@@ -17,11 +17,15 @@
 
 body, html {
     position:relative;
-    font-family: ValkenRegular;
+    font-family: newFont;
     height: 100%;
     margin: 0;
     overflow-x:hidden;
     overflow-y:auto;
+}
+
+#lessChars {
+    color: red;
 }
 
 body {
@@ -45,6 +49,7 @@ footer {
 }
 
 .row {
+    padding-bottom: 25px;
     text-align: center;
     margin-top: 1em;
     margin-left: 0;
@@ -55,10 +60,10 @@ footer {
 /* <- Magic Start! */
 .btn {
   flex: 1 1 auto;
-  padding: 5px;
   background-image: linear-gradient(to right, #159CDE   0%, #2EDAF4 51%, #159CDE   100%);
-  width:30%;
-  min-width: 150px;
+  width:50%;
+  max-height: 50px;
+  min-width: 250px;
   border-style: none;
   text-transform: uppercase;
   transition: 0.5s;
@@ -75,10 +80,10 @@ footer {
 /* btn setting for when the screen has higher width than 720px*/
 @media screen and (min-width: 720px) {
     .btn {
-        width: 70%;
+        width: 40%;
         min-height: 100px;
         border-style: none;
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
 }
 /* Magic End -> */
@@ -93,11 +98,11 @@ footer {
 }
 
 .modal-dialog{
-    font-size: 2em;
+    font-size: 1em;
 }
 
 .modal-footer button{
-    width: 30%;
+    width: 20%;
 }
 
 @media screen and (max-width: 350px) {
@@ -140,6 +145,12 @@ footer {
     margin-bottom: 10px;
 }
 
+.row-left {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /*Settings for questions */
 .questionText {
     position:relative;
@@ -149,8 +160,8 @@ footer {
 /*Settings for button options*/
 .option {
     text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom:1em;
 }
 
 /*Container includes: questions,options and help-icon*/
@@ -168,6 +179,10 @@ footer {
 }
 
 /*Set relative for children to have settings reference to*/
+#quizStatus{
+    padding-bottom: 0;
+}
+
 #waterMeter{
     position:relative;
 }
@@ -175,20 +190,23 @@ footer {
 #watermeterbar{
     position:relative;
     text-align:center;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 /*Setting for Score Image*/
-#score{
+#scoreImage {
     height : 100%;
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
 }
+
+
 /*Setting for Score number*/
 #totalScore{
-    text-align:right;
-    padding-right: 1em;
-    padding-left:0px;
-    padding-bottom:1em;
+    font-family: ValkenRegular;
+    text-align:center;
+    padding: 0;
     height:100%;
 }
 
@@ -235,20 +253,49 @@ footer {
 #opaque {
     opacity: .6;
 }
+
+#tweet {
+    width: 30%;
+    min-width: 100px;
+    padding-top: 25px;
+}
 /*next question setting*/
 #next-question {
     color: black;
     border : 2px solid black;
+    min-width: 70px;
+}
+
+#modal-drippy-wrong {
+    width: 50%;
+    float: left;
 }
 /*Howto modal settings*/
 #howTo {
-    background: url(../images/help.png);
+    background: url(../images/howto-gradient-whitemid.png);
     background-size:40px;
     border-radius: 50%;
     height: 40px;
     width: 40px;
     border: none;
+}
 
+#homeButt {
+    background: url(../images/home-gradient-whitemid.png);
+    background-size:40px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+
+.tweet {
+    background: url(../images/tweet-button.png);
+    background-size:40px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
 }
 
 #loadingGif {
@@ -266,6 +313,17 @@ footer {
     margin-bottom: auto;
     text-align: center;
 }
+
+#endGameBTN {
+    min-width: 100px;
+    width: 30%;
+    max-width: 250px;
+}
+
+#makeAbs {
+    position: absolute;
+}
+
 .watertap{
     position: relative;
     z-index 2;
@@ -273,4 +331,28 @@ footer {
     height: 93px;
 }
 
+/* How-to Drippy css (3 blocks) */
+#howtoWords {
+    border-radius: 25px;
+    border: 2px solid cornflowerblue;
+    padding: 10px; 
+}
+#correct{
+    display: none;
+    position:fixed; top:20%; left:70%;
+    transform: translate(-50%,-50%);
+}
+#correctDrippy{
+    z-index: 2;
+    height: 10em;
+    width: 10em;
+}
 
+#howtoDrippydiv {
+    position:relative;
+}
+
+.howtoDrippyimg {
+    width:100%;
+    height:100%;
+}

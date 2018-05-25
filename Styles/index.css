@@ -18,7 +18,7 @@
 
 body, html {
     position:relative;
-    font-family: ValkenRegular;
+    font-family: newFont;
     height: 100%;
     margin: 0;
     overflow-y: auto;
@@ -51,10 +51,12 @@ footer {
 /* <- Magic Start! */
 .btn {
   flex: 1 1 auto;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-transform: uppercase;
   background-image: linear-gradient(to right, #7FC6FE   0%, #c2e9fb 51%, #7FC6FE   100%);
   background-size: 200% auto;
+  font-size: 1.5em;
   transition: 0.5s;
   text-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   border-radius: 10px;
@@ -72,18 +74,17 @@ footer {
     .btn {
         width:60%;
         min-width: 150px;
-        border-style: none;
-        font-size: 2.5em;
+        border-style: none; 
     }
 }
 /* Magic End -> */
 
 .modal-title{
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
 .modal-dialog{
-    font-size: 2em;
+    font-size: 1em;
 }
 
 .modal-footer button{
@@ -93,7 +94,6 @@ footer {
 @media screen and (max-width: 350px) {
     .modal-footer button{
         width: 10%;
-        left: 0;
     }
 }
 
@@ -107,7 +107,7 @@ footer {
     }
     .modal-dialog{
         width: 80%;
-        font-size: 2em;
+        font-size: 1em;
     }
     
     .modal-footer button{
@@ -122,6 +122,22 @@ footer {
   opacity:.7;
 }
 
+.btniconsxs {
+    width: 10%
+}
+
+.btniconsdesktop {
+    width: 7%;
+    
+}
+
+.leaderxs {
+    width: 15%
+}
+
+.leaderdesktop {
+    width: 10%
+}
 
 .icon {
     width: 25%;
@@ -134,13 +150,6 @@ footer {
 .row {
     text-align: center;
     margin: 0;
-    margin-bottom: 2em;
-}
-
-
-.option {
-    text-align: center;
-    margin-top: 2em;
     margin-bottom: 2em;
 }
 
@@ -165,4 +174,34 @@ footer {
 #modal-drippy {
     width: 100px;
     height: ;
+}
+
+/* How to CSS */
+#howtoWords {
+    text-align: center;
+}
+
+#howtoDrippydiv {
+    position:relative;
+    text-align:center;
+    height: 0;
+    padding: 0;
+}
+
+.howtoDrippyimg {
+    width:100%;
+}
+
+.howtorow {
+    height: 200px;
+    text-align:center;
+    margin-bottom: 0;
+}
+
+.howtoMini {
+    width: 7%;
+}
+
+.howtotitle {
+    position: relative;
 }

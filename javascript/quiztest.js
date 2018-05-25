@@ -8,20 +8,43 @@ $(document).ready(function() {
         score = 0;
     var timer;
     var bar = new ldBar("#watermeterbar");
-    
+    var correct = "#correct";
+    var clickDisabled = false;
+ 
+    function correctAnimation(id) {
+        $(correct).append('<img id="correctDrippy" src="../images/correct-drippy.png">');
+        $(correct).fadeIn(500,"swing",function(){
+        $(correct).fadeOut(500, "swing", function(){
+            $(correct).html("");
+        });
+        });
+    }
+
+    function correctStart(){
+        if(clickDisabled)
+            return;
+        
+        correctAnimation("correct");
+        clickDisabled = true;
+        setTimeout(function(){clickDisabled = false;}, 1000);
+    };
     //Timer functions by jono
     function startTimer(duration) {
         timer = duration;
         var myTimer = setInterval(function () {//Interal timer
             timer--; 
             if(bar.value <= 0){
+                running = false;
+                bar.set(0);
                 clearInterval(myTimer);
-                clearInterval(updateTimerVisual);
                 endGame();
             }}, 1000);
             
         var updateTimerVisual = setInterval(function(){ //Display update (should be different from interal timer to preserve accuracy)
-            bar.set(timer);}, 200);
+                bar.set(timer);
+                if(bar.value <= 0){ running = false;
+                bar.set(0);clearInterval(updateTimerVisual);}
+            }, 200);
     }
     
     function endGame() {
@@ -30,7 +53,7 @@ $(document).ready(function() {
     }
     //Set timer to low number to test if it works with endgame
     //start timer
-    startTimer(5);        // set actual value
+    startTimer(100);        // set actual value
                             
                         
     $.getJSON('questions.json', function (data) {
@@ -93,32 +116,32 @@ $(document).ready(function() {
                 q2=questionBank[questionNumber][2];
                 q3=questionBank[questionNumber][3];
             }
-            $(stage).append('<div class="col"><div class="questionText">'+questionBank[questionNumber][0]+'</div></div><div class="col"><div id="1" class="option"><button type="button" id="btn-1" class="btn btn-default btn-lg">'+q1+'</button></div><div id="2" class="option"><button type="button" id="btn-2" class="btn btn-default btn-lg">'+q2+'</button></div><div id="3" class="option"><button type="button" id="btn-3" class="btn btn-default btn-lg">'+q3+'</button></div><div id="4" class="option"><button type="button" id="btn-4" class="btn btn-default btn-lg">'+q4+'</button></div></div>');
+            $(stage).append('<div class="questionText">'+questionBank[questionNumber][0]+'</div><div><button type="button" id = "1" class="option btn btn-default btn-lg btn-quiz">'+q1+'</button></div><div><button type="button" id = "2" class=" option btn btn-default btn-lg btn-quiz">'+q2+'</button></div><div><button type="button" id = "3" class="option btn btn-default btn-lg btn-quiz">'+q3+'</button></div><div id="4"><button type="button" id = "4" class="option btn btn-default btn-lg btn-quiz">'+q4+'</button></div>');
             $(stage).css("right","-1000px");
             $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
             $(stage).animate({"right": "+=1000px"},"slow","swing");
-            
-
-            
+                        
                 $('.option').click(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
-                            $("#btn-"+this.id+"").css('background-color', 'green');
+                            $("#"+this.id+"").css('background-color', 'green');
                             document.getElementById("totalScore").innerHTML = ++score; //keep count of score and update to html same time
                             timer = (timer+10) > 100 ? 100 : (timer+10); //Gain time
+                            correctStart();
                             changeQuestion();
+                            
                         }
                         if(this.id!=rnd){ //If answer is wrong
                             timer = (timer-2) < 0 ? 0:(timer-2); //Lose time
                             //$("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
-                            $("#btn-"+this.id+"").css('background-color', 'red');
+                            $("#"+this.id+"").css('background-color', 'red');
                             $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><button type="button" id="next-question" class="btn btn-default btn-lg">Next question</button></div></div></div>');
                         }
 
-                }})
+                }});
             }
             
             $(document).on('click', '#next-question', function(){

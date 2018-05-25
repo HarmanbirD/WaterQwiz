@@ -15,32 +15,14 @@ $(document).ready(function() {
     var loseWater = 10;
     var gainWater = 5;
     var waterRate = 1;
-     var correct = "#correct";
-    var clickDisabled = false;
+    var correct = "#correct";
     
     $.ajax({
         dataType: "json",
         url: "../php/getQuestions.php"
     })
         .done(function(data) {
-            function correctAnimation(id) {
-                $(correct).append('<img id="correctDrippy" src="../images/correct-drippy.png">');
-                $(correct).fadeIn(500,"swing",function(){
-                $(correct).fadeOut(500, "swing", function(){
-                    $(correct).html("");
-                });
-                });
-            }
 
-            function correctStart(){
-                if(clickDisabled)
-                    return;
-                
-                correctAnimation("correct");
-                clickDisabled = true;
-                setTimeout(function(){clickDisabled = false;}, 1000);
-            };
-            
             //Timer functions
             function startTimer(duration) {
                 timer = duration;
@@ -64,13 +46,30 @@ $(document).ready(function() {
                 }, 200);
                      
             }
-                
             
+            //Correct Animation functions
+            function correctAnimation(id) {
+                $(correct).append('<img id="correctDrippy" src="../images/correct-drippy.png">');
+                $(correct).fadeIn(500,"swing",function(){
+                $(correct).fadeOut(500, "swing", function(){
+                    $(correct).html("");
+                });
+                });
+            }
+
+            function correctStart(){
+                correctAnimation("correct");
+                clickDisabled = true;
+            };
+                
+            //End Game function
             function endGame() {
+                score = Math.round(score + (timer*0.5));
                 //$("#bg").css('filter', '');
                 //document.getElementById('waterMeter-value').innerHTML = timer;      
-                document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename' maxlength='12' required></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
+                document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename' maxlength='12' required></div><button type='button'  id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' onclick='window.open(\"https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/\")'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
             }
+            
             //Set timer to low number to test if it works with endgame
             //start timer
             startTimer(100);         // set actual value
@@ -89,7 +88,8 @@ $(document).ready(function() {
             numberOfQuestions = questionBank.length;
             scrambleDatabase();
             displayQuestion();
-                
+            
+            //Randomize questions from database
             function scrambleDatabase(){
                 for(i = 0; i < 50; i++){ 
                     var rnd1 = Math.floor(Math.random() * questionBank.length);
@@ -100,7 +100,7 @@ $(document).ready(function() {
                 }
 
             }
-            
+            //Display questions 
             function displayQuestion(){
                 var rnd=Math.random()*4;
                 rnd=Math.ceil(rnd);
@@ -138,11 +138,13 @@ $(document).ready(function() {
                 $(stage).css("right","-1000px");
                 $(stage).animate({opacity: "1"}, {duration: 1000, queue: false});
                 $(stage).animate({"right": "+=1000px"},"slow","swing");
-
+                
+                //Answer click response
                 $('.option').click(function() {
                     if(questionLock==false){
                         questionLock=true;	
                         if(this.id==rnd){ //If answer is correct
+                            correctStart();
                             correctSound.play();
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #006600 0%, #00FF00 51%, #00b200 100%)');
                             document.getElementById("totalScore").innerHTML = ++score; //increase score and update to html
@@ -158,17 +160,15 @@ $(document).ready(function() {
                             if(timer <=0){
                                 endGame()
                             } else {
-                            //Taken 2 lines below for now, first line cause problem for sometimes
-                            //document.getElementById("howTo").setAttribute('disabled',false);
-                            // $("#bg").css('filter', 'blur(1px)');
                             $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
                             $(".option").css('filter', 'brightness(80%)');
                             $("#"+this.id+"").css('background-image', 'linear-gradient(to right, #ff0000 0%, #ff4c4c 51%, #900 100%)');
-                            $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer">               <div class = "modal-footer-spacing"><div class = "col-xs-5"><img id = "modal-drippy-wrong" src = "../images/wrong-drippy.png"></div><div class = "col-xs-7"><button type="button" id="next-question" class="btn btn-default btn-lg">Next</button></div></div>');
+                            $(mainStage).append('<div class = "modal-dialog" id="popup"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Wrong!</h4></div><div class="modal-body">'+questionBank[questionNumber][5]+'</div><div class="modal-footer"><div class = "col-xs-5"><img id = "modal-drippy-wrong" src = "../images/wrong-drippy.png"></div><div class = "col-xs-7"><button type="button" id="next-question" class="btn btn-default btn-lg">Next</button></div></div>');
                             }}
                 }});
             }
-
+            
+            //next button response
             $(document).on('click', '#next-question', function(){
                 if(buttonDisable){
                     return;
@@ -176,10 +176,9 @@ $(document).ready(function() {
                 running = true;
                 changeQuestion();
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, 0)');
-                //$(".option").css('filter', 'brightness(100%)');
-                //$("#bg").css('filter', ''); 
             })
             
+            //change question function
             function changeQuestion() { 
                 document.getElementById('popop').innerHTML = "";
                 questionNumber++;
@@ -195,7 +194,8 @@ $(document).ready(function() {
                 }
             }
         })
-                
+        
+        //prompt before user leaves
         window.onbeforeunload = function(evt){
             if (typeof evt == 'undefined') {
                 evt = window.event;
@@ -207,6 +207,7 @@ $(document).ready(function() {
         };
 });
 
+//Submit user info
 function sendName() {
     document.getElementById("submitBut").setAttribute('disabled',false);
     var name = document.getElementById("sendNames").value;
@@ -233,13 +234,11 @@ function sendName() {
                 }
 
                 displayLeaderboards();
-
+                
+                //display scores from leaderboard
                 function displayLeaderboards() {
                     code += "<div class = 'table-responsive'><table class = 'table'><tr><th>#</th><th>NAME</th><th>SCORE</th></tr>";
-                    for (i = 0; i < leaders.length && i < 10; i++) {
-                        if (count != 0 && count % 10 == 0) {
-                            code += "<div class = 'table-responsive'><table class = 'table'>";
-                        }
+                    for (i = 0; i < leaders.length && i < 5; i++) {
                         var currentNumb = i;
                         code += "<tr><th>";
                         code += "" + (currentNumb + 1) + "";
@@ -262,10 +261,8 @@ function sendName() {
                 }
 
                 document.getElementById('popop').innerHTML = "";
-                //$("#bg").css('filter', 'blur(1px)');
                 document.getElementById("howTo").setAttribute('disabled',false);
                 $("body").css('box-shadow', 'inset 0px 0px 400px 110px rgba(0, 0, 0, .7)');
-                //$(".option").css('filter', 'brightness(80%)');
                 $(mainStage).append('<div class = "modal-dialog" id="leaderboard-modal"><div class="modal-content"><div class="modal-header"><h4 class="modal-title">Leaderboard</h4></div><div id = "leaders" class="modal-body">There was an error loading the leaderboard. Sorry.</div><div class="modal-footer"><div class = "modal-footer-spacing"><div class = "col-xs-6"><img id = "modal-drippy" src = "../images/points-drippy.png"></div><div class = "col-xs-6"><button type="button" class="btn btn-danger" id = "endGameBTN" onclick = "location.href = \'../index.html\'" data-dismiss="modal">Close</button></div></div>');
                 document.getElementById("leaders").innerHTML = code;
                     })
@@ -276,7 +273,7 @@ function sendName() {
     } else {
         //$("#bg").css('filter', '');
         //document.getElementById('waterMeter-value').innerHTML = timer;      
-        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
+        document.getElementById('questions').innerHTML = "<div id='endd'>Game Over!</div><div id = 'score'>Your score is "  + score + "<div class='form-group'><label for='usr'>Name:</label><input type='text' id = 'sendNames' class='form-control' placeholder = 'e.g. Jacob Smith' id='endgamename'></div><div id = 'lessChars'>Name cannot be blank and name should be 12 characters or less!</div><button type='button' id = 'submitBut' onclick = 'sendName()' class='btn btn-info' value='Submit Button'>Submit</button><div id = 'share'><a class='twitter-share-button' onclick='window.open(\"https://twitter.com/intent/tweet?text=My%20new%20highscore%20is%20"+score+".%20How%20much%20can%20you%20get?%20https://waterqwiz.azurewebsites.net/\")'><img id = 'tweet' src = '../images/tweet-button.png'></a></div>";
     }
 
 }

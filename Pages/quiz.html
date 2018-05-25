@@ -43,26 +43,19 @@
             <div class="col-xs-6"><img id="scoreImage" src="../images/Score.png" alt="Score: "></div>
             <div class="col-xs-6" id="totalScore">0</div>
         </div>
-        
-        <!-- Quiz container: includes statusBar, Score, Questions and Options-->
+        <div class = "row" id="navBar">
+                <div class = "col-xs-6">
+                        <button id = "homeButt" onclick = "location.href = '../index.html'"></button>
+                </div>
+                <div class = "col-xs-6">
+                        <button id = "howTo" data-toggle="modal" data-target="#how-to-play-modal"></button>
+                </div>
+        </div>
+        <!-- Quiz container: includes watermeterbar Questions and Options-->
         <div class="container-fluid" id="menu-container2">
-           
-            <div class = "quiz row"> <!-- waterMeter & Questions -->
-                <!-- <div id="waterMeter"><img class="watertap" src="../images/otherwatertap.gif"/> -->
+            <div class = "quiz row"> <!-- watermeterbar & Questions -->
                 <div id="watermeterbar" class="ldBar label-center" data-preset="bubble"></div>
                 <div id = "questions"></div>
-            </div>
-            <div class = "row">
-                <div class = "col-xs-6">
-                    <div class = "row-left">
-                        <button id = "homeButt" onclick = "location.href = '../index.html'"></button>
-                    </div>
-                </div>
-                <div class = "col-xs-6">
-                    <div class = "row-right">
-                        <button id = "howTo" data-toggle="modal" data-target="#how-to-play-modal"></button>
-                    </div>
-                </div>
             </div>
         <!-- Popups modals -->
             <div class="modal fade" id="how-to-play-modal">
